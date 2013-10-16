@@ -1,0 +1,306 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: quotes_and_tips\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-04 14:43+0300\n"
+"PO-Revision-Date: 2013-09-04 14:43+0300\n"
+"Last-Translator: \n"
+"Language-Team: Arnold Montjoie <arnold@montjoie.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: quotes-and-tips.php:32
+msgid "Quotes and Tips"
+msgstr "Zitate und Tipps"
+
+#: quotes-and-tips.php:39
+#: quotes-and-tips.php:40
+#: quotes-and-tips.php:183
+msgid "Tips"
+msgstr "Tipps"
+
+#: quotes-and-tips.php:48
+msgid "Add a new tip"
+msgstr "Neuen Tipp erstellen"
+
+#: quotes-and-tips.php:49
+msgid "Edit tips"
+msgstr "Tipps bearbeiten"
+
+#: quotes-and-tips.php:50
+msgid "New tip"
+msgstr "Neuer Tipp"
+
+#: quotes-and-tips.php:51
+msgid "View tips"
+msgstr "Tipps ansehen"
+
+#: quotes-and-tips.php:52
+msgid "Search tips"
+msgstr "Tipps suchen"
+
+#: quotes-and-tips.php:53
+msgid "No tips found"
+msgstr "Keine Tipps gefunden"
+
+#: quotes-and-tips.php:54
+msgid "No tips found in Trash"
+msgstr "Keine Tipps im Papiekorb gefunden"
+
+#: quotes-and-tips.php:64
+#: quotes-and-tips.php:65
+msgid "Quotes"
+msgstr "Zitate"
+
+#: quotes-and-tips.php:73
+msgid "Add a New quote"
+msgstr "Ein neues Zitat erstellen"
+
+#: quotes-and-tips.php:74
+msgid "Edit quote"
+msgstr "Zitat bearbeiten"
+
+#: quotes-and-tips.php:75
+msgid "New quote"
+msgstr "Neues Zitat"
+
+#: quotes-and-tips.php:76
+msgid "View quote"
+msgstr "Zitat ansehen"
+
+#: quotes-and-tips.php:77
+msgid "Search quote"
+msgstr "Zitat suchen"
+
+#: quotes-and-tips.php:78
+msgid "No quote found"
+msgstr "Kein Zitat gefunden"
+
+#: quotes-and-tips.php:79
+msgid "No quote found in Trash"
+msgstr "Kein Zitat im Papierkorb gefunden"
+
+#: quotes-and-tips.php:151
+msgid "Name:"
+msgstr "Name:"
+
+#: quotes-and-tips.php:153
+msgid "Official position:"
+msgstr "berufliche Position:"
+
+#: quotes-and-tips.php:171
+msgid "Name and Official position"
+msgstr "Name und berufliche Position:"
+
+#: quotes-and-tips.php:184
+msgid "Quotes from our clients"
+msgstr "Zitate unserer Kunden"
+
+#: quotes-and-tips.php:248
+#, php-format
+msgid "The uploaded file could not be moved to %s."
+msgstr "Die hochgeladene Datei konnte nicht nach %s verschoben werden."
+
+#: quotes-and-tips.php:248
+msgid "Image Processing Error"
+msgstr "Fehler in der Bildverarbeitung"
+
+#: quotes-and-tips.php:254
+msgid "Image Upload Error"
+msgstr "Fehler beim Hochladen eines Bildes"
+
+#: quotes-and-tips.php:283
+msgid "Settings saved"
+msgstr "Einstellungen gespeichert"
+
+#: quotes-and-tips.php:289
+msgid "Quotes and Tips Settings"
+msgstr "Einstellungen für Zitate und Tipps"
+
+#: quotes-and-tips.php:292
+msgid "If you would like to use this block, please paste the following strings into the template source code"
+msgstr "Falls dieser Block benutzt werden soll, bitte folgende Zeichenkette in das aktuelle Template einfügen"
+
+#: quotes-and-tips.php:296
+msgid "Upload settings:"
+msgstr "Einstellungen für das Hochladen"
+
+#: quotes-and-tips.php:298
+msgid "Random order with the page reload"
+msgstr "Zufällige Reihenfolge beim erneuten Laden der Seite"
+
+#: quotes-and-tips.php:299
+msgid "Random order without the page reload"
+msgstr "Zufällige Reihenfolge ohne erneutes Laden der Seite"
+
+#: quotes-and-tips.php:300
+msgid "Reload time (in seconds)"
+msgstr "Errneutes Laden (in Sekunden)"
+
+#: quotes-and-tips.php:304
+msgid "Title options:"
+msgstr "Titeloptionen"
+
+#: quotes-and-tips.php:306
+msgid "Get title from post"
+msgstr "Hole Titel vom Beitrag"
+
+#: quotes-and-tips.php:307
+msgid "Get label of the block"
+msgstr "Hole Bezeichnung aus dem Block"
+
+#: quotes-and-tips.php:311
+msgid "Tip label:"
+msgstr "Tippbezeichnung"
+
+#: quotes-and-tips.php:317
+msgid "Quote label:"
+msgstr "Zitatbezeichnung"
+
+#: quotes-and-tips.php:323
+msgid "Additional settings"
+msgstr "zusätzliche Einstellungen"
+
+#: quotes-and-tips.php:326
+msgid "Background Color:"
+msgstr "Hintergrundfarbe:"
+
+#: quotes-and-tips.php:334
+msgid "Text Color:"
+msgstr "Textfarbe:"
+
+#: quotes-and-tips.php:342
+msgid "Background image:"
+msgstr "Hintergrundbild:"
+
+#: quotes-and-tips.php:344
+msgid "Use background image"
+msgstr "Benutze Hintergrundbild"
+
+#: quotes-and-tips.php:345
+msgid "Choose an image from your computer:"
+msgstr "Wähle ein Bild von deinem Computer:"
+
+#: quotes-and-tips.php:348
+msgid "Current image:"
+msgstr "Aktuelles Bild:"
+
+#: quotes-and-tips.php:354
+msgid "Background image repeat:"
+msgstr "Hintergrundbild wiederholen:"
+
+#: quotes-and-tips.php:356
+msgid "Horizontal repeat (x)"
+msgstr "Horizontal wiederholen (х)"
+
+#: quotes-and-tips.php:357
+msgid "Vertical repeat (y)"
+msgstr "Vertikal wiederholen (у)"
+
+#: quotes-and-tips.php:361
+msgid "Background image horizontal alignment:"
+msgstr "Hintergrundbild "
+
+#: quotes-and-tips.php:363
+msgid "Left"
+msgstr "Links"
+
+#: quotes-and-tips.php:364
+#: quotes-and-tips.php:372
+msgid "Center"
+msgstr "Mitte"
+
+#: quotes-and-tips.php:365
+msgid "Right"
+msgstr "Rechts"
+
+#: quotes-and-tips.php:369
+msgid "Background image vertical alignment:"
+msgstr "Vertikale Ausrichtung des Hintergrundbildes"
+
+#: quotes-and-tips.php:371
+msgid "Top"
+msgstr "Oben"
+
+#: quotes-and-tips.php:373
+msgid "Bottom"
+msgstr "Unten"
+
+#: quotes-and-tips.php:379
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: quotes-and-tips.php:391
+#: quotes-and-tips.php:406
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: quotes-and-tips.php:392
+msgid "FAQ"
+msgstr "FAQ (häufig gestelle Fragen)"
+
+#: quotes-and-tips.php:393
+msgid "Support"
+msgstr "Unterstützung"
+
+#, fuzzy
+#~ msgid "Pro plugins"
+#~ msgstr "Empfohlene Plugins"
+#~ msgid "Activated plugins"
+#~ msgstr "Aktivierte Plugins"
+#~ msgid "Read more"
+#~ msgstr "Lies mehr"
+#~ msgid "Installed plugins"
+#~ msgstr "Installierte Plugins"
+#~ msgid "Recommended plugins"
+#~ msgstr "Empfohlene Plugins"
+
+#, fuzzy
+#~ msgid "Free plugins"
+#~ msgstr "Empfohlene Plugins"
+#~ msgid "Download"
+#~ msgstr "Herunterladen"
+#~ msgid "Install %s"
+#~ msgstr "Installiere %s"
+#~ msgid "Install now from wordpress.org"
+#~ msgstr "Jetzt von wordpress.org herunterladen"
+#~ msgid "If you have any questions, please contact us via"
+#~ msgstr "Falls irgendwelche Fragen aufkommen, kann per Email über"
+
+#, fuzzy
+#~ msgid "Active Plugins"
+#~ msgstr "Aktivierte Plugins"
+
+#, fuzzy
+#~ msgid "Inactive Plugins"
+#~ msgstr "Aktivierte Plugins"
+
+#, fuzzy
+#~ msgid "Send to support"
+#~ msgstr "Unterstützung"
+#~ msgid ""
+#~ "If you have any questions, please contact us via plugin@bestwebsoft.com "
+#~ "or fill out the contact form on our website"
+#~ msgstr ""
+#~ "Falls irgendwelche Fragen aufkommen, kann per Email über "
+#~ "plugin@bestwebsoft.com mit uns Kontakt aufgenommen werden oder über unser "
+#~ "Kontaktformular auf unserer Webseite"
+#~ msgid "Options saved."
+#~ msgstr "Натсройки сохранены."
+#~ msgid "Show randomly on page load"
+#~ msgstr "Показать случайным образом при загрузке страницы"
+#~ msgid "Time for reload (sec)"
+#~ msgstr "Время перезагрузки (в секундах)"
+#~ msgid "Repeat x"
+#~ msgstr "По горизонтали (х)"
+#~ msgid "Repeat y"
+#~ msgstr "По вертикали (у)"
+

@@ -1,0 +1,368 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: quotes_and_tips\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-02 14:37+0300\n"
+"PO-Revision-Date: 2013-10-02 14:37+0300\n"
+"Last-Translator: \n"
+"Language-Team: BestWebSoft <plugin@bestwebsoft.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Language: Ukrainian\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: quotes-and-tips.php:33
+msgid "Quotes and Tips"
+msgstr "Цитаты и Подсказки"
+
+#: quotes-and-tips.php:40
+#: quotes-and-tips.php:41
+#: quotes-and-tips.php:184
+msgid "Tips"
+msgstr "Подсказки"
+
+#: quotes-and-tips.php:49
+msgid "Add a new tip"
+msgstr "Добавить новые подсказки"
+
+#: quotes-and-tips.php:50
+msgid "Edit tips"
+msgstr "Редактировать подсказки"
+
+#: quotes-and-tips.php:51
+msgid "New tip"
+msgstr "Новая подсказка"
+
+#: quotes-and-tips.php:52
+msgid "View tips"
+msgstr "Просмотреть подсказки"
+
+#: quotes-and-tips.php:53
+msgid "Search tips"
+msgstr "Поиск подсказок"
+
+#: quotes-and-tips.php:54
+msgid "No tips found"
+msgstr "Ни одной подсказки не найдено"
+
+#: quotes-and-tips.php:55
+msgid "No tips found in Trash"
+msgstr "Ни одной подсказки в корзине не найдено"
+
+#: quotes-and-tips.php:65
+#: quotes-and-tips.php:66
+msgid "Quotes"
+msgstr "Цитаты"
+
+#: quotes-and-tips.php:74
+msgid "Add a New quote"
+msgstr "Добавить новую цитату"
+
+#: quotes-and-tips.php:75
+msgid "Edit quote"
+msgstr "Редактировать цитату"
+
+#: quotes-and-tips.php:76
+msgid "New quote"
+msgstr "Новая цитата"
+
+#: quotes-and-tips.php:77
+msgid "View quote"
+msgstr "Просмотреть цитату"
+
+#: quotes-and-tips.php:78
+msgid "Search quote"
+msgstr "Поиск цитаты"
+
+#: quotes-and-tips.php:79
+msgid "No quote found"
+msgstr "Ни одной цитаты не найдено"
+
+#: quotes-and-tips.php:80
+msgid "No quote found in Trash"
+msgstr "Ни одной цитаты в корзине не найдено"
+
+#: quotes-and-tips.php:152
+msgid "Name:"
+msgstr "Имя:"
+
+#: quotes-and-tips.php:154
+msgid "Official position:"
+msgstr "Официальное положение (должность):"
+
+#: quotes-and-tips.php:172
+msgid "Name and Official position"
+msgstr "Имя и официальное положение"
+
+#: quotes-and-tips.php:185
+msgid "Quotes from our clients"
+msgstr "Цитаты наших клиентов"
+
+#: quotes-and-tips.php:249
+#, php-format
+msgid "The uploaded file could not be moved to %s."
+msgstr "Загруженный файл не может быть перемещен в %s."
+
+#: quotes-and-tips.php:249
+msgid "Image Processing Error"
+msgstr "Ошибка обработки изображений"
+
+#: quotes-and-tips.php:255
+msgid "Image Upload Error"
+msgstr "Ошибка загрузки изображений"
+
+#: quotes-and-tips.php:284
+msgid "Settings saved"
+msgstr "Настройки сохранены"
+
+#: quotes-and-tips.php:290
+msgid "Quotes and Tips Settings"
+msgstr "Настройки цитат и подсказок"
+
+#: quotes-and-tips.php:293
+msgid "If you would like to use this block, please paste the following strings into the template source code"
+msgstr "Если вы хотите использовать данный блок, пожалуйста, вставьте данные строки в файл темплейта в вашей теме"
+
+#: quotes-and-tips.php:297
+msgid "Upload settings:"
+msgstr "Настройки загрузки:"
+
+#: quotes-and-tips.php:299
+msgid "Random order with the page reload"
+msgstr "Показать случайным образом при загрузке страницы"
+
+#: quotes-and-tips.php:300
+msgid "Random order without the page reload"
+msgstr "Показать случайным образом без загрузки страницы"
+
+#: quotes-and-tips.php:301
+msgid "Reload time (in seconds)"
+msgstr "Время перезагрузки (в секундах)"
+
+#: quotes-and-tips.php:305
+msgid "Title options:"
+msgstr "Настройки названий блоков:"
+
+#: quotes-and-tips.php:307
+msgid "Get title from post"
+msgstr "Получить название из названия цитаты или подсказки"
+
+#: quotes-and-tips.php:308
+msgid "Get label of the block"
+msgstr "Получить название блока из настроек"
+
+#: quotes-and-tips.php:312
+msgid "Tip label:"
+msgstr "Название для блока подсказки:"
+
+#: quotes-and-tips.php:318
+msgid "Quote label:"
+msgstr "Название для блока цитаты:"
+
+#: quotes-and-tips.php:324
+msgid "Additional settings"
+msgstr "Дополнительные настройки"
+
+#: quotes-and-tips.php:327
+msgid "Background Color:"
+msgstr "Цвет фона:"
+
+#: quotes-and-tips.php:335
+msgid "Text Color:"
+msgstr "Цвет текста:"
+
+#: quotes-and-tips.php:343
+msgid "Background image:"
+msgstr "Изображение для фона:"
+
+#: quotes-and-tips.php:345
+msgid "Use background image"
+msgstr "Использовать фоновое изображение"
+
+#: quotes-and-tips.php:346
+msgid "Choose an image from your computer:"
+msgstr "Выберите изображение со своего компьютера:"
+
+#: quotes-and-tips.php:349
+msgid "Current image:"
+msgstr "Текущее изображение:"
+
+#: quotes-and-tips.php:355
+msgid "Background image repeat:"
+msgstr "Повтор фонового изображения:"
+
+#: quotes-and-tips.php:357
+msgid "Horizontal repeat (x)"
+msgstr "По горизонтали (х)"
+
+#: quotes-and-tips.php:358
+msgid "Vertical repeat (y)"
+msgstr "По вертикали (у)"
+
+#: quotes-and-tips.php:362
+msgid "Background image horizontal alignment:"
+msgstr "Выравнивание фонового изображения по горизонтали:"
+
+#: quotes-and-tips.php:364
+msgid "Left"
+msgstr "Слева"
+
+#: quotes-and-tips.php:365
+#: quotes-and-tips.php:373
+msgid "Center"
+msgstr "По центру"
+
+#: quotes-and-tips.php:366
+msgid "Right"
+msgstr "Справа"
+
+#: quotes-and-tips.php:370
+msgid "Background image vertical alignment:"
+msgstr "Выравнивание фонового изображения по вертикали:"
+
+#: quotes-and-tips.php:372
+msgid "Top"
+msgstr "Вверху"
+
+#: quotes-and-tips.php:374
+msgid "Bottom"
+msgstr "Внизу"
+
+#: quotes-and-tips.php:380
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: quotes-and-tips.php:392
+#: quotes-and-tips.php:407
+msgid "Settings"
+msgstr "Настройки"
+
+#: quotes-and-tips.php:393
+msgid "FAQ"
+msgstr "FAQ"
+
+#: quotes-and-tips.php:394
+msgid "Support"
+msgstr "Поддержка"
+
+#~ msgid "Not set"
+#~ msgstr "Не задан"
+#~ msgid "On"
+#~ msgstr "Вкл"
+#~ msgid "Off"
+#~ msgstr "Выкл"
+#~ msgid "N/A"
+#~ msgstr "Неизвестно"
+#~ msgid " Mb"
+#~ msgstr " Mb"
+#~ msgid "Yes"
+#~ msgstr "Да"
+#~ msgid "No"
+#~ msgstr "Нет"
+#~ msgid "Operating System"
+#~ msgstr "Операционная система"
+#~ msgid "Server"
+#~ msgstr "Тип сервера"
+#~ msgid "Memory usage"
+#~ msgstr "Памяти использовано"
+#~ msgid "MYSQL Version"
+#~ msgstr "Версия MYSQL"
+#~ msgid "SQL Mode"
+#~ msgstr "Режим SQL"
+#~ msgid "PHP Version"
+#~ msgstr "Версия PHP"
+#~ msgid "PHP Safe Mode"
+#~ msgstr "PHP Safe Mode"
+#~ msgid "PHP Allow URL fopen"
+#~ msgstr "PHP Allow URL fopen"
+#~ msgid "PHP Memory Limit"
+#~ msgstr "Лимит памяти"
+#~ msgid "PHP Max Upload Size"
+#~ msgstr "Макс. размер загружаемого файла"
+#~ msgid "PHP Max Post Size"
+#~ msgstr "Макс. размер записи"
+#~ msgid "PHP Max Script Execute Time"
+#~ msgstr "Макс. время выполнения сценария"
+#~ msgid "PHP Exif support"
+#~ msgstr "Поддержка PHP Exif"
+#~ msgid "PHP IPTC support"
+#~ msgstr "Поддержка PHP IPTC"
+#~ msgid "PHP XML support"
+#~ msgstr "Поддержка PHP XML"
+#~ msgid "Site URL"
+#~ msgstr "Адрес сайта"
+#~ msgid "Home URL"
+#~ msgstr "Основной адрес сайта"
+#~ msgid "WordPress Version"
+#~ msgstr "Версия WordPress"
+#~ msgid "WordPress DB Version"
+#~ msgstr "Версия базы данных WordPress"
+#~ msgid "Multisite"
+#~ msgstr "Мультиблог"
+#~ msgid "Active Theme"
+#~ msgstr "Текущая тема"
+#~ msgid "Please enter a valid email address."
+#~ msgstr "Пожалуйста, введите валидный email."
+#~ msgid "Email with system info is sent to "
+#~ msgstr "E-mail с системной информацией отправлен на"
+#~ msgid "Thank you for contacting us."
+#~ msgstr "Спасибо, что связались с нами."
+#~ msgid "Sorry, email message could not be delivered."
+#~ msgstr "Извините, ваш email не может быть отправлен."
+#~ msgid "Pro plugins"
+#~ msgstr "Pro плагины"
+#~ msgid "Activated plugins"
+#~ msgstr "Активированные плагины"
+#~ msgid "Read more"
+#~ msgstr "Подробнее..."
+#~ msgid "Installed plugins"
+#~ msgstr "Установленные плагины"
+#~ msgid "Recommended plugins"
+#~ msgstr "Рекомендованные к установке плагины"
+#~ msgid "Purchase"
+#~ msgstr "Купить"
+#~ msgid "Free plugins"
+#~ msgstr "Бесплатные плагины"
+#~ msgid "Download"
+#~ msgstr "Скачать"
+#~ msgid "Install %s"
+#~ msgstr "Установлено %s"
+#~ msgid "Install now from wordpress.org"
+#~ msgstr "Установить с wordpress.org"
+#~ msgid "If you have any questions, please contact us via"
+#~ msgstr "Если у вас есть какие-то вопросы, обращайтесь на"
+#~ msgid "System status"
+#~ msgstr "Системная информация"
+#~ msgid "Environment"
+#~ msgstr "Системная среда"
+#~ msgid "Active Plugins"
+#~ msgstr "Активированные плагины"
+#~ msgid "Inactive Plugins"
+#~ msgstr "Неактивированные плагины"
+#~ msgid "Send to support"
+#~ msgstr "Отправить в тех.поддержку"
+#~ msgid "Send to custom email &#187;"
+#~ msgstr "Отправить на емейл &#187;"
+#~ msgid ""
+#~ "If you have any questions, please contact us via plugin@bestwebsoft.com "
+#~ "or fill out the contact form on our website"
+#~ msgstr ""
+#~ "Если у вас есть какие-то вопросы, обращайтесь на plugin@bestwebsoft.com "
+#~ "или заполните контактную форму на нашем сайте"
+#~ msgid "Options saved."
+#~ msgstr "Натсройки сохранены."
+#~ msgid "Show randomly on page load"
+#~ msgstr "Показать случайным образом при загрузке страницы"
+#~ msgid "Time for reload (sec)"
+#~ msgstr "Время перезагрузки (в секундах)"
+#~ msgid "Repeat x"
+#~ msgstr "По горизонтали (х)"
+#~ msgid "Repeat y"
+#~ msgstr "По вертикали (у)"
+
