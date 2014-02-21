@@ -1,9 +1,16 @@
-Quotes and Tips Wordpress Plugin
+<a href="http://bestwebsoft.com/plugin/quotes-and-tips/" target=_blank>Quotes and Tips Wordpress Plugin</a>
 ================================
 
-This plugin allows you to implement quotes &amp; tips block into your web site.
+This plugin allows you to create and publish quotes of your customers about your work and helpful tips for the website visitors. 
 
-Official plugin page: http://bestwebsoft.com/plugin/quotes-and-tips/
+<img src="http://bestwebsoft.com/wp-content/uploads/2012/03/quotes-and-tips.jpg" />
+
+<a href="http://bestwebsoft.com/plugin/quotes-and-tips/#description" target=_blank>Description</a> | 
+<a href="http://bestwebsoft.com/plugin/quotes-and-tips/#installation" target=_blank>Installation</a> | 
+<a href="http://bestwebsoft.com/plugin/quotes-and-tips/#faq" target=_blank>FAQ</a> | 
+<a href="http://bestwebsoft.com/plugin/quotes-and-tips/#screenshots" target=_blank>Screenshots</a> | 
+<a href="http://bestwebsoft.com/plugin/quotes-and-tips/#changelog" target=_blank>Changelog</a> | 
+<a href="http://bestwebsoft.com/plugin/quotes-and-tips/#download" target=_blank>Download</a>
 
 
 Features
