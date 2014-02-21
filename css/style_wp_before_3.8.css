@@ -1,11 +1,18 @@
-#adminmenu #toplevel_page_bws_plugins div.wp-menu-image,
-.admin-color-classic #adminmenu #toplevel_page_bws_plugins div.wp-menu-image,
+#adminmenu #toplevel_page_bws_plugins div.wp-menu-image {
+	background: url("../images/icon_16.png") no-repeat scroll center center transparent;
+}
+.admin-color-classic #adminmenu #toplevel_page_bws_plugins div.wp-menu-image {
+	background: url("../images/icon_16_b.png") no-repeat scroll center center transparent;
+}
 #adminmenu #toplevel_page_bws_plugins:hover div.wp-menu-image,
 #adminmenu #toplevel_page_bws_plugins.wp-has-current-submenu div.wp-menu-image {
-	background: url("../images/icon_16_single.png") no-repeat scroll center center transparent;
+	background: url("../images/icon_16_c.png") no-repeat scroll center center transparent;
+}	
+.wrap #icon-options-general.icon32-bws {
+	background: url("../images/icon_36.png") no-repeat scroll left top transparent;
 }
-#adminmenu #toplevel_page_bws_plugins.wp-not-current-submenu div.wp-menu-image {
-	opacity: 0.7;
+.admin-color-classic .wrap #icon-options-general.icon32-bws {
+	background: url("../images/icon_36_b.png") no-repeat scroll left top transparent;
 }
 #toplevel_page_bws_plugins .wp-submenu .wp-first-item {
 	display: none;
@@ -27,26 +34,29 @@
 	padding: 10px;
 }
 
-
-#adminmenu #menu-posts-quote:hover div.wp-menu-image:before,
-#adminmenu #menu-posts-quote.wp-has-current-submenu div.wp-menu-image:before,
-#adminmenu #menu-posts-quote div.wp-menu-image:before {
-	background: url("../images/qoutes_single.png") no-repeat scroll center 8px transparent;
-	content: '';
-	opacity: 0.7;
+#adminmenu #menu-posts-quote .wp-menu-image,
+#adminmenu #menu-posts-tips .wp-menu-image {
+	background: url("../images/qoutes-and-tips16.png") no-repeat scroll 1px -27px transparent;
 }
-#adminmenu #menu-posts-quote.wp-has-current-submenu div.wp-menu-image:before {
-	opacity: 1;
+#adminmenu #menu-posts-tips .wp-menu-image {
+	background-position: -27px -27px;
 }
-#adminmenu #menu-posts-tips:hover div.wp-menu-image:before,
-#adminmenu #menu-posts-tips.wp-has-current-submenu div.wp-menu-image:before,
-#adminmenu #menu-posts-tips div.wp-menu-image:before {
-	background: url("../images/tips_single.png") no-repeat scroll center 8px transparent;
-	content: '';
-	opacity: 0.7;
+#adminmenu #menu-posts-quote:hover .wp-menu-image,
+#adminmenu #menu-posts-quote .wp-has-current-submenu .wp-menu-image,
+#adminmenu #menu-posts-tips:hover .wp-menu-image,
+#adminmenu #menu-posts-tips .wp-has-current-submenu .wp-menu-image {
+	background: url("../images/qoutes-and-tips16.png") no-repeat scroll 1px 1px transparent;
 }
-#adminmenu #menu-posts-tips.wp-has-current-submenu div.wp-menu-image:before {
-	opacity: 1;
+#adminmenu #menu-posts-tips:hover .wp-menu-image,
+#adminmenu #menu-posts-tips .wp-has-current-submenu .wp-menu-image {
+	background-position: -27px 1px;
+}
+.wrap #icon-edit.icon32-posts-quote,
+.wrap #icon-edit.icon32-posts-tips {
+	background: url("../images/qoutes-and-tips32.png") no-repeat scroll 0 0 transparent;
+}
+.wrap #icon-edit.icon32-posts-tips {
+	background-position: 0 -34px;
 }
 #quotes_box_and_tips {
 	background-image: url('../images/quotes_box_and_tips_bg.png');

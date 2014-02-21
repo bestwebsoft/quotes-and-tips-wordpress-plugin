@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: quote, tip, information, hints, quotes, tips, additional info, statements
 Requires at least: 3.0
-Tested up to: 3.6.1
-Stable tag: 1.13
+Tested up to: 3.8.1
+Stable tag: 1.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ This plugin allows you to implement the Quotes & Tips block into your web site.
 
 This plugin allows you to create and publish quotes of your customers about your work and helpful tips for the website visitors.
 
-<a href="http://wordpress.org/extend/plugins/quotes-and-tips/faq/" target="_blank">FAQ</a>
+<a href="http://wordpress.org/plugins/quotes-and-tips/faq/" target="_blank">FAQ</a>
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 = Features =
@@ -23,12 +23,19 @@ This plugin allows you to create and publish quotes of your customers about your
 * Actions: Add quotes & tips to any place on your website.
 * Label: Change a label for the Quotes block and Tips block - user custom label or title of the quotes & tips posts.
 
+= Recommended Plugins =
+
+The author of the Quotes and Tips also recommends the following plugins:
+
+* <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
+There is also a premium version of the plugin <a href="http://bestwebsoft.com/plugin/updater-pro/?k=e8f05fa90cedfd3a96483e8f0ca60ab5">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+
 = Translation =
 
 * German (de_DE) (thanks to <a href="mailto:arnold@montjoie.de">Arnold Montjoie</a>)
 * Hebrew (he_IL) (thanks to Sagive SEO)
 * Russian (ru_RU)
-* Ukrainian (uk_UA)
+* Ukrainian (uk)
 
 If you create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
@@ -87,6 +94,14 @@ Here is an example for the German language files.
 
 5. If everything is done properly all lines will be in German in the admin panel and in the front-end.
 
+= I have some problems with the plugin's work. What Information should I provide to receive proper support? =
+
+Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+1. the link to the page where the problem occurs
+2. the name of the plugin and its version. If you are using a pro version - your order number.
+3. the version of your WordPress installation
+4. copy and paste into the message your system status report. Please read more here: <a href="http://bestwebsoft.com/wp-content/uploads/manual/wp_plugin/general/System_Status.pdf" target="_blank">System_Status.pdf</a>
+
 == Screenshots ==
 
 1. Basic option for Quotes and Tips.
@@ -94,6 +109,28 @@ Here is an example for the German language files.
 3. Frontend page with Quotes and Tips block.
 
 == Changelog ==
+
+= V1.17 - 19.02.2014 =
+* Update : Screenshots are updated.
+* Update : BWS plugins section is updated.
+* Update : We updated all functionality for wordpress 3.8.1.
+* Bugfix : Problem with empty author field is fixed.
+
+= V1.16 - 26.12.2013 =
+* Update : BWS plugins section is updated.
+* Update : We updated all functionality for wordpress 3.8.
+
+= V1.15 - 28.11.2013 =
+* Update : Tips icons updated.
+* Update : BWS plugins section is updated.
+
+= V1.14 - 30.10.2013 =
+* NEW : Add checking installed wordpress version.
+* Update : We updated all functionality for wordpress 3.7.1.
+* Update : Qoutes and Tips icons updated.
+* Update : Activation of radio button or checkbox by clicking on its label.
+* Bugfix : Default background now is used only if additional settings checked.
+* Bugfix : We fixed Qoutes author name and position fields errors.
 
 = V1.13 - 02.10.2013 =
 * NEW : The Ukrainian language file is added to the plugin.
@@ -142,6 +179,18 @@ Here is an example for the German language files.
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.17 =
+Screenshots are updated. BWS plugins section is updated. We updated all functionality for wordpress 3.8.1. Problem with empty author field is fixed.
+
+= V1.16 =
+BWS plugins section is updated. We updated all functionality for wordpress 3.8.
+
+= V1.15 =
+Tips icons updated. BWS plugins section is updated.
+
+= V1.14 =
+Add checking installed wordpress version. We updated all functionality for wordpress 3.7.1. Qoutes and Tips icons updated. Activation of radio button or checkbox by clicking on its label. Default background now is used only if additional settings checked. We fixed Qoutes author name and position fields errors.
 
 = V1.13 =
 The Ukrainian language file is added to the plugin. We updated all functionality for wordpress 3.6.1.
