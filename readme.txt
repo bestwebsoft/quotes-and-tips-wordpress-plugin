@@ -1,10 +1,10 @@
 === Quotes and Tips ===
 Contributors: bestwebsoft
-Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
-Tags: quote, tip, information, hints, quotes, tips, additional info, statements
+Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
+Tags: additional info, add quotes, background image, create quotes, display quotes, hints, information, quote label, post, quote, qotes, quotes, quotes and tips post, quotes & tips post, quotes from clients, publish quotes, statements, tip, tip label, tips, tips for visitors
 Requires at least: 3.0
-Tested up to: 3.8.2
-Stable tag: 1.18
+Tested up to: 3.9.1
+Stable tag: 1.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,10 @@ This plugin allows you to implement the Quotes & Tips block into your web site.
 
 This plugin allows you to create and publish quotes of your customers about your work and helpful tips for the website visitors.
 
+http://www.youtube.com/watch?v=kSR0mERfxBI
+
 <a href="http://wordpress.org/plugins/quotes-and-tips/faq/" target="_blank">FAQ</a>
+
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 = Features =
@@ -110,6 +113,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.19 - 13.05.2014 =
+* Update : BWS plugins section is updated.
+* Update : We updated all functionality for wordpress 3.9.1.
+* Update : The Ukrainian language is updated in the plugin.
+
 = V1.18 - 14.04.2014 =
 * Update : BWS plugins section is updated.
 * Update : We updated all functionality for wordpress 3.8.2.
@@ -184,6 +192,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.19 =
+BWS plugins section is updated. We updated all functionality for wordpress 3.9.1. The Ukrainian language is updated in the plugin.
 
 = V1.18 =
 BWS plugins section is updated. We updated all functionality for wordpress 3.8.2. Plugin optimization is done.
