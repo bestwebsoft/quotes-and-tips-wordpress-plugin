@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: additional info, add quotes, background image, create quotes, display quotes, hints, information, quote label, post, quote, qotes, quotes, quotes and tips post, quotes & tips post, quotes from clients, publish quotes, statements, tip, tip label, tips, tips for visitors
 Requires at least: 3.0
-Tested up to: 3.9.1
-Stable tag: 1.19
+Tested up to: 3.9.2
+Stable tag: 1.20
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ This plugin allows you to implement the Quotes & Tips block into your web site.
 
 == Description ==
 
-This plugin allows you to create and publish quotes of your customers about your work and helpful tips for the website visitors.
+This plugin allows you to create and publish quotes of your customers about your work and helpful tips for the website visitors. Imagine that now on now your satisfied customers will help to promote business. Moreover, it is very simple in using.
 
 http://www.youtube.com/watch?v=kSR0mERfxBI
 
@@ -113,6 +113,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.20 - 08.08.2014 =
+* Bugfix : Security Exploit was fixed.
+
 = V1.19 - 13.05.2014 =
 * Update : BWS plugins section is updated.
 * Update : We updated all functionality for wordpress 3.9.1.
@@ -192,6 +195,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.20 =
+Security Exploit was fixed.
 
 = V1.19 =
 BWS plugins section is updated. We updated all functionality for wordpress 3.9.1. The Ukrainian language is updated in the plugin.

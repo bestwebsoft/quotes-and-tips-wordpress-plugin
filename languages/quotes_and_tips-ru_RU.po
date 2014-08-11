@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: quotes_and_tips\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-25 19:50+0300\n"
-"PO-Revision-Date: 2013-12-25 19:51+0300\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2014-08-08 11:28+0300\n"
+"Last-Translator: BestWebSoft <support@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft <plugin@bestwebsoft.com>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -18,9 +18,11 @@ msgstr ""
 
 #: quotes-and-tips.php:33
 msgid "Quotes and Tips"
-msgstr "Цитаты и Подсказки"
+msgstr "Quotes and Tips"
 
-#: quotes-and-tips.php:43 quotes-and-tips.php:44 quotes-and-tips.php:175
+#: quotes-and-tips.php:43
+#: quotes-and-tips.php:44
+#: quotes-and-tips.php:175
 msgid "Tips"
 msgstr "Подсказки"
 
@@ -52,7 +54,8 @@ msgstr "Ни одной подсказки не найдено"
 msgid "No tips found in Trash"
 msgstr "Ни одной подсказки в корзине не найдено"
 
-#: quotes-and-tips.php:68 quotes-and-tips.php:69
+#: quotes-and-tips.php:68
+#: quotes-and-tips.php:69
 msgid "Quotes"
 msgstr "Цитаты"
 
@@ -105,12 +108,8 @@ msgid "requires"
 msgstr "требует"
 
 #: quotes-and-tips.php:233
-msgid ""
-"or higher, that is why it has been deactivated! Please upgrade WordPress and "
-"try again."
-msgstr ""
-"или выше и, поэтому он был деактивирован! Пожалуйста обновите WordPress и "
-"попробуйте еще раз."
+msgid "or higher, that is why it has been deactivated! Please upgrade WordPress and try again."
+msgstr "или выше и, поэтому он был деактивирован! Пожалуйста обновите WordPress и попробуйте еще раз."
 
 #: quotes-and-tips.php:233
 msgid "Back to the WordPress "
@@ -139,27 +138,19 @@ msgstr "Настройки сохранены"
 
 #: quotes-and-tips.php:310
 msgid "Quotes and Tips Settings"
-msgstr "Настройки цитат и подсказок"
+msgstr "Настройки Quotes and Tips"
 
 #: quotes-and-tips.php:312
 msgid "Notice:"
 msgstr "Внимание:"
 
 #: quotes-and-tips.php:312
-msgid ""
-"The plugin's settings have been changed. In order to save them please don't "
-"forget to click the 'Save Changes' button."
-msgstr ""
-"Настройки плагина были изменены. Для того, чтобы сохранить их, пожалуйста, "
-"не забудьте нажать кнопку \"Сохранить\"."
+msgid "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button."
+msgstr "Настройки плагина были изменены. Для того, чтобы сохранить их, пожалуйста, не забудьте нажать кнопку \"Сохранить\"."
 
 #: quotes-and-tips.php:314
-msgid ""
-"If you would like to use this block, please paste the following strings into "
-"the template source code"
-msgstr ""
-"Если вы хотите использовать данный блок, пожалуйста, вставьте данные строки "
-"в файл темплейта в вашей теме"
+msgid "If you would like to use this block, please paste the following strings into the template source code"
+msgstr "Если вы хотите использовать данный блок, пожалуйста, вставьте данные строки в файл темплейта в вашей теме"
 
 #: quotes-and-tips.php:318
 msgid "Upload settings:"
@@ -245,7 +236,8 @@ msgstr "Выравнивание фонового изображения по г
 msgid "Left"
 msgstr "Слева"
 
-#: quotes-and-tips.php:386 quotes-and-tips.php:394
+#: quotes-and-tips.php:386
+#: quotes-and-tips.php:394
 msgid "Center"
 msgstr "По центру"
 
@@ -281,7 +273,8 @@ msgstr "Оценить плагин"
 msgid "If there is something wrong about it, please contact us"
 msgstr "Если у вас есть какие-то вопросы, обращайтесь"
 
-#: quotes-and-tips.php:424 quotes-and-tips.php:439
+#: quotes-and-tips.php:424
+#: quotes-and-tips.php:439
 msgid "Settings"
 msgstr "Настройки"
 
@@ -292,3 +285,4 @@ msgstr "FAQ"
 #: quotes-and-tips.php:426
 msgid "Support"
 msgstr "Поддержка"
+
