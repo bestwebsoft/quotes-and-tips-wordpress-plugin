@@ -3,7 +3,7 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: additional info, add quotes, background image, create quotes, display quotes, hints, information, quote label, post, quote, qotes, quotes, quotes and tips post, quotes & tips post, quotes from clients, publish quotes, statements, tip, tip label, tips, tips for visitors
 Requires at least: 3.0
-Tested up to: 3.9.2
+Tested up to: 3.4
 Stable tag: 1.20
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
