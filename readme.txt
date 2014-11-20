@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: additional info, add quotes, background image, create quotes, display quotes, hints, information, quote label, post, quote, qotes, quotes, quotes and tips post, quotes & tips post, quotes from clients, publish quotes, statements, tip, tip label, tips, tips for visitors
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.20
+Stable tag: 1.21
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,7 @@ http://www.youtube.com/watch?v=kSR0mERfxBI
 The author of the Quotes and Tips also recommends the following plugins:
 
 * <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/plugin/updater-pro/?k=e8f05fa90cedfd3a96483e8f0ca60ab5">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
 
 = Translation =
 
@@ -112,6 +112,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 3. Frontend page with Quotes and Tips block.
 
 == Changelog ==
+
+= V1.21 - 19.11.2014 =
+* Update : We have made Quotes and Tips block responsive.
 
 = V1.20 - 08.08.2014 =
 * Bugfix : Security Exploit was fixed.
@@ -195,6 +198,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.21 =
+We have made Quotes and Tips block responsive.
 
 = V1.20 =
 Security Exploit was fixed.

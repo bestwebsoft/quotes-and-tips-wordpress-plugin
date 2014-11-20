@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: quotes_and_tips\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-25 19:50+0300\n"
-"PO-Revision-Date: 2014-08-08 11:28+0300\n"
-"Last-Translator: BestWebSoft <support@bestwebsoft.com>\n"
+"PO-Revision-Date: 2014-11-19 17:44+0300\n"
+"Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft <plugin@bestwebsoft.com>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -109,7 +109,7 @@ msgstr "требует"
 
 #: quotes-and-tips.php:233
 msgid "or higher, that is why it has been deactivated! Please upgrade WordPress and try again."
-msgstr "или выше и, поэтому он был деактивирован! Пожалуйста обновите WordPress и попробуйте еще раз."
+msgstr "или выше, поэтому он был деактивирован! Пожалуйста, обновите WordPress и попробуйте еще раз."
 
 #: quotes-and-tips.php:233
 msgid "Back to the WordPress "

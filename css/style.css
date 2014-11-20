@@ -29,6 +29,7 @@
 	color: #EEE;
 	font-family: Arial;
 	font-size: 14px;
+	clear: both;
 }
 #quotes_box_and_tips h3 {
 	font-family:Tahoma;
@@ -109,4 +110,23 @@ body.rtl .image-radio-option label {
 }
 #quotes_box_and_tips .clear {
 	clear: both;
+}
+/* 
+* Add responsive.
+*/
+@media all and ( max-width: 600px ) {
+	#quotes_box_and_tips .box_delimeter {
+		background: none;
+	}
+	#quotes_box_and_tips .tips_box,
+	#quotes_box_and_tips .quotes_box {
+		float: none;
+		width: auto;
+	}
+	#quotes_box_and_tips .tips_box {
+		background-image:url('../images/box_delimeter.png');
+		background-repeat: repeat-x;
+		background-position: 0 bottom;
+		padding-bottom: 5px;
+	}
 }
