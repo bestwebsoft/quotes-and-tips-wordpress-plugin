@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: additional info, add quotes, background image, create quotes, display quotes, hints, information, quote label, post, quote, qotes, quotes, quotes and tips post, quotes & tips post, quotes from clients, publish quotes, statements, tip, tip label, tips, tips for visitors
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag: 1.21
+Tested up to: 4.1
+Stable tag: 1.22
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -113,6 +113,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.22 - 26.12.2014 =
+* Bugfix : Problem with quotes signature is fixed.
+* Update : We updated all functionality for wordpress 4.1.
+
 = V1.21 - 19.11.2014 =
 * Update : We have made Quotes and Tips block responsive.
 
@@ -198,6 +202,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.22 =
+Problem with quotes signature is fixed. We updated all functionality for wordpress 4.1.
 
 = V1.21 =
 We have made Quotes and Tips block responsive.

@@ -4,7 +4,7 @@ Plugin Name: Quotes and Tips
 Plugin URI: http://bestwebsoft.com/products/
 Description: This plugin displays the Quotes and Tips in random order
 Author: BestWebSoft
-Version: 1.21
+Version: 1.22
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -47,11 +47,17 @@ if ( ! function_exists( 'add_qtsndtps_admin_menu' ) ) {
 		if ( isset( $bstwbsftwppdtplgns_options['bws_menu_version'] ) ) {
 			$bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
 			unset( $bstwbsftwppdtplgns_options['bws_menu_version'] );
-			update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			if ( is_multisite() )
+				update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			else
+				update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
 			require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
 		} else if ( ! isset( $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] ) || $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] < $bws_menu_version ) {
 			$bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
-			update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			if ( is_multisite() )
+				update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			else
+				update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
 			require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
 		} else if ( ! isset( $bstwbsftwppdtplgns_added_menu ) ) {
 			$plugin_with_newer_menu = $base;
@@ -168,7 +174,15 @@ if ( ! function_exists( 'qtsndtps_get_random_tip_quote' ) ) {
 							$off_cap = get_post_meta( $post->ID, 'off_cap' ); ?>
 							<h3><?php if ( '1' == $qtsndtps_options['qtsndtps_title_post'] ) the_title(); else echo $qtsndtps_options['qtsndtps_quote_label']; ?></h3>
 							<p><i>"<?php echo strip_tags( get_the_content() ); ?>"</i></p>
-							<p class="signature"><?php if ( ! empty( $off_cap[0] ) && ! empty( $name_field[0] ) ) { ?> | <?php } ?><?php if ( ! empty( $off_cap[0] ) ) { echo $name_field[0]; ?><span><?php echo $off_cap[0]; ?></span><?php } ?></p>
+							<p class="signature">
+								<?php if ( ! empty( $name_field[0] ) )
+									echo $name_field[0];
+								if ( ! empty( $off_cap[0] ) && ! empty( $name_field[0] ) )
+									echo ' | '; 
+								if ( ! empty( $off_cap[0] ) ) { ?>
+									<span><?php echo $off_cap[0]; ?></span>
+								<?php } ?>
+							</p>
 						</div>
 					</div>
 					<?php $count ++;

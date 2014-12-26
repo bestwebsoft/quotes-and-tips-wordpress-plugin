@@ -1,7 +1,7 @@
 <?php
 /*
 * Function for displaying BestWebSoft menu
-* Version: 1.3.9
+* Version: 1.4.0
 */
 
 if ( ! function_exists( 'bws_add_menu_render' ) ) {
@@ -336,6 +336,8 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 		foreach ( $all_plugins as $key_plugin => $value_plugin ) {
 			if ( isset( $value_plugin['Author'] ) && $value_plugin['Author'] != "BestWebSoft" )
 				unset( $all_plugins[ $key_plugin ] );
+			elseif ( '-plus.php' == substr( $key_plugin, -9, 9 ) )
+				unset( $all_plugins[ $key_plugin ] );
 			else {
 				foreach ( $bws_plugins as $key => $value ) {
 					if ( isset( $value['pro_version'] ) && $value['pro_version'] == $key_plugin ) {
@@ -467,8 +469,8 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 			<h2>
 				<span class="bws_main title">BestWebSoft</span>
 				<ul class="subsubsub bws_title_menu">
-					<li><a href="http://support.bestwebsoft.com/home" target="_blank"><?php _e( 'Need help?', 'bestwebsoft' ); ?></a></li> |
-					<li><a href="http://bestwebsoft.com/wp-login.php" target="_blank"><?php _e( 'Client area', 'bestwebsoft' ); ?></a></li>
+					<li><a href="<?php echo esc_url( 'http://support.bestwebsoft.com/home' ); ?>" target="_blank"><?php _e( 'Need help?', 'bestwebsoft' ); ?></a></li> |
+					<li><a href="<?php echo esc_url( 'http://bestwebsoft.com/wp-login.php' ); ?>" target="_blank"><?php _e( 'Client area', 'bestwebsoft' ); ?></a></li>
 					<li><a class="bws_system_status <?php if ( isset( $_GET['action'] ) && 'system_status' == $_GET['action'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=bws_plugins&amp;action=system_status"><?php _e( 'System status', 'bestwebsoft' ); ?></a></li>
 				</ul>
 				<div class="clear"></div>
