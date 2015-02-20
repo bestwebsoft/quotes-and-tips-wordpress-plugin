@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: additional info, add quotes, background image, create quotes, display quotes, hints, information, quote label, post, quote, qotes, quotes, quotes and tips post, quotes & tips post, quotes from clients, publish quotes, statements, tip, tip label, tips, tips for visitors
 Requires at least: 3.0
-Tested up to: 4.1
-Stable tag: 1.22
+Tested up to: 4.1.1
+Stable tag: 1.23
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,13 +56,16 @@ We can fix some things for free for the users who provide translation of our plu
 2. Activate the plugin via the 'Plugins' menu in WordPress.
 3. The site settings are available in 'BWS Plugins'->'Quotes and Tips'.
 
+<a href="https://docs.google.com/document/d/1LF8JiXTELxGQ-xLbNnc0bUWopxqXkkCgYhGwU6lSsAI/edit" target="_blank">View a PDF version of Step-by-step Instruction on Quotes and Tips Installation</a>.
+
 == Frequently Asked Questions ==
 
 = How to use the plugin? =
 
 1. Click 'Add New' in the 'Quotes' menu and fill your page.
 1. Click 'Add New' in the 'Tips' menu and fill your page.
-2. Add this code to your theme where you'd like to display the block 'Quotes and Tips' `&lt;?php if( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote();  ?&gt;`. 
+2. Сopy and paste this shortcode to your post or page - `[quotes_and_tips]`, or add the following strings into the template source code
+`&lt;?php if( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote();  ?&gt;`. 
 3. The settings are available on the page 'BWS Plugins'->'Quotes and Tips'.
 
 = How to change background or text color? =
@@ -112,6 +115,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 3. Frontend page with Quotes and Tips block.
 
 == Changelog ==
+
+= V1.23 - 19.02.2015 =
+* NEW : We added shortcode for displaying Quotes and Tips block.
+* Bugfix : Bug with color from text color field misplacement was fixed.
 
 = V1.22 - 26.12.2014 =
 * Bugfix : Problem with quotes signature is fixed.
@@ -202,6 +209,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.23 =
+We added shortcode for displaying Quotes and Tips block. Bug with color from text color field misplacement was fixed.
 
 = V1.22 =
 Problem with quotes signature is fixed. We updated all functionality for wordpress 4.1.

@@ -51,7 +51,7 @@ var farbtastic2;
 			if ( '#' + a !== b )
 				$('#text-color').val(a);
 			if ( a.length === 3 || a.length === 6 )
-				pickColor( '#' + a );
+				pickColor2( '#' + a );
 		});
 		
 		$(document).mousedown( function() {
