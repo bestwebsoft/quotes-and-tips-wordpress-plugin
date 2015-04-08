@@ -27,12 +27,10 @@
 	padding: 15px 0;
 	width: 100%;
 	color: #EEE;
-	font-family: Arial;
 	font-size: 14px;
 	clear: both;
 }
 #quotes_box_and_tips h3 {
-	font-family:Tahoma;
 	color: #FFF;
 	font-size: 22px;
 	padding-bottom: 10px;
@@ -49,9 +47,7 @@
 	float: left;
 	padding: 0 1.49%;
 }
-#quotes_box_and_tips .quotes_box {
-	font-family: Tahoma;
-}
+
 #quotes_box_and_tips p {
 	padding-bottom: 7px;
 	margin-bottom: 0px;

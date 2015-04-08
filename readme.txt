@@ -1,10 +1,10 @@
-=== Quotes and Tips ===
+=== Quotes and Tips by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: additional info, add quotes, background image, create quotes, display quotes, hints, information, quote label, post, quote, qotes, quotes, quotes and tips post, quotes & tips post, quotes from clients, publish quotes, statements, tip, tip label, tips, tips for visitors
 Requires at least: 3.0
-Tested up to: 4.1.1
-Stable tag: 1.23
+Tested up to: 4.2-beta4
+Stable tag: 1.24
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,6 +116,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.24 - 08.04.2015 =
+* Bugfix : Problem with title for Quotes and Tips block is fixed.
+* Bugfix : The folder for saving background image was changed.
+* Bugfix : Styles of the font family for Quotes and Tips block were deleted.
+
 = V1.23 - 19.02.2015 =
 * NEW : We added shortcode for displaying Quotes and Tips block.
 * Bugfix : Bug with color from text color field misplacement was fixed.
@@ -209,6 +214,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.24 =
+Problem with title for Quotes and Tips block is fixed. The folder for saving background image was changed. Styles of the font family for Quotes and Tips block were deleted.
 
 = V1.23 =
 We added shortcode for displaying Quotes and Tips block. Bug with color from text color field misplacement was fixed.
