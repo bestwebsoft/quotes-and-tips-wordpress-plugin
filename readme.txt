@@ -1,10 +1,10 @@
 === Quotes and Tips by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
+Donate link: http://bestwebsoft.com/donate/
 Tags: additional info, add quotes, background image, create quotes, display quotes, hints, information, quote label, post, quote, qotes, quotes, quotes and tips post, quotes & tips post, quotes from clients, publish quotes, statements, tip, tip label, tips, tips for visitors
 Requires at least: 3.0
-Tested up to: 4.2-beta4
-Stable tag: 1.24
+Tested up to: 4.2.2
+Stable tag: 1.25
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,8 +65,10 @@ We can fix some things for free for the users who provide translation of our plu
 1. Click 'Add New' in the 'Quotes' menu and fill your page.
 1. Click 'Add New' in the 'Tips' menu and fill your page.
 2. Сopy and paste this shortcode to your post or page - `[quotes_and_tips]`, or add the following strings into the template source code
-`&lt;?php if( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote();  ?&gt;`. 
-3. The settings are available on the page 'BWS Plugins'->'Quotes and Tips'.
+
+`&lt;?php if( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote();  ?&gt;`.
+
+3. The settings are available on the page 'BWS Plugins' -> 'Quotes and Tips'.
 
 = How to change background or text color? =
 
@@ -103,6 +105,7 @@ Here is an example for the German language files.
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
 Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
@@ -115,6 +118,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 3. Frontend page with Quotes and Tips block.
 
 == Changelog ==
+
+= V1.25 - 18.05.2015 =
+* Update : BWS plugins section is updated.
+* Update : We updated all functionality for wordpress 4.2.2.
 
 = V1.24 - 08.04.2015 =
 * Bugfix : Problem with title for Quotes and Tips block is fixed.
@@ -214,6 +221,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.25 =
+BWS plugins section is updated. We updated all functionality for wordpress 4.2.2.
 
 = V1.24 =
 Problem with title for Quotes and Tips block is fixed. The folder for saving background image was changed. Styles of the font family for Quotes and Tips block were deleted.
