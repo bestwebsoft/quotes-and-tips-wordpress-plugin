@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: quotes_and_tips\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 12:04+0300\n"
-"PO-Revision-Date: 2015-04-08 12:04+0300\n"
-"Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
+"POT-Creation-Date: 2015-07-28 12:13+0300\n"
+"PO-Revision-Date: 2015-07-28 12:19+0300\n"
+"Last-Translator: plugin@bestwebsoft.com <plugin@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft <plugin@bestwebsoft.com>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -16,272 +16,276 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: quotes-and-tips.php:38
-#: quotes-and-tips.php:39
-#: quotes-and-tips.php:226
+#: quotes-and-tips.php:80 quotes-and-tips.php:113 quotes-and-tips.php:114
 msgid "Tips"
 msgstr "Подсказки"
 
-#: quotes-and-tips.php:47
+#: quotes-and-tips.php:81
+msgid "Quotes from our clients"
+msgstr "Цитаты наших клиентов"
+
+#: quotes-and-tips.php:122
 msgid "Add a new tip"
 msgstr "Добавить новые подсказки"
 
-#: quotes-and-tips.php:48
+#: quotes-and-tips.php:123
 msgid "Edit tips"
 msgstr "Редактировать подсказки"
 
-#: quotes-and-tips.php:49
+#: quotes-and-tips.php:124
 msgid "New tip"
 msgstr "Новая подсказка"
 
-#: quotes-and-tips.php:50
+#: quotes-and-tips.php:125
 msgid "View tips"
 msgstr "Просмотреть подсказки"
 
-#: quotes-and-tips.php:51
+#: quotes-and-tips.php:126
 msgid "Search tips"
 msgstr "Поиск подсказок"
 
-#: quotes-and-tips.php:52
+#: quotes-and-tips.php:127
 msgid "No tips found"
 msgstr "Ни одной подсказки не найдено"
 
-#: quotes-and-tips.php:53
+#: quotes-and-tips.php:128
 msgid "No tips found in Trash"
 msgstr "Ни одной подсказки в корзине не найдено"
 
-#: quotes-and-tips.php:63
-#: quotes-and-tips.php:64
+#: quotes-and-tips.php:138 quotes-and-tips.php:139
 msgid "Quotes"
 msgstr "Цитаты"
 
-#: quotes-and-tips.php:72
+#: quotes-and-tips.php:147
 msgid "Add a New quote"
 msgstr "Добавить новую цитату"
 
-#: quotes-and-tips.php:73
+#: quotes-and-tips.php:148
 msgid "Edit quote"
 msgstr "Редактировать цитату"
 
-#: quotes-and-tips.php:74
+#: quotes-and-tips.php:149
 msgid "New quote"
 msgstr "Новая цитата"
 
-#: quotes-and-tips.php:75
+#: quotes-and-tips.php:150
 msgid "View quote"
 msgstr "Просмотреть цитату"
 
-#: quotes-and-tips.php:76
+#: quotes-and-tips.php:151
 msgid "Search quote"
 msgstr "Поиск цитаты"
 
-#: quotes-and-tips.php:77
+#: quotes-and-tips.php:152
 msgid "No quote found"
 msgstr "Ни одной цитаты не найдено"
 
-#: quotes-and-tips.php:78
+#: quotes-and-tips.php:153
 msgid "No quote found in Trash"
 msgstr "Ни одной цитаты в корзине не найдено"
 
-#: quotes-and-tips.php:173
+#: quotes-and-tips.php:249
 msgid "Name:"
 msgstr "Имя:"
 
-#: quotes-and-tips.php:175
+#: quotes-and-tips.php:251
 msgid "Official position:"
 msgstr "Официальное положение (должность):"
-
-#: quotes-and-tips.php:227
-msgid "Quotes from our clients"
-msgstr "Цитаты наших клиентов"
 
 #: quotes-and-tips.php:258
 msgid "Name and Official position"
 msgstr "Имя и официальное положение"
 
-#: quotes-and-tips.php:306
+#: quotes-and-tips.php:307
 #, php-format
 msgid "The uploaded file could not be moved to %s."
 msgstr "Загруженный файл не может быть перемещен в %s."
 
-#: quotes-and-tips.php:306
+#: quotes-and-tips.php:307
 msgid "Image Processing Error"
 msgstr "Ошибка обработки изображений"
 
-#: quotes-and-tips.php:312
+#: quotes-and-tips.php:314
 msgid "Image Upload Error"
 msgstr "Ошибка загрузки изображений"
 
-#: quotes-and-tips.php:375
+#: quotes-and-tips.php:373
 msgid "Settings saved"
 msgstr "Настройки сохранены"
 
-#: quotes-and-tips.php:379
+#: quotes-and-tips.php:380
+msgid "All plugin settings were restored."
+msgstr "Все настройки плагина восстановлены."
+
+#: quotes-and-tips.php:384
 msgid "Quotes and Tips Settings"
 msgstr "Настройки Quotes and Tips"
 
-#: quotes-and-tips.php:381
-#: quotes-and-tips.php:510
-#: quotes-and-tips.php:526
+#: quotes-and-tips.php:386 quotes-and-tips.php:522 quotes-and-tips.php:538
 msgid "Settings"
 msgstr "Настройки"
 
-#: quotes-and-tips.php:382
-#: quotes-and-tips.php:511
+#: quotes-and-tips.php:387 quotes-and-tips.php:523
 msgid "FAQ"
 msgstr "FAQ"
 
-#: quotes-and-tips.php:385
+#: quotes-and-tips.php:390
 msgid "Notice:"
 msgstr "Внимание:"
 
-#: quotes-and-tips.php:385
-msgid "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button."
-msgstr "Настройки плагина были изменены. Для того, чтобы сохранить их, пожалуйста, не забудьте нажать кнопку \"Сохранить\"."
+#: quotes-and-tips.php:390
+msgid ""
+"The plugin's settings have been changed. In order to save them please don't "
+"forget to click the 'Save Changes' button."
+msgstr ""
+"Настройки плагина были изменены. Для того, чтобы сохранить их, пожалуйста, "
+"не забудьте нажать кнопку \"Сохранить\"."
 
-#: quotes-and-tips.php:388
-msgid "If you would like to use this block, just copy and paste this shortcode to your post or page"
-msgstr "Если вы хотите использовать данный блок, то вставьте данный шорткод в пост или страницу"
+#: quotes-and-tips.php:397
+msgid ""
+"If you would like to use this block, just copy and paste this shortcode to "
+"your post or page"
+msgstr ""
+"Если вы хотите использовать данный блок, то вставьте данный шорткод в пост "
+"или страницу"
 
-#: quotes-and-tips.php:389
+#: quotes-and-tips.php:398
 msgid "or add the following strings into the template source code"
 msgstr "или вставьте данные строки в файл темплейта в вашей теме"
 
-#: quotes-and-tips.php:394
+#: quotes-and-tips.php:403
 msgid "Upload settings:"
 msgstr "Настройки загрузки:"
 
-#: quotes-and-tips.php:396
+#: quotes-and-tips.php:405
 msgid "Random order with the page reload"
 msgstr "Показать случайным образом при загрузке страницы"
 
-#: quotes-and-tips.php:397
+#: quotes-and-tips.php:406
 msgid "Random order without the page reload"
 msgstr "Показать случайным образом без загрузки страницы"
 
-#: quotes-and-tips.php:398
+#: quotes-and-tips.php:407
 msgid "Reload time (in seconds)"
 msgstr "Время перезагрузки (в секундах)"
 
-#: quotes-and-tips.php:402
+#: quotes-and-tips.php:411
 msgid "Title options:"
 msgstr "Настройки названий блоков:"
 
-#: quotes-and-tips.php:404
+#: quotes-and-tips.php:413
 msgid "Get title from post"
 msgstr "Получить название из названия цитаты или подсказки"
 
-#: quotes-and-tips.php:405
+#: quotes-and-tips.php:414
 msgid "Get label of the block"
 msgstr "Получить название блока из настроек"
 
-#: quotes-and-tips.php:409
+#: quotes-and-tips.php:418
 msgid "Tip label:"
 msgstr "Название для блока подсказки:"
 
-#: quotes-and-tips.php:415
+#: quotes-and-tips.php:424
 msgid "Quote label:"
 msgstr "Название для блока цитаты:"
 
-#: quotes-and-tips.php:421
+#: quotes-and-tips.php:430
 msgid "Additional settings"
 msgstr "Дополнительные настройки"
 
-#: quotes-and-tips.php:424
+#: quotes-and-tips.php:433
 msgid "Background Color:"
 msgstr "Цвет фона:"
 
-#: quotes-and-tips.php:432
+#: quotes-and-tips.php:441
 msgid "Text Color:"
 msgstr "Цвет текста:"
 
-#: quotes-and-tips.php:440
+#: quotes-and-tips.php:449
 msgid "Background image:"
 msgstr "Изображение для фона:"
 
-#: quotes-and-tips.php:442
+#: quotes-and-tips.php:451
 msgid "Use background image"
 msgstr "Использовать фоновое изображение"
 
-#: quotes-and-tips.php:443
+#: quotes-and-tips.php:452
 msgid "Choose an image from your computer:"
 msgstr "Выберите изображение со своего компьютера:"
 
-#: quotes-and-tips.php:446
+#: quotes-and-tips.php:455
 msgid "Current image:"
 msgstr "Текущее изображение:"
 
-#: quotes-and-tips.php:452
+#: quotes-and-tips.php:461
 msgid "Background image repeat:"
 msgstr "Повтор фонового изображения:"
 
-#: quotes-and-tips.php:454
+#: quotes-and-tips.php:463
 msgid "Horizontal repeat (x)"
 msgstr "По горизонтали (х)"
 
-#: quotes-and-tips.php:455
+#: quotes-and-tips.php:464
 msgid "Vertical repeat (y)"
 msgstr "По вертикали (у)"
 
-#: quotes-and-tips.php:459
+#: quotes-and-tips.php:468
 msgid "Background image horizontal alignment:"
 msgstr "Выравнивание фонового изображения по горизонтали:"
 
-#: quotes-and-tips.php:461
+#: quotes-and-tips.php:470
 msgid "Left"
 msgstr "Слева"
 
-#: quotes-and-tips.php:462
-#: quotes-and-tips.php:470
+#: quotes-and-tips.php:471 quotes-and-tips.php:479
 msgid "Center"
 msgstr "По центру"
 
-#: quotes-and-tips.php:463
+#: quotes-and-tips.php:472
 msgid "Right"
 msgstr "Справа"
 
-#: quotes-and-tips.php:467
+#: quotes-and-tips.php:476
 msgid "Background image vertical alignment:"
 msgstr "Выравнивание фонового изображения по вертикали:"
 
-#: quotes-and-tips.php:469
+#: quotes-and-tips.php:478
 msgid "Top"
 msgstr "Вверху"
 
-#: quotes-and-tips.php:471
+#: quotes-and-tips.php:480
 msgid "Bottom"
 msgstr "Внизу"
 
-#: quotes-and-tips.php:475
+#: quotes-and-tips.php:484
 msgid "Add Quotes and Tips to the search"
 msgstr "Добавить Quotes and Tips в поиск"
 
-#: quotes-and-tips.php:480
+#: quotes-and-tips.php:489
 msgid "Using"
 msgstr "Используя"
 
-#: quotes-and-tips.php:480
+#: quotes-and-tips.php:489
 msgid "powered by"
 msgstr "разработанный"
 
-#: quotes-and-tips.php:484
-#: quotes-and-tips.php:489
+#: quotes-and-tips.php:493 quotes-and-tips.php:498
 msgid "Using Custom Search powered by"
-msgstr "Используя Custom Search разаработанный"
+msgstr "Используя Custom Search разработанный"
 
-#: quotes-and-tips.php:484
+#: quotes-and-tips.php:493
 msgid "Activate Custom Search"
 msgstr "Активировать Custom Search"
 
-#: quotes-and-tips.php:489
+#: quotes-and-tips.php:498
 msgid "Download Custom Search"
 msgstr "Загрузить  Custom Search"
 
-#: quotes-and-tips.php:496
+#: quotes-and-tips.php:505
 msgid "Save Changes"
 msgstr "Сохранить изменения"
 
-#: quotes-and-tips.php:512
+#: quotes-and-tips.php:524
 msgid "Support"
 msgstr "Поддержка"
 
