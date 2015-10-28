@@ -1,0 +1,314 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: quotes_and_tips\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-27 15:57+0200\n"
+"PO-Revision-Date: 2015-10-27 15:57+0200\n"
+"Last-Translator: Áprily Péter <info@aprily.com>\n"
+"Language-Team: bestwebsoft <plugin@bestwebsoft.com>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: quotes-and-tips.php:37 quotes-and-tips.php:38 quotes-and-tips.php:555
+#: quotes-and-tips.php:571
+msgid "Settings"
+msgstr "Beállítások"
+
+#: quotes-and-tips.php:103 quotes-and-tips.php:138 quotes-and-tips.php:139
+msgid "Tips"
+msgstr "Ötletek"
+
+#: quotes-and-tips.php:104
+msgid "Quotes from our clients"
+msgstr "Idézetek ügyfeleinktől"
+
+#: quotes-and-tips.php:147
+msgid "Add a new tip"
+msgstr "Új ötlet hozzáadása"
+
+#: quotes-and-tips.php:148
+msgid "Edit tips"
+msgstr "Ötletek módosítása"
+
+#: quotes-and-tips.php:149
+msgid "New tip"
+msgstr "Új ötlet"
+
+#: quotes-and-tips.php:150
+msgid "View tips"
+msgstr "Ötletek átnézése"
+
+#: quotes-and-tips.php:151
+msgid "Search tips"
+msgstr "Ötletek keresése"
+
+#: quotes-and-tips.php:152
+msgid "No tips found"
+msgstr "Nem találhatók ötletek"
+
+#: quotes-and-tips.php:153
+msgid "No tips found in Trash"
+msgstr "A Lomtárban nem találhatók ötletek"
+
+#: quotes-and-tips.php:163 quotes-and-tips.php:164
+msgid "Quotes"
+msgstr "Idézetek"
+
+#: quotes-and-tips.php:172
+msgid "Add a New quote"
+msgstr "Új idézet hozzáadása"
+
+#: quotes-and-tips.php:173
+msgid "Edit quote"
+msgstr "Idézet javítása"
+
+#: quotes-and-tips.php:174
+msgid "New quote"
+msgstr "Új idézet"
+
+#: quotes-and-tips.php:175
+msgid "View quote"
+msgstr "Idézet megtekintése"
+
+#: quotes-and-tips.php:176
+msgid "Search quote"
+msgstr "Idézet keresése"
+
+#: quotes-and-tips.php:177
+msgid "No quote found"
+msgstr "Idézet nem található"
+
+#: quotes-and-tips.php:178
+msgid "No quote found in Trash"
+msgstr "A lomtárban nem található idézet"
+
+#: quotes-and-tips.php:274
+msgid "Name:"
+msgstr "Név:"
+
+#: quotes-and-tips.php:276
+msgid "Official position:"
+msgstr "Hivatalos beosztás:"
+
+#: quotes-and-tips.php:283
+msgid "Name and Official position"
+msgstr "Név és Hivatalos beosztás"
+
+#: quotes-and-tips.php:332
+#, php-format
+msgid "The uploaded file could not be moved to %s."
+msgstr "A feltöltött file nem mozgatható %s-ba."
+
+#: quotes-and-tips.php:332
+msgid "Image Processing Error"
+msgstr "Kép feldolgozási hiba"
+
+#: quotes-and-tips.php:339
+msgid "Image Upload Error"
+msgstr "Kép feltöltési hiba"
+
+#: quotes-and-tips.php:398
+msgid "Settings saved"
+msgstr "Beállítások mentve"
+
+#: quotes-and-tips.php:405
+msgid "All plugin settings were restored."
+msgstr "Minden plugin paraméter visszaállítva."
+
+#: quotes-and-tips.php:408
+msgid "Quotes and Tips Settings"
+msgstr "Idézetek és ötletek Beállításai"
+
+#: quotes-and-tips.php:418
+#, php-format
+msgid ""
+"If you would like to add Quotes and Tips block to your page or post, please "
+"use %s button"
+msgstr ""
+
+#: quotes-and-tips.php:423
+#, php-format
+msgid ""
+"You can add Quotes and Tips block to your page or post by clicking on %s "
+"button in the content edit block using the Visual mode. If the button isn't "
+"displayed, please use the shortcode %s"
+msgstr ""
+
+#: quotes-and-tips.php:431
+#, fuzzy
+msgid "Or add the following strings into the template source code"
+msgstr "vagy adja hozzá a következő sorokat a sablon forráskódjához"
+
+#: quotes-and-tips.php:436
+msgid "Upload settings:"
+msgstr "Beállítások feltöltése:"
+
+#: quotes-and-tips.php:438
+msgid "Random order with the page reload"
+msgstr "Oldal újratöltéskor véletlenszerű sorrend"
+
+#: quotes-and-tips.php:439
+msgid "Random order without the page reload"
+msgstr "Oldal újratöltése nélküli véletlenszerű sorrend"
+
+#: quotes-and-tips.php:440
+msgid "Reload time (in seconds)"
+msgstr "Újratöltési idő (másodpercekben)"
+
+#: quotes-and-tips.php:444
+msgid "Title options:"
+msgstr "Cím beállítások:"
+
+#: quotes-and-tips.php:446
+msgid "Get title from post"
+msgstr "Cím a bejegyzésből"
+
+#: quotes-and-tips.php:447
+msgid "Get label of the block"
+msgstr "Címke a blokkból"
+
+#: quotes-and-tips.php:451
+msgid "Tip label:"
+msgstr "Ötlet címke:"
+
+#: quotes-and-tips.php:457
+msgid "Quote label:"
+msgstr "Idézet címke:"
+
+#: quotes-and-tips.php:463
+msgid "Additional settings"
+msgstr "Kiegészítő beállítások"
+
+#: quotes-and-tips.php:466
+msgid "Background Color:"
+msgstr "Háttér szín:"
+
+#: quotes-and-tips.php:474
+msgid "Text Color:"
+msgstr "Szöveg szín:"
+
+#: quotes-and-tips.php:482
+msgid "Background image:"
+msgstr "Háttér kép:"
+
+#: quotes-and-tips.php:484
+msgid "Use background image"
+msgstr "Háttér kép használata"
+
+#: quotes-and-tips.php:485
+msgid "Choose an image from your computer:"
+msgstr "Válasszon képet a számítógépéről:"
+
+#: quotes-and-tips.php:488
+msgid "Current image:"
+msgstr "Aktuális kép:"
+
+#: quotes-and-tips.php:494
+msgid "Background image repeat:"
+msgstr "Háttér kép ismétlés:"
+
+#: quotes-and-tips.php:496
+msgid "Horizontal repeat (x)"
+msgstr "Vízszintes ismétlés (x)"
+
+#: quotes-and-tips.php:497
+msgid "Vertical repeat (y)"
+msgstr "Függőleges ismétlés (y)"
+
+#: quotes-and-tips.php:501
+msgid "Background image horizontal alignment:"
+msgstr "Háttér kép vízszintes igazítás:"
+
+#: quotes-and-tips.php:503
+msgid "Left"
+msgstr "Bal"
+
+#: quotes-and-tips.php:504 quotes-and-tips.php:512
+msgid "Center"
+msgstr "Közép"
+
+#: quotes-and-tips.php:505
+msgid "Right"
+msgstr "Jobb"
+
+#: quotes-and-tips.php:509
+msgid "Background image vertical alignment:"
+msgstr "Háttér kép függőleges igazítás:"
+
+#: quotes-and-tips.php:511
+msgid "Top"
+msgstr "Felül"
+
+#: quotes-and-tips.php:513
+msgid "Bottom"
+msgstr "Alul"
+
+#: quotes-and-tips.php:517
+msgid "Add Quotes and Tips to the search"
+msgstr "Idézetek és ötletek hozzáadása a kereséshez"
+
+#: quotes-and-tips.php:522
+msgid "Using"
+msgstr "Használva"
+
+#: quotes-and-tips.php:522
+msgid "powered by"
+msgstr "működteti a"
+
+#: quotes-and-tips.php:526 quotes-and-tips.php:531
+msgid "Using Custom Search powered by"
+msgstr "Az Egyéni Keresést működteti a"
+
+#: quotes-and-tips.php:526
+msgid "Activate Custom Search"
+msgstr "Egyéni keresés aktiválása"
+
+#: quotes-and-tips.php:531
+msgid "Download Custom Search"
+msgstr "Egyéni keresés letöltése"
+
+#: quotes-and-tips.php:538
+msgid "Save Changes"
+msgstr "Változások mentése"
+
+#: quotes-and-tips.php:556
+msgid "FAQ"
+msgstr "Gy.I.K."
+
+#: quotes-and-tips.php:557
+msgid "Support"
+msgstr "Támogatás"
+
+#: quotes-and-tips.php:717
+#, fuzzy
+msgid "Quote"
+msgstr "Idézetek"
+
+#: quotes-and-tips.php:737
+#, fuzzy
+msgid "Add Quotes and Tips block to your page or post"
+msgstr "Idézetek és ötletek hozzáadása a kereséshez"
+
+#~ msgid "Notice:"
+#~ msgstr "Megjegyzés:"
+
+#~ msgid ""
+#~ "The plugin's settings have been changed. In order to save them please "
+#~ "don't forget to click the 'Save Changes' button."
+#~ msgstr ""
+#~ "A plugin beállításai megváltoztak. A mentésükhöz ne felejtsen a "
+#~ "'Változások mentése' gombra kattintani."
+
+#~ msgid ""
+#~ "If you would like to use this block, just copy and paste this shortcode "
+#~ "to your post or page"
+#~ msgstr ""
+#~ "Ha szeretné használni ezt a blokkot, másolja be ezt a shortcode-ot a "
+#~ "bejegyzésbe vagy oldalába"

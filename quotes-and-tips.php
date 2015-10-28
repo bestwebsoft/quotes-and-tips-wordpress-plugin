@@ -4,7 +4,9 @@ Plugin Name: Quotes and Tips by BestWebSoft
 Plugin URI: http://bestwebsoft.com/products/
 Description: This plugin displays the Quotes and Tips in random order
 Author: BestWebSoft
-Version: 1.26
+Text Domain: quotes-and-tips
+Domain Path: /languages
+Version: 1.27
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -27,17 +29,36 @@ License: GPLv2 or later
 
 if ( ! function_exists( 'add_qtsndtps_admin_menu' ) ) {
 	function add_qtsndtps_admin_menu() {
+		global $submenu;
 		bws_add_general_menu( plugin_basename( __FILE__ ) );
-		add_submenu_page( 'bws_plugins', 'Quotes and Tips', 'Quotes and Tips', 'manage_options', "quotes-and-tips.php", 'qtsndtps_settings_page' );
+		$settings = add_submenu_page( 'bws_plugins', 'Quotes and Tips', 'Quotes and Tips', 'manage_options', "quotes-and-tips.php", 'qtsndtps_settings_page' );
+		
+		$url = admin_url( 'admin.php?page=quotes-and-tips.php' );
+		$submenu['edit.php?post_type=quote'][] = array( __( 'Settings', 'quotes-and-tips' ), 'manage_options', $url );
+		$submenu['edit.php?post_type=tips'][] = array( __( 'Settings', 'quotes-and-tips' ), 'manage_options', $url );
+
+		add_action( 'load-' . $settings, 'qtsndtps_add_tabs' );
+		add_action( 'load-post.php', 'qtsndtps_add_tabs' );
+		add_action( 'load-edit.php', 'qtsndtps_add_tabs' );
+		add_action( 'load-post-new.php', 'qtsndtps_add_tabs' );
+	}
+}
+
+/**
+ * Internationalization
+ */
+if ( ! function_exists( 'qtsndtps_plugins_loaded' ) ) {
+	function qtsndtps_plugins_loaded() {
+		load_plugin_textdomain( 'quotes-and-tips', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 }
 
 if ( ! function_exists ( 'qtsndtps_plugin_init' ) ) {
 	function qtsndtps_plugin_init() {
-		global $qtsndtps_plugin_info;
-		load_plugin_textdomain( 'quotes_and_tips', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		global $qtsndtps_plugin_info;	
 
-		require_once( dirname( __FILE__ ) . '/bws_menu/bws_functions.php' );
+		require_once( dirname( __FILE__ ) . '/bws_menu/bws_include.php' );
+		bws_include_init( plugin_basename( __FILE__ ) );
 		
 		if ( empty( $qtsndtps_plugin_info ) ) {
 			if ( ! function_exists( 'get_plugin_data' ) )
@@ -46,7 +67,7 @@ if ( ! function_exists ( 'qtsndtps_plugin_init' ) ) {
 		}
 
 		/* Function check if plugin is compatible with current WP version  */
-		bws_wp_version_check( plugin_basename( __FILE__ ), $qtsndtps_plugin_info, '3.0' );
+		bws_wp_min_version_check( plugin_basename( __FILE__ ), $qtsndtps_plugin_info, '3.8', '3.1' );
 		
 		/* Call register settings function */
 		if ( ! is_admin() || ( isset( $_GET['page'] ) && "quotes-and-tips.php" == $_GET['page'] ) )
@@ -59,12 +80,14 @@ if ( ! function_exists ( 'qtsndtps_plugin_init' ) ) {
 
 if ( ! function_exists ( 'qtsndtps_plugin_admin_init' ) ) {
 	function qtsndtps_plugin_admin_init() {
-		global $bws_plugin_info, $qtsndtps_plugin_info;
+		global $bws_plugin_info, $qtsndtps_plugin_info, $bws_shortcode_list;
 
 		if ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) )
 			$bws_plugin_info = array( 'id' => '82', 'version' => $qtsndtps_plugin_info["Version"] );
 
 		qtsndtps_add_custom_metabox();
+		/* add Quotes and Tips to global $bws_shortcode_list  */
+		$bws_shortcode_list['qtsndtps'] = array( 'name' => 'Quotes and Tips' );
 	}
 }
 
@@ -77,8 +100,8 @@ if ( ! function_exists( 'register_qtsndtps_settings' ) ) {
 			'plugin_option_version'					=>	$qtsndtps_plugin_info["Version"],
 			'qtsndtps_page_load'					=>	'1',
 			'qtsndtps_interval_load'				=>	'10',
-			'qtsndtps_tip_label'					=>	__( 'Tips', 'quotes_and_tips' ),
-			'qtsndtps_quote_label'					=>	__( 'Quotes from our clients', 'quotes_and_tips' ),
+			'qtsndtps_tip_label'					=>	__( 'Tips', 'quotes-and-tips' ),
+			'qtsndtps_quote_label'					=>	__( 'Quotes from our clients', 'quotes-and-tips' ),
 			'qtsndtps_title_post'					=>	'0',
 			'qtsndtps_additional_options'			=>	'1',
 			'qtsndtps_background_color' 			=>	'#2484C6',
@@ -88,7 +111,8 @@ if ( ! function_exists( 'register_qtsndtps_settings' ) ) {
 			'qtsndtps_background_image_repeat_x'	=>	'0',
 			'qtsndtps_background_image_repeat_y'	=>	'0',
 			'qtsndtps_background_image_gposition'	=>	'left',
-			'qtsndtps_background_image_vposition'	=>	'bottom'
+			'qtsndtps_background_image_vposition'	=>	'bottom',
+			'display_settings_notice'				=>	1
 		);
 
 		/* Install the option defaults */
@@ -100,6 +124,7 @@ if ( ! function_exists( 'register_qtsndtps_settings' ) ) {
 
 		/* Array merge incase this version has added new options */
 		if ( ! isset( $qtsndtps_options['plugin_option_version'] ) || $qtsndtps_options['plugin_option_version'] != $qtsndtps_plugin_info["Version"] ) {
+			$qtsndtps_options_defaults['display_settings_notice'] = 0;
 			$qtsndtps_options = array_merge( $qtsndtps_options_defaults, $qtsndtps_options );
 			$qtsndtps_options['plugin_option_version'] = $qtsndtps_plugin_info["Version"];
 			update_option( 'qtsndtps_options', $qtsndtps_options );
@@ -110,8 +135,8 @@ if ( ! function_exists( 'register_qtsndtps_settings' ) ) {
 if ( ! function_exists( 'qtsndtps_register_tips_post_type' ) ) {
 	function qtsndtps_register_tips_post_type() {
 		$args = array(
-			'label'				=>	__( 'Tips', 'quotes_and_tips' ),
-			'singular_label'	=>	__( 'Tips', 'quotes_and_tips' ),
+			'label'				=>	__( 'Tips', 'quotes-and-tips' ),
+			'singular_label'	=>	__( 'Tips', 'quotes-and-tips' ),
 			'public'			=>	true,
 			'show_ui'			=>	true,
 			'capability_type' 	=>	'post',
@@ -119,13 +144,13 @@ if ( ! function_exists( 'qtsndtps_register_tips_post_type' ) ) {
 			'rewrite'			=>	true,
 			'supports'			=>	array( 'title', 'editor' ),
 			'labels'			=>	array(
-				'add_new_item'			=>	__( 'Add a new tip', 'quotes_and_tips' ),
-				'edit_item'				=>	__( 'Edit tips', 'quotes_and_tips' ),
-				'new_item'				=>	__( 'New tip', 'quotes_and_tips' ),
-				'view_item'				=>	__( 'View tips', 'quotes_and_tips' ),
-				'search_items'			=>	__( 'Search tips', 'quotes_and_tips' ),
-				'not_found'				=>	__( 'No tips found', 'quotes_and_tips' ),
-				'not_found_in_trash'	=>	__( 'No tips found in Trash', 'quotes_and_tips' )
+				'add_new_item'			=>	__( 'Add a new tip', 'quotes-and-tips' ),
+				'edit_item'				=>	__( 'Edit tips', 'quotes-and-tips' ),
+				'new_item'				=>	__( 'New tip', 'quotes-and-tips' ),
+				'view_item'				=>	__( 'View tips', 'quotes-and-tips' ),
+				'search_items'			=>	__( 'Search tips', 'quotes-and-tips' ),
+				'not_found'				=>	__( 'No tips found', 'quotes-and-tips' ),
+				'not_found_in_trash'	=>	__( 'No tips found in Trash', 'quotes-and-tips' )
 			)
 		);
 		register_post_type( 'tips' , $args );
@@ -135,8 +160,8 @@ if ( ! function_exists( 'qtsndtps_register_tips_post_type' ) ) {
 if( ! function_exists( 'qtsndtps_register_quote_post_type' ) ) {
 	function qtsndtps_register_quote_post_type() {
 		$args = array(
-			'label'				=>	__( 'Quotes', 'quotes_and_tips' ),
-			'singular_label'	=>	__( 'Quotes', 'quotes_and_tips' ),
+			'label'				=>	__( 'Quotes', 'quotes-and-tips' ),
+			'singular_label'	=>	__( 'Quotes', 'quotes-and-tips' ),
 			'public'			=>	true,
 			'show_ui'			=>	true,
 			'capability_type'	=>	'post',
@@ -144,13 +169,13 @@ if( ! function_exists( 'qtsndtps_register_quote_post_type' ) ) {
 			'rewrite'			=>	true,
 			'supports'			=>	array( 'title', 'editor' ),
 			'labels'			=>	array(
-				'add_new_item'			=>	__( 'Add a New quote', 'quotes_and_tips' ),
-				'edit_item'				=>	__( 'Edit quote', 'quotes_and_tips' ),
-				'new_item'				=>	__( 'New quote', 'quotes_and_tips' ),
-				'view_item'				=>	__( 'View quote', 'quotes_and_tips' ),
-				'search_items'			=>	__( 'Search quote', 'quotes_and_tips' ),
-				'not_found'				=>	__( 'No quote found', 'quotes_and_tips' ),
-				'not_found_in_trash'	=>	__( 'No quote found in Trash', 'quotes_and_tips' )
+				'add_new_item'			=>	__( 'Add a New quote', 'quotes-and-tips' ),
+				'edit_item'				=>	__( 'Edit quote', 'quotes-and-tips' ),
+				'new_item'				=>	__( 'New quote', 'quotes-and-tips' ),
+				'view_item'				=>	__( 'View quote', 'quotes-and-tips' ),
+				'search_items'			=>	__( 'Search quote', 'quotes-and-tips' ),
+				'not_found'				=>	__( 'No quote found', 'quotes-and-tips' ),
+				'not_found_in_trash'	=>	__( 'No quote found in Trash', 'quotes-and-tips' )
 			),
 			'public'			=>	true,
 			'supports'			=>	array( 'title', 'editor', 'thumbnail', 'comments' ),
@@ -246,16 +271,16 @@ if ( ! function_exists( 'qtsndtps_quote_custom_metabox' ) ) {
 		$name_field = get_post_meta( $post->ID, 'name_field' ) ;
 		$off_cap = get_post_meta( $post->ID, 'off_cap' );
 		wp_nonce_field( plugin_basename( __FILE__ ), 'qtsndtps_nonce_name' ); ?>
-		<p><label for="name_field"><?php _e( 'Name:', 'quotes_and_tips' ); ?><br />
+		<p><label for="name_field"><?php _e( 'Name:', 'quotes-and-tips' ); ?><br />
 			<input type="text" id="name_field" size="37" name="name_field" value="<?php if ( ! empty( $name_field ) ) echo $name_field[0]; ?>"/></label></p>
-		<p><label for="off_cap"><?php _e( 'Official position:', 'quotes_and_tips' ); ?></label><br />
+		<p><label for="off_cap"><?php _e( 'Official position:', 'quotes-and-tips' ); ?></label><br />
 			<input type="text" id="off_cap" size="37" name="off_cap" value="<?php if ( ! empty( $off_cap ) ) echo $off_cap[0]; ?>"/></p>
 	<?php }
 }
 
 if ( ! function_exists( 'qtsndtps_add_custom_metabox' ) ) {
 	function qtsndtps_add_custom_metabox() {
-		add_meta_box( 'custom-metabox', __( 'Name and Official position', 'quotes_and_tips' ), 'qtsndtps_quote_custom_metabox', 'quote', 'normal', 'high' );
+		add_meta_box( 'custom-metabox', __( 'Name and Official position', 'quotes-and-tips' ), 'qtsndtps_quote_custom_metabox', 'quote', 'normal', 'high' );
 	}
 }
 
@@ -304,14 +329,14 @@ if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 				}
 				$new_file = $upload_dir_full . $_FILES["qtsndtps_background_image"]['name'];
 				if ( false === @ move_uploaded_file( $_FILES["qtsndtps_background_image"]['tmp_name'], $new_file ) )
-					wp_die( sprintf( __( 'The uploaded file could not be moved to %s.', 'quotes_and_tips' ), $upload_dir_full ), __( 'Image Processing Error', 'quotes_and_tips' ) );
+					wp_die( sprintf( __( 'The uploaded file could not be moved to %s.', 'quotes-and-tips' ), $upload_dir_full ), __( 'Image Processing Error', 'quotes-and-tips' ) );
 				
 				$file['url']	=	$upload_dir['baseurl'] . "/quotes-and-tips-image/" . $_FILES["qtsndtps_background_image"]['name'];
 				$file['type']	=	$_FILES["qtsndtps_background_image"]["type"];
 				$file['file']	=	$new_file;
 
 				if ( isset( $file['error'] ) )
-					wp_die( $file['error'],  __( 'Image Upload Error', 'quotes_and_tips' ) );
+					wp_die( $file['error'],  __( 'Image Upload Error', 'quotes-and-tips' ) );
 
 				$filename	=	basename( $file['file'] );
 
@@ -349,7 +374,7 @@ if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 				} else {
 					if ( in_array( 'quote', $cstmsrch_options ) ) {
 						$key = array_search( 'quote', $cstmsrch_options );
-						unset( $cstmsrch_options[$key] );
+						unset( $cstmsrch_options[ $key ] );
 					}
 				}
 				if ( ! in_array( $qtsndtps_push, $cstmsrch_options ) )
@@ -360,7 +385,7 @@ if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 				foreach ( $qtsndtps_push as $value ) {
 					if ( in_array( $value, $cstmsrch_options ) ) {
 						$key = array_search( $value, $cstmsrch_options );
-						unset( $cstmsrch_options[$key] );
+						unset( $cstmsrch_options[ $key ] );
 					}
 					update_option( $cstmsrch_options_name, $cstmsrch_options );
 				}
@@ -370,141 +395,149 @@ if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 			$qtsndtps_options = array_merge( $qtsndtps_options, $qtsndtps_request_options );
 			/* Check select one point in the blocks Arithmetic actions and Difficulty on settings page */
 			update_option( 'qtsndtps_options', $qtsndtps_options );
-			$message = __( "Settings saved", 'quotes_and_tips' );
+			$message = __( "Settings saved", 'quotes-and-tips' );
 		} /* Display form on the setting page */ 
 
 		/* Add restore function */
 		if ( isset( $_REQUEST['bws_restore_confirm'] ) && check_admin_referer( plugin_basename( __FILE__ ), 'bws_settings_nonce_name' ) ) {
 			$qtsndtps_options = $qtsndtps_options_defaults;
 			update_option( 'qtsndtps_options', $qtsndtps_options );
-			$message = __( 'All plugin settings were restored.', 'quotes_and_tips' );
+			$message = __( 'All plugin settings were restored.', 'quotes-and-tips' );
 		} /* end */ ?>
 		<div class="wrap">
-			<div class="icon32 icon32-bws" id="icon-options-general"></div>
-			<h2><?php _e('Quotes and Tips Settings', 'quotes_and_tips' ); ?></h2>
-			<h2 class="nav-tab-wrapper">
-				<a class="nav-tab nav-tab-active"  href="admin.php?page=quotes-and-tips.php"><?php _e( 'Settings', 'quotes_and_tips' ); ?></a>
-				<a class="nav-tab" href="http://bestwebsoft.com/products/quotes-and-tips/faq/" target="_blank"><?php _e( 'FAQ', 'quotes_and_tips' ); ?></a>
-			</h2>
+			<h2><?php _e( 'Quotes and Tips Settings', 'quotes-and-tips' ); ?></h2>
 			<div class="updated fade" <?php if ( $message == "" || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
-			<div id="qtsndtps_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'quotes_and_tips' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'quotes_and_tips' ); ?></p></div>
+			<?php bws_show_settings_notice(); ?>
 			<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
 			<?php if ( ! isset( $_GET['action'] ) ) { 
 				if ( isset( $_REQUEST['bws_restore_default'] ) && check_admin_referer( plugin_basename( __FILE__ ), 'bws_settings_nonce_name' ) ) {
 					bws_form_restore_default_confirm( plugin_basename( __FILE__ ) );
 				} else { ?>
+					<br/>
+					<div><?php printf( 
+						__( "If you would like to add Quotes and Tips block to your page or post, please use %s button", 'quotes-and-tips' ), 
+						'<span class="bws_code"><img style="vertical-align: sub;" src="' . plugins_url( 'bws_menu/images/shortcode-icon.png', __FILE__ ) . '" alt=""/></span>' ); ?> 
+						<div class="bws_help_box bws_help_box_right dashicons dashicons-editor-help">
+							<div class="bws_hidden_help_text" style="min-width: 180px;">
+								<?php printf( 
+									__( "You can add Quotes and Tips block to your page or post by clicking on %s button in the content edit block using the Visual mode. If the button isn't displayed, please use the shortcode %s", 'quotes-and-tips' ), 
+									'<code><img style="vertical-align: sub;" src="' . plugins_url( 'bws_menu/images/shortcode-icon.png', __FILE__ ) . '" alt="" /></code>',
+									'<code>[quotes_and_tips]</code>'
+								); ?>
+							</div>
+						</div>
+					</div>
 					<p>
-						<?php _e( "If you would like to use this block, just copy and paste this shortcode to your post or page", 'quotes_and_tips' ); ?> - <code>[quotes_and_tips]</code>, 
-						<?php _e( "or add the following strings into the template source code", 'quotes_and_tips' ); ?> <code>&#60;?php if ( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote(); ?&#62;</code>
+						<?php _e( "Or add the following strings into the template source code", 'quotes-and-tips' ); ?> <code>&#60;?php if ( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote(); ?&#62;</code>
 					</p>
-					<form method="post" action="admin.php?page=quotes-and-tips.php" id="qtsndtps_form_image_size" enctype="multipart/form-data">
+					<form method="post" action="admin.php?page=quotes-and-tips.php" class="bws_form" enctype="multipart/form-data">
 						<table class="form-table">
 							<tr valign="top">
-								<th scope="row"><?php _e( 'Upload settings:', 'quotes_and_tips' ); ?> </th>
-								<td>
-									<label><input type="radio" name="qtsndtps_page_load" value="1" <?php if ( '1' == $qtsndtps_options['qtsndtps_page_load'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Random order with the page reload', 'quotes_and_tips' ); ?></label><br />
-									<label><input type="radio" name="qtsndtps_page_load" value="0" <?php if ( '0' == $qtsndtps_options['qtsndtps_page_load'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Random order without the page reload', 'quotes_and_tips' ); ?></label><br />
-									<input type="number" name="qtsndtps_interval_load" min="1" max="999" step="1" value="<?php echo $qtsndtps_options['qtsndtps_interval_load']; ?>" style="width:55px" /> <?php _e( 'Reload time (in seconds)', 'quotes_and_tips' ); ?></label>
-								</td>
+								<th scope="row"><?php _e( 'Upload settings:', 'quotes-and-tips' ); ?> </th>
+								<td><fieldset>
+									<label><input type="radio" name="qtsndtps_page_load" value="1" <?php if ( '1' == $qtsndtps_options['qtsndtps_page_load'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Random order with the page reload', 'quotes-and-tips' ); ?></label><br />
+									<label><input type="radio" name="qtsndtps_page_load" value="0" <?php if ( '0' == $qtsndtps_options['qtsndtps_page_load'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Random order without the page reload', 'quotes-and-tips' ); ?></label><br />
+									<input type="number" name="qtsndtps_interval_load" min="1" max="999" step="1" value="<?php echo $qtsndtps_options['qtsndtps_interval_load']; ?>" style="width:55px" /> <?php _e( 'Reload time (in seconds)', 'quotes-and-tips' ); ?></label>
+								</fieldset></td>
 							</tr>
 							<tr valign="top">
-								<th scope="row"><?php _e( 'Title options:', 'quotes_and_tips' ); ?> </th>
+								<th scope="row"><?php _e( 'Title options:', 'quotes-and-tips' ); ?> </th>
+								<td><fieldset>
+									<label><input type="radio" name="qtsndtps_title_post" value="1" class="qtsndtps_title_post" <?php if ( '1' == $qtsndtps_options['qtsndtps_title_post'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Get title from post', 'quotes-and-tips' ); ?></label><br />
+									<label><input type="radio" name="qtsndtps_title_post" value="0" class="qtsndtps_title_post" <?php if ( '0' == $qtsndtps_options['qtsndtps_title_post'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Get label of the block', 'quotes-and-tips' ); ?></label>
+								</fieldset></td>
+							</tr>
+							<tr valign="top" class="qtsndtps_title_post_fields">
+								<th scope="row"><?php _e( 'Tip label:', 'quotes-and-tips' ); ?> </th>
 								<td>
-									<label><input type="radio" name="qtsndtps_title_post" value="1" class="qtsndtps_title_post" <?php if ( '1' == $qtsndtps_options['qtsndtps_title_post'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Get title from post', 'quotes_and_tips' ); ?></label><br />
-									<label><input type="radio" name="qtsndtps_title_post" value="0" class="qtsndtps_title_post" <?php if ( '0' == $qtsndtps_options['qtsndtps_title_post'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Get label of the block', 'quotes_and_tips' ); ?></label>
+									<input type="text" name="qtsndtps_tip_label" maxlength="250" value="<?php echo $qtsndtps_options['qtsndtps_tip_label']; ?>" />
 								</td>
 							</tr>
 							<tr valign="top" class="qtsndtps_title_post_fields">
-								<th scope="row"><?php _e( 'Tip label:', 'quotes_and_tips' ); ?> </th>
+								<th scope="row"><?php _e( 'Quote label:', 'quotes-and-tips' ); ?> </th>
 								<td>
-									<input type="text" name="qtsndtps_tip_label" maxlength="250" value="<?php echo $qtsndtps_options['qtsndtps_tip_label']; ?>" style="width:250px" />
-								</td>
-							</tr>
-							<tr valign="top" class="qtsndtps_title_post_fields">
-								<th scope="row"><?php _e( 'Quote label:', 'quotes_and_tips' ); ?> </th>
-								<td>
-									<input type="text" name="qtsndtps_quote_label" maxlength="250" value="<?php echo $qtsndtps_options['qtsndtps_quote_label']; ?>" style="width:250px" />
+									<input type="text" name="qtsndtps_quote_label" maxlength="250" value="<?php echo $qtsndtps_options['qtsndtps_quote_label']; ?>" />
 								</td>
 							</tr>
 							<tr valign="top">
-								<th scope="row" colspan="2"><label><input type="checkbox" name="qtsndtps_additional_options" id="qtsndtps_additional_options" value="1" <?php if ( '1' == $qtsndtps_options['qtsndtps_additional_options'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Additional settings', 'quotes_and_tips' ); ?> </label></th>
+								<th scope="row" colspan="2"><label><input type="checkbox" name="qtsndtps_additional_options" id="qtsndtps_additional_options" value="1" <?php if ( '1' == $qtsndtps_options['qtsndtps_additional_options'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Additional settings', 'quotes-and-tips' ); ?> </label></th>
 							</tr>
 							<tr valign="top" class="qtsndtps_additions_block <?php if ( '0' == $qtsndtps_options['qtsndtps_additional_options'] ) echo 'qtsndtps_hidden'; ?>">
-								<th scope="row"><?php _e( 'Background Color:', 'quotes_and_tips' ); ?></th>
+								<th scope="row"><?php _e( 'Background Color:', 'quotes-and-tips' ); ?></th>
 								<td>
-									<input type="text" name="qtsndtps_background_color" id="link-color" maxlength="7" value="<?php echo esc_attr( $qtsndtps_options['qtsndtps_background_color'] ); ?>" />
-									<a href="#" class="pickcolor hide-if-no-js" id="link-color-example"></a>
+									<input type="text" name="qtsndtps_background_color" id="qtsndtps-link-color" maxlength="7" value="<?php echo esc_attr( $qtsndtps_options['qtsndtps_background_color'] ); ?>" />
+									<a href="#" class="pickcolor hide-if-no-js" id="qtsndtps-link-color-example"></a>
 									<div id="colorPickerDiv" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
 								</td>
 							</tr>
 							<tr valign="top" class="qtsndtps_additions_block <?php if ( '0' == $qtsndtps_options['qtsndtps_additional_options'] ) echo 'qtsndtps_hidden'; ?>">
-								<th scope="row"><?php _e( 'Text Color:', 'quotes_and_tips' ); ?></th>
+								<th scope="row"><?php _e( 'Text Color:', 'quotes-and-tips' ); ?></th>
 								<td>
-									<input type="text" name="qtsndtps_text_color" id="text-color" maxlength="7" value="<?php echo esc_attr( $qtsndtps_options['qtsndtps_text_color'] ); ?>" />
-									<a href="#" class="pickcolor1 hide-if-no-js" id="text-color-example"></a>
+									<input type="text" name="qtsndtps_text_color" id="qtsndtps-text-color" maxlength="7" value="<?php echo esc_attr( $qtsndtps_options['qtsndtps_text_color'] ); ?>" />
+									<a href="#" class="pickcolor1 hide-if-no-js" id="qtsndtps-text-color-example"></a>
 									<div id="colorPickerDiv1" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
 								</td>
 							</tr>
 							<tr valign="top" class="qtsndtps_additions_block <?php if ( '0' == $qtsndtps_options['qtsndtps_additional_options'] ) echo 'qtsndtps_hidden'; ?>">
-								<th scope="row"><?php _e( 'Background image:', 'quotes_and_tips' ); ?></th>
+								<th scope="row"><?php _e( 'Background image:', 'quotes-and-tips' ); ?></th>
 								<td>
-									<label><input type="checkbox" name="qtsndtps_background_image_use" value="1" <?php if ( '1' == $qtsndtps_options['qtsndtps_background_image_use'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Use background image', 'quotes_and_tips' ); ?></label><br />
-									<label for="qtsndtps_background_image"><?php _e( 'Choose an image from your computer:', 'quotes_and_tips' ); ?></label><br />
+									<label><input type="checkbox" name="qtsndtps_background_image_use" value="1" <?php if ( '1' == $qtsndtps_options['qtsndtps_background_image_use'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Use background image', 'quotes-and-tips' ); ?></label><br />
+									<label for="qtsndtps_background_image"><?php _e( 'Choose an image from your computer:', 'quotes-and-tips' ); ?></label><br />
 									<input type="file" name="qtsndtps_background_image" id="qtsndtps_background_image"><br />
 									<?php if ( ! empty( $qtsndtps_options['qtsndtps_background_image'] ) ) { ?>
-									<label for="qtsndtps_background_image"><?php _e( 'Current image:', 'quotes_and_tips' ); ?></label><br>
+									<label for="qtsndtps_background_image"><?php _e( 'Current image:', 'quotes-and-tips' ); ?></label><br>
 									<img src="<?php echo $qtsndtps_options['qtsndtps_background_image']; ?>" alt="" title="" style="border:1px solid red;background-color:<?php echo esc_attr( $qtsndtps_options['qtsndtps_background_color'] ); ?>;" />
 									<?php } ?>
 								</td>
 							</tr>
 							<tr valign="top" class="qtsndtps_additions_block <?php if ( '0' == $qtsndtps_options['qtsndtps_additional_options'] ) echo 'qtsndtps_hidden'; ?>">
-								<th scope="row"><?php _e( 'Background image repeat:', 'quotes_and_tips' ); ?> </th>
-								<td>
-									<label><input type="checkbox" name="qtsndtps_background_image_repeat_x" value="1" <?php if ( '1' == $qtsndtps_options['qtsndtps_background_image_repeat_x'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Horizontal repeat (x)', 'quotes_and_tips' ); ?></label><br />
-									<label><input type="checkbox" name="qtsndtps_background_image_repeat_y" value="1" <?php if ( '1' == $qtsndtps_options['qtsndtps_background_image_repeat_y'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Vertical repeat (y)', 'quotes_and_tips' ); ?></label>
-								</td>
+								<th scope="row"><?php _e( 'Background image repeat:', 'quotes-and-tips' ); ?> </th>
+								<td><fieldset>
+									<label><input type="checkbox" name="qtsndtps_background_image_repeat_x" value="1" <?php if ( '1' == $qtsndtps_options['qtsndtps_background_image_repeat_x'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Horizontal repeat (x)', 'quotes-and-tips' ); ?></label><br />
+									<label><input type="checkbox" name="qtsndtps_background_image_repeat_y" value="1" <?php if ( '1' == $qtsndtps_options['qtsndtps_background_image_repeat_y'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Vertical repeat (y)', 'quotes-and-tips' ); ?></label>
+								</fieldset></td>
 							</tr>
 							<tr valign="top" class="qtsndtps_additions_block <?php if ( '0' == $qtsndtps_options['qtsndtps_additional_options'] ) echo 'qtsndtps_hidden'; ?>">
-								<th scope="row"><?php _e( 'Background image horizontal alignment:', 'quotes_and_tips' ); ?> </th>
-								<td>
-									<label><input type="radio" name="qtsndtps_background_image_gposition" value="left" <?php if ( 'left' == $qtsndtps_options['qtsndtps_background_image_gposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Left', 'quotes_and_tips' ); ?></label><br />
-									<label><input type="radio" name="qtsndtps_background_image_gposition" value="center" <?php if ( 'center' == $qtsndtps_options['qtsndtps_background_image_gposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Center', 'quotes_and_tips' ); ?></label><br />
-									<label><input type="radio" name="qtsndtps_background_image_gposition" value="right" <?php if ( 'right' == $qtsndtps_options['qtsndtps_background_image_gposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Right', 'quotes_and_tips' ); ?></label>
-								</td>
+								<th scope="row"><?php _e( 'Background image horizontal alignment:', 'quotes-and-tips' ); ?> </th>
+								<td><fieldset>
+									<label><input type="radio" name="qtsndtps_background_image_gposition" value="left" <?php if ( 'left' == $qtsndtps_options['qtsndtps_background_image_gposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Left', 'quotes-and-tips' ); ?></label><br />
+									<label><input type="radio" name="qtsndtps_background_image_gposition" value="center" <?php if ( 'center' == $qtsndtps_options['qtsndtps_background_image_gposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Center', 'quotes-and-tips' ); ?></label><br />
+									<label><input type="radio" name="qtsndtps_background_image_gposition" value="right" <?php if ( 'right' == $qtsndtps_options['qtsndtps_background_image_gposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Right', 'quotes-and-tips' ); ?></label>
+								</fieldset></td>
 							</tr>
 							<tr valign="top" class="qtsndtps_additions_block <?php if ( '0' == $qtsndtps_options['qtsndtps_additional_options'] ) echo 'qtsndtps_hidden'; ?>">
-								<th scope="row"><?php _e( 'Background image vertical alignment:', 'quotes_and_tips' ); ?> </th>
-								<td>
-									<label><input type="radio" name="qtsndtps_background_image_vposition" value="top" <?php if ( 'top' == $qtsndtps_options['qtsndtps_background_image_vposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Top', 'quotes_and_tips' ); ?></label><br />
-									<label><input type="radio" name="qtsndtps_background_image_vposition" value="center" <?php if ( 'center' == $qtsndtps_options['qtsndtps_background_image_vposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Center', 'quotes_and_tips' ); ?></label><br />
-									<label><input type="radio" name="qtsndtps_background_image_vposition" value="bottom" <?php if ( 'bottom' == $qtsndtps_options['qtsndtps_background_image_vposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Bottom', 'quotes_and_tips' ); ?></label>
-								</td>
+								<th scope="row"><?php _e( 'Background image vertical alignment:', 'quotes-and-tips' ); ?> </th>
+								<td><fieldset>
+									<label><input type="radio" name="qtsndtps_background_image_vposition" value="top" <?php if ( 'top' == $qtsndtps_options['qtsndtps_background_image_vposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Top', 'quotes-and-tips' ); ?></label><br />
+									<label><input type="radio" name="qtsndtps_background_image_vposition" value="center" <?php if ( 'center' == $qtsndtps_options['qtsndtps_background_image_vposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Center', 'quotes-and-tips' ); ?></label><br />
+									<label><input type="radio" name="qtsndtps_background_image_vposition" value="bottom" <?php if ( 'bottom' == $qtsndtps_options['qtsndtps_background_image_vposition'] ) echo 'checked="checked"'; ?> /> <?php _e( 'Bottom', 'quotes-and-tips' ); ?></label>
+								</fieldset></td>
 							</tr>
 							<tr valign="top">
-								<th scope="row"><?php _e( 'Add Quotes and Tips to the search', 'quotes_and_tips' ); ?></th>
+								<th scope="row"><?php _e( 'Add Quotes and Tips to the search', 'quotes-and-tips' ); ?></th>
 								<td>
 									<?php if ( array_key_exists( 'custom-search-plugin/custom-search-plugin.php', $all_plugins ) || array_key_exists( 'custom-search-pro/custom-search-pro.php', $all_plugins ) ) {
 										if ( is_plugin_active( 'custom-search-plugin/custom-search-plugin.php' ) || is_plugin_active( 'custom-search-pro/custom-search-pro.php' ) ) { ?>
 											<label><input type="checkbox" name="qtsndtps_add_to_search[quote]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'quote', $cstmsrch_options ) ) echo "checked=\"checked\"";  elseif ( ! $cstmsrch_options ) echo "disabled=\"disabled\""; ?> />Quote</label>
-											<span style="color: #888888;font-size: 10px;"> (<?php _e( 'Using', 'quotes_and_tips' ); ?> <a href="admin.php?page=custom_search.php">Custom Search</a> <?php _e( 'powered by', 'quotes_and_tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>)</span><br />
+											<span style="color: #888888;font-size: 10px;"> (<?php _e( 'Using', 'quotes-and-tips' ); ?> <a href="admin.php?page=custom_search.php">Custom Search</a> <?php _e( 'powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>)</span><br />
 											<label><input type="checkbox" name="qtsndtps_add_to_search[tips]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'tips', $cstmsrch_options ) ) echo "checked=\"checked\""; elseif ( ! $cstmsrch_options ) echo "disabled=\"disabled\"";  ?> /> Tips</label>
 										<?php } else { ?>
 											<label><input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[quote]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'quote', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> />Quote</label>
-											<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'quotes_and_tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="<?php echo bloginfo("url"); ?>/wp-admin/plugins.php"><?php _e( 'Activate Custom Search', 'quotes_and_tips' ); ?></a></span><br />
+											<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="<?php echo bloginfo("url"); ?>/wp-admin/plugins.php"><?php _e( 'Activate Custom Search', 'quotes-and-tips' ); ?></a></span><br />
 											<label><input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[tips]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'tips', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> /> Tips</label>
 										<?php }
 									} else { ?>
 										<input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[]" value="1" />
-										<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'quotes_and_tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/products/custom-search/"><?php _e( 'Download Custom Search', 'quotes_and_tips' ); ?></a></span><br />
+										<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/products/custom-search/"><?php _e( 'Download Custom Search', 'quotes-and-tips' ); ?></a></span><br />
 									<?php } ?>
 								</td>
 							</tr>
-						</table>
-						<input type="hidden" name='qtsndtps_form_submit' value="submit" />
+						</table>						
 						<p class="submit">
-							<input type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'quotes_and_tips' ) ?>" />
+							<input type="hidden" name='qtsndtps_form_submit' value="submit" />
+							<input id="bws-submit-button" type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'quotes-and-tips' ); ?>" />
+							<?php wp_nonce_field( plugin_basename( __FILE__ ), 'qtsndtps_nonce_name' ); ?>
 						</p>
-						<?php wp_nonce_field( plugin_basename( __FILE__ ), 'qtsndtps_nonce_name' ); ?>
 					</form>
 					<?php bws_form_restore_default_settings( plugin_basename( __FILE__ ) );
 				}
@@ -519,9 +552,9 @@ if ( ! function_exists( 'qtsndtps_register_plugin_links' ) ) {
 		$base = plugin_basename( __FILE__ );
 		if ( $file == $base ) {
 			if ( ! is_network_admin() )
-				$links[]	=	'<a href="admin.php?page=quotes-and-tips.php">' . __( 'Settings', 'quotes_and_tips' ) . '</a>';
-			$links[]	=	'<a href="http://wordpress.org/plugins/quotes-and-tips/faq/" target="_blank">' . __( 'FAQ', 'quotes_and_tips' ) . '</a>';
-			$links[]	=	'<a href="http://support.bestwebsoft.com">' . __( 'Support', 'quotes_and_tips' ) . '</a>';
+				$links[]	=	'<a href="admin.php?page=quotes-and-tips.php">' . __( 'Settings', 'quotes-and-tips' ) . '</a>';
+			$links[]	=	'<a href="http://wordpress.org/plugins/quotes-and-tips/faq/" target="_blank">' . __( 'FAQ', 'quotes-and-tips' ) . '</a>';
+			$links[]	=	'<a href="http://support.bestwebsoft.com">' . __( 'Support', 'quotes-and-tips' ) . '</a>';
 		}
 		return $links;
 	}
@@ -535,7 +568,7 @@ if ( ! function_exists( 'qtsndtps_plugin_action_links' ) ) {
 			if ( ! $this_plugin ) $this_plugin = plugin_basename( __FILE__ );
 
 			if ( $file == $this_plugin ) {
-				$settings_link = '<a href="admin.php?page=quotes-and-tips.php">' . __( 'Settings', 'quotes_and_tips' ) . '</a>';
+				$settings_link = '<a href="admin.php?page=quotes-and-tips.php">' . __( 'Settings', 'quotes-and-tips' ) . '</a>';
 				array_unshift( $links, $settings_link );
 			}
 		}
@@ -666,16 +699,22 @@ if ( ! function_exists ( 'qtsndtps_print_style_script' ) ) {
 
 if ( ! function_exists ( 'qtsndtps_wp_head' ) ) {
 	function qtsndtps_wp_head() {
-		global $wp_version;
-		if ( $wp_version < 3.8 )
-			wp_enqueue_style( 'qtsndtps_stylesheet', plugins_url( 'css/style_wp_before_3.8.css', __FILE__ ) );
-		else
-			wp_enqueue_style( 'qtsndtps_stylesheet', plugins_url( 'css/style.css', __FILE__ ) );
+		wp_enqueue_style( 'qtsndtps_stylesheet', plugins_url( 'css/style.css', __FILE__ ) );
 
 		if ( is_admin() && isset( $_GET['page'] ) && "quotes-and-tips.php" == $_GET['page'] ) {
 			wp_enqueue_style( 'farbtastic' );
 			wp_enqueue_script( 'farbtastic' );
 			wp_enqueue_script( 'qtsndtps_script', plugins_url( 'js/script.js', __FILE__ ), array( 'jquery' ) );
+		}
+	}
+}
+
+/* add admin notices */
+if ( ! function_exists ( 'qtsndtps_admin_notices' ) ) {
+	function qtsndtps_admin_notices() {
+		global $hook_suffix, $qtsndtps_plugin_info;
+		if ( 'plugins.php' == $hook_suffix && ! is_network_admin() ) {
+			bws_plugin_banner_to_settings( $qtsndtps_plugin_info, 'qtsndtps_options', 'quotes-and-tips', 'admin.php?page=quotes-and-tips.php', 'post-new.php?post_type=quote', __( 'Quote', 'quotes-and-tips' ) );
 		}
 	}
 }
@@ -690,10 +729,52 @@ if ( ! function_exists( 'qtsndtps_save_custom_quote' ) ) {
 	}
 }
 
+/* add shortcode content  */
+if ( ! function_exists( 'qtsndtps_shortcode_button_content' ) ) {
+	function qtsndtps_shortcode_button_content( $content ) { ?>
+		<div id="qtsndtps" style="display:none;">
+			<fieldset>				
+				<?php _e( 'Add Quotes and Tips block to your page or post', 'quotes-and-tips' ); ?>
+			</fieldset>
+			<input class="bws_default_shortcode" type="hidden" name="default" value="[quotes_and_tips]" />
+			<div class="clear"></div>
+		</div>
+	<?php }
+}
+
+/* add help tab  */
+if ( ! function_exists( 'qtsndtps_add_tabs' ) ) {
+	function qtsndtps_add_tabs() {
+		$screen = get_current_screen();
+		if ( ( ! empty( $screen->post_type ) && 'quote' == $screen->post_type ) ||
+			( ! empty( $screen->post_type ) && 'tips' == $screen->post_type ) ||
+			( isset( $_GET['page'] ) && $_GET['page'] == 'quotes-and-tips.php' ) ) {
+			$args = array(
+				'id' 			=> 'qtsndtps',
+				'section' 		=> '200538959'
+			);
+			bws_help_tab( $screen, $args );
+		}
+	}
+}
+
 /* Function for delete options */
 if ( ! function_exists ( 'qtsndtps_delete_options' ) ) {
 	function qtsndtps_delete_options() {
-		delete_option( 'qtsndtps_options' );
+		global $wpdb;
+		/* Delete options */
+		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+			$old_blog = $wpdb->blogid;
+			/* Get all blog ids */
+			$blogids = $wpdb->get_col( "SELECT `blog_id` FROM $wpdb->blogs" );
+			foreach ( $blogids as $blog_id ) {
+				switch_to_blog( $blog_id );
+				delete_option( 'qtsndtps_options' );
+			}
+			switch_to_blog( $old_blog );
+		} else {
+			delete_option( 'qtsndtps_options' );
+		}
 	}
 }
 
@@ -701,6 +782,7 @@ add_action( 'admin_menu', 'add_qtsndtps_admin_menu' );
 
 add_action( 'init', 'qtsndtps_plugin_init' );
 add_action( 'admin_init', 'qtsndtps_plugin_admin_init' );
+add_action( 'plugins_loaded', 'qtsndtps_plugins_loaded' );
 
 add_action( 'wp_head', 'qtsndtps_print_style_script' );
 add_action( 'admin_enqueue_scripts', 'qtsndtps_wp_head' );
@@ -709,11 +791,13 @@ add_action( 'wp_enqueue_scripts', 'qtsndtps_wp_head' );
 add_action( 'save_post', 'qtsndtps_save_custom_quote' );
 
 add_shortcode( 'quotes_and_tips', 'qtsndtps_create_tip_quote_block' );
-
+/* custom filter for bws button in tinyMCE */
+add_filter( 'bws_shortcode_button_content', 'qtsndtps_shortcode_button_content' );
 /* Additional links on the plugin page */
 add_filter( 'plugin_row_meta', 'qtsndtps_register_plugin_links', 10, 2 );
 /* Adds "Settings" link to the plugin action page */
 add_filter( 'plugin_action_links', 'qtsndtps_plugin_action_links', 10, 2 );
+/* add admin notices */
+add_action( 'admin_notices', 'qtsndtps_admin_notices' );
 
 register_uninstall_hook( __FILE__, 'qtsndtps_delete_options' );
-?>

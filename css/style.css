@@ -81,15 +81,8 @@
 .image-radio-option img {
 	margin: 0 0 0 -2px;
 }
-#link-color-example {
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-	border: 1px solid #dfdfdf;
-	margin: 0 7px 0 3px;
-	padding: 4px 14px;
-}
-#text-color-example {
+#qtsndtps-link-color-example,
+#qtsndtps-text-color-example {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
@@ -124,5 +117,17 @@ body.rtl .image-radio-option label {
 		background-repeat: repeat-x;
 		background-position: 0 bottom;
 		padding-bottom: 5px;
+	}
+}
+@media screen and (min-width: 783px) {
+	.qtsndtps_title_post_fields input {
+		width: 250px;
+	}
+}
+@media screen and (max-width: 782px) {
+	#qtsndtps-link-color,
+	#qtsndtps-text-color {
+		width: 85%;
+		display: inline;
 	}
 }
