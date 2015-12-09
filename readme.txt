@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: add quotes, add quotes and tips plugin, add quotes and tips, additional info, background image, create quotes, display quotes, free, free plugin, free quotes, free quotes and tips, free quotes and tips plugin, hints, information, Post, publish quotes, qotes, quote, quote label, quotes, quotes & tips post, quotes and tips post, quotes from clients, statements, simple quotes and tips, simple quotes and tips plugin, tip, tip label, tips, tips for visitors, wp, wp plugin, wp free plugin, wp quotes and tips, wp quotes and tips plugin, wp simple quotes and tips plugin, wp free quotes and tips, wp free quotes and tips plugin, wordpress plugin, wordpress free plugin, wordpress quotes and tips, wordpress quotes and tips plugin, wordpress simple quotes and tips plugin, wordpress free quotes and tips, wordpress free quotes and tips plugin
 Requires at least: 3.8
-Tested up to: 4.3.1
-Stable tag: 1.27
+Tested up to: 4.4
+Stable tag: 1.28
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,6 +109,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 3. Frontend page with Quotes and Tips block.
 
 == Changelog ==
+
+= V1.28 - 09.12.2015 =
+* Bugfix : The bug with plugin menu duplicating was fixed.
 
 = V1.27 - 28.10.2015 =
 * NEW : Hungarian language file is added to the plugin.
@@ -221,6 +224,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.28 =
+The bug with plugin menu duplicating was fixed.
 
 = V1.27 =
 Hungarian language file is added to the plugin. Textdomain was changed. We updated all functionality for wordpress 4.3.1.

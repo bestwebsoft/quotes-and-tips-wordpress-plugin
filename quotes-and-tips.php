@@ -6,7 +6,7 @@ Description: This plugin displays the Quotes and Tips in random order
 Author: BestWebSoft
 Text Domain: quotes-and-tips
 Domain Path: /languages
-Version: 1.27
+Version: 1.28
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -30,12 +30,14 @@ License: GPLv2 or later
 if ( ! function_exists( 'add_qtsndtps_admin_menu' ) ) {
 	function add_qtsndtps_admin_menu() {
 		global $submenu;
-		bws_add_general_menu( plugin_basename( __FILE__ ) );
+		bws_general_menu();
 		$settings = add_submenu_page( 'bws_plugins', 'Quotes and Tips', 'Quotes and Tips', 'manage_options', "quotes-and-tips.php", 'qtsndtps_settings_page' );
 		
 		$url = admin_url( 'admin.php?page=quotes-and-tips.php' );
-		$submenu['edit.php?post_type=quote'][] = array( __( 'Settings', 'quotes-and-tips' ), 'manage_options', $url );
-		$submenu['edit.php?post_type=tips'][] = array( __( 'Settings', 'quotes-and-tips' ), 'manage_options', $url );
+		if ( isset( $submenu['edit.php?post_type=quote'] ) )
+			$submenu['edit.php?post_type=quote'][] = array( __( 'Settings', 'quotes-and-tips' ), 'manage_options', $url );
+		if ( isset( $submenu['edit.php?post_type=tips'] ) )
+			$submenu['edit.php?post_type=tips'][] = array( __( 'Settings', 'quotes-and-tips' ), 'manage_options', $url );
 
 		add_action( 'load-' . $settings, 'qtsndtps_add_tabs' );
 		add_action( 'load-post.php', 'qtsndtps_add_tabs' );
@@ -150,7 +152,10 @@ if ( ! function_exists( 'qtsndtps_register_tips_post_type' ) ) {
 				'view_item'				=>	__( 'View tips', 'quotes-and-tips' ),
 				'search_items'			=>	__( 'Search tips', 'quotes-and-tips' ),
 				'not_found'				=>	__( 'No tips found', 'quotes-and-tips' ),
-				'not_found_in_trash'	=>	__( 'No tips found in Trash', 'quotes-and-tips' )
+				'not_found_in_trash'	=>	__( 'No tips found in Trash', 'quotes-and-tips' ),
+				'filter_items_list'     => __( 'Filter tips list', 'quotes-and-tips' ),
+				'items_list_navigation' => __( 'Tips list navigation', 'quotes-and-tips' ),
+				'items_list'            => __( 'Tips list', 'quotes-and-tips' )
 			)
 		);
 		register_post_type( 'tips' , $args );
@@ -175,7 +180,10 @@ if( ! function_exists( 'qtsndtps_register_quote_post_type' ) ) {
 				'view_item'				=>	__( 'View quote', 'quotes-and-tips' ),
 				'search_items'			=>	__( 'Search quote', 'quotes-and-tips' ),
 				'not_found'				=>	__( 'No quote found', 'quotes-and-tips' ),
-				'not_found_in_trash'	=>	__( 'No quote found in Trash', 'quotes-and-tips' )
+				'not_found_in_trash'	=>	__( 'No quote found in Trash', 'quotes-and-tips' ),
+				'filter_items_list'     => __( 'Filter quotes list', 'quotes-and-tips' ),
+				'items_list_navigation' => __( 'Quotes list navigation', 'quotes-and-tips' ),
+				'items_list'            => __( 'Quotes list', 'quotes-and-tips' )
 			),
 			'public'			=>	true,
 			'supports'			=>	array( 'title', 'editor', 'thumbnail', 'comments' ),
@@ -327,11 +335,11 @@ if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 				if ( ! is_dir( $upload_dir_full ) ) {
 					wp_mkdir_p( $upload_dir_full, 0755 );
 				}
-				$new_file = $upload_dir_full . $_FILES["qtsndtps_background_image"]['name'];
+				$new_file = $upload_dir_full . sanitize_file_name( $_FILES["qtsndtps_background_image"]['name'] );
 				if ( false === @ move_uploaded_file( $_FILES["qtsndtps_background_image"]['tmp_name'], $new_file ) )
 					wp_die( sprintf( __( 'The uploaded file could not be moved to %s.', 'quotes-and-tips' ), $upload_dir_full ), __( 'Image Processing Error', 'quotes-and-tips' ) );
 				
-				$file['url']	=	$upload_dir['baseurl'] . "/quotes-and-tips-image/" . $_FILES["qtsndtps_background_image"]['name'];
+				$file['url']	=	$upload_dir['baseurl'] . "/quotes-and-tips-image/" . sanitize_file_name( $_FILES["qtsndtps_background_image"]['name'] );
 				$file['type']	=	$_FILES["qtsndtps_background_image"]["type"];
 				$file['file']	=	$new_file;
 
@@ -405,7 +413,7 @@ if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 			$message = __( 'All plugin settings were restored.', 'quotes-and-tips' );
 		} /* end */ ?>
 		<div class="wrap">
-			<h2><?php _e( 'Quotes and Tips Settings', 'quotes-and-tips' ); ?></h2>
+			<h1><?php _e( 'Quotes and Tips Settings', 'quotes-and-tips' ); ?></h1>
 			<div class="updated fade" <?php if ( $message == "" || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<?php bws_show_settings_notice(); ?>
 			<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
@@ -516,19 +524,21 @@ if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 							<tr valign="top">
 								<th scope="row"><?php _e( 'Add Quotes and Tips to the search', 'quotes-and-tips' ); ?></th>
 								<td>
-									<?php if ( array_key_exists( 'custom-search-plugin/custom-search-plugin.php', $all_plugins ) || array_key_exists( 'custom-search-pro/custom-search-pro.php', $all_plugins ) ) {
-										if ( is_plugin_active( 'custom-search-plugin/custom-search-plugin.php' ) || is_plugin_active( 'custom-search-pro/custom-search-pro.php' ) ) { ?>
-											<label><input type="checkbox" name="qtsndtps_add_to_search[quote]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'quote', $cstmsrch_options ) ) echo "checked=\"checked\"";  elseif ( ! $cstmsrch_options ) echo "disabled=\"disabled\""; ?> />Quote</label>
-											<span style="color: #888888;font-size: 10px;"> (<?php _e( 'Using', 'quotes-and-tips' ); ?> <a href="admin.php?page=custom_search.php">Custom Search</a> <?php _e( 'powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>)</span><br />
-											<label><input type="checkbox" name="qtsndtps_add_to_search[tips]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'tips', $cstmsrch_options ) ) echo "checked=\"checked\""; elseif ( ! $cstmsrch_options ) echo "disabled=\"disabled\"";  ?> /> Tips</label>
-										<?php } else { ?>
-											<label><input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[quote]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'quote', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> />Quote</label>
-											<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="<?php echo bloginfo("url"); ?>/wp-admin/plugins.php"><?php _e( 'Activate Custom Search', 'quotes-and-tips' ); ?></a></span><br />
-											<label><input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[tips]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'tips', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> /> Tips</label>
-										<?php }
-									} else { ?>
+									<?php if ( array_key_exists( 'custom-search-plugin/custom-search-plugin.php', $all_plugins ) || array_key_exists( 'custom-search-pro/custom-search-pro.php', $all_plugins ) ) { ?>
+										<fieldset>
+											<?php if ( is_plugin_active( 'custom-search-plugin/custom-search-plugin.php' ) || is_plugin_active( 'custom-search-pro/custom-search-pro.php' ) ) { ?>
+												<label><input type="checkbox" name="qtsndtps_add_to_search[quote]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'quote', $cstmsrch_options ) ) echo "checked=\"checked\"";  elseif ( ! $cstmsrch_options ) echo "disabled=\"disabled\""; ?> />Quote</label>
+												<span class="bws_info"> (<?php _e( 'Using', 'quotes-and-tips' ); ?> <a href="admin.php?page=custom_search.php">Custom Search</a> <?php _e( 'powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>)</span><br />
+												<label><input type="checkbox" name="qtsndtps_add_to_search[tips]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'tips', $cstmsrch_options ) ) echo "checked=\"checked\""; elseif ( ! $cstmsrch_options ) echo "disabled=\"disabled\"";  ?> /> Tips</label>
+											<?php } else { ?>
+												<label><input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[quote]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'quote', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> />Quote</label>
+												<span class="bws_info">(<?php _e( 'Using Custom Search powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="<?php echo bloginfo("url"); ?>/wp-admin/plugins.php"><?php _e( 'Activate Custom Search', 'quotes-and-tips' ); ?></a></span><br />
+												<label><input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[tips]" value="1" <?php if ( false !== $cstmsrch_options && in_array( 'tips', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> /> Tips</label>
+											<?php } ?>
+										</fieldset>
+									<?php } else { ?>
 										<input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[]" value="1" />
-										<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/products/custom-search/"><?php _e( 'Download Custom Search', 'quotes-and-tips' ); ?></a></span><br />
+										<span class="bws_info">(<?php _e( 'Using Custom Search powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/products/custom-search/"><?php _e( 'Download Custom Search', 'quotes-and-tips' ); ?></a></span><br />
 									<?php } ?>
 								</td>
 							</tr>
