@@ -6,12 +6,12 @@ Description: This plugin displays the Quotes and Tips in random order
 Author: BestWebSoft
 Text Domain: quotes-and-tips
 Domain Path: /languages
-Version: 1.28
+Version: 1.29
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
 
-/*  © Copyright 2015  BestWebSoft  ( http://support.bestwebsoft.com )
+/*  © Copyright 2016  BestWebSoft  ( http://support.bestwebsoft.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -114,7 +114,8 @@ if ( ! function_exists( 'register_qtsndtps_settings' ) ) {
 			'qtsndtps_background_image_repeat_y'	=>	'0',
 			'qtsndtps_background_image_gposition'	=>	'left',
 			'qtsndtps_background_image_vposition'	=>	'bottom',
-			'display_settings_notice'				=>	1
+			'display_settings_notice'				=>	1,
+			'suggest_feature_banner'				=> 1
 		);
 
 		/* Install the option defaults */
@@ -414,9 +415,13 @@ if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 		} /* end */ ?>
 		<div class="wrap">
 			<h1><?php _e( 'Quotes and Tips Settings', 'quotes-and-tips' ); ?></h1>
-			<div class="updated fade" <?php if ( $message == "" || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
+			<h2 class="nav-tab-wrapper">
+				<a class="nav-tab<?php if ( ! isset( $_GET['action'] ) ) echo ' nav-tab-active'; ?>"  href="admin.php?page=quotes-and-tips.php"><?php _e( 'Settings', 'quotes-and-tips' ); ?></a>
+				<a class="nav-tab <?php if ( isset( $_GET['action'] ) && 'custom_code' == $_GET['action'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=quotes-and-tips.php&amp;action=custom_code"><?php _e( 'Custom code', 'quotes-and-tips' ); ?></a>
+			</h2>
+			<div class="updated fade below-h2" <?php if ( $message == "" || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<?php bws_show_settings_notice(); ?>
-			<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
+			<div class="error below-h2" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
 			<?php if ( ! isset( $_GET['action'] ) ) { 
 				if ( isset( $_REQUEST['bws_restore_default'] ) && check_admin_referer( plugin_basename( __FILE__ ), 'bws_settings_nonce_name' ) ) {
 					bws_form_restore_default_confirm( plugin_basename( __FILE__ ) );
@@ -551,6 +556,8 @@ if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 					</form>
 					<?php bws_form_restore_default_settings( plugin_basename( __FILE__ ) );
 				}
+			} else {
+				bws_custom_code_tab();
 			}
 			bws_plugin_reviews_block( $qtsndtps_plugin_info['Name'], 'quotes-and-tips' ); ?>
 		</div>
@@ -712,9 +719,13 @@ if ( ! function_exists ( 'qtsndtps_wp_head' ) ) {
 		wp_enqueue_style( 'qtsndtps_stylesheet', plugins_url( 'css/style.css', __FILE__ ) );
 
 		if ( is_admin() && isset( $_GET['page'] ) && "quotes-and-tips.php" == $_GET['page'] ) {
-			wp_enqueue_style( 'farbtastic' );
-			wp_enqueue_script( 'farbtastic' );
-			wp_enqueue_script( 'qtsndtps_script', plugins_url( 'js/script.js', __FILE__ ), array( 'jquery' ) );
+			if ( isset( $_GET['action'] ) && 'custom_code' == $_GET['action'] )
+				bws_plugins_include_codemirror();
+			else {
+				wp_enqueue_style( 'farbtastic' );
+				wp_enqueue_script( 'farbtastic' );
+				wp_enqueue_script( 'qtsndtps_script', plugins_url( 'js/script.js', __FILE__ ), array( 'jquery' ) );
+			}
 		}
 	}
 }
@@ -725,6 +736,9 @@ if ( ! function_exists ( 'qtsndtps_admin_notices' ) ) {
 		global $hook_suffix, $qtsndtps_plugin_info;
 		if ( 'plugins.php' == $hook_suffix && ! is_network_admin() ) {
 			bws_plugin_banner_to_settings( $qtsndtps_plugin_info, 'qtsndtps_options', 'quotes-and-tips', 'admin.php?page=quotes-and-tips.php', 'post-new.php?post_type=quote', __( 'Quote', 'quotes-and-tips' ) );
+		}
+		if ( isset( $_GET['page'] ) && "quotes-and-tips.php" == $_GET['page'] ) {
+			bws_plugin_suggest_feature_banner( $qtsndtps_plugin_info, 'qtsndtps_options', 'quotes-and-tips' );
 		}
 	}
 }
@@ -785,6 +799,10 @@ if ( ! function_exists ( 'qtsndtps_delete_options' ) ) {
 		} else {
 			delete_option( 'qtsndtps_options' );
 		}
+
+		require_once( dirname( __FILE__ ) . '/bws_menu/bws_include.php' );
+		bws_include_init( plugin_basename( __FILE__ ) );
+		bws_delete_plugin( plugin_basename( __FILE__ ) );
 	}
 }
 
