@@ -1,14 +1,14 @@
 === Quotes and Tips by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
-Tags: add quotes, add quotes and tips plugin, add quotes and tips, additional info, background image, create quotes, display quotes, free, free plugin, free quotes, free quotes and tips, free quotes and tips plugin, hints, information, Post, publish quotes, qotes, quote, quote label, quotes, quotes & tips post, quotes and tips post, quotes from clients, statements, simple quotes and tips, simple quotes and tips plugin, tip, tip label, tips, tips for visitors, wp, wp plugin, wp free plugin, wp quotes and tips, wp quotes and tips plugin, wp simple quotes and tips plugin, wp free quotes and tips, wp free quotes and tips plugin, wordpress plugin, wordpress free plugin, wordpress quotes and tips, wordpress quotes and tips plugin, wordpress simple quotes and tips plugin, wordpress free quotes and tips, wordpress free quotes and tips plugin
+Tags: add quotes, create quotes, display quotes, publish quotes, quote label, quotes from clients, quotes and tips, quotes and tips plugin, tip, tip label, tips for visitors, additional info
 Requires at least: 3.8
-Tested up to: 4.5
-Stable tag: 1.29
+Tested up to: 4.5.3
+Stable tag: 1.30
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin allows you to implement the Quotes & Tips block into your web site.
+Add customizable quotes and tips blocks to WordPress posts, pages and widgets.
 
 == Description ==
 
@@ -45,11 +45,11 @@ There is also a premium version of the plugin <a href="http://bestwebsoft.com/pr
 * Russian (ru_RU)
 * Ukrainian (uk)
 
-If you create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+Some of these translations are not complete. We are constantly adding new features which should be translated. If you create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> for <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
 = Technical support =
 
-Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in another languages won't be accepted.
+Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in other languages won't be accepted.
 
 If you notice any bugs in the plugins, you can notify us about it and we'll investigate and fix the issue then. Your request should contain URL of the website, issues description and WordPress admin panel credentials.
 Moreover we can customize the plugin according to your requirements. It's a paid service (as a rule it costs $40, but the price can vary depending on the amount of the necessary changes and their complexity). Please note that we could also include this or that feature (developed for you) in the next release and share with the other users then. 
@@ -59,7 +59,7 @@ We can fix some things for free for the users who provide translation of our plu
 
 1. Upload the folder `quotes-and-tips` to the directory `/wp-content/plugins/`.
 2. Activate the plugin via the 'Plugins' menu in WordPress.
-3. The site settings are available in 'BWS Plugins'->'Quotes and Tips'.
+3. The site settings are available in 'BWS Panel'->'Quotes and Tips'.
 
 <a href="https://docs.google.com/document/d/1LF8JiXTELxGQ-xLbNnc0bUWopxqXkkCgYhGwU6lSsAI/edit" target="_blank">View a PDF version of Step-by-step Instruction on Quotes and Tips Installation</a>.
 
@@ -75,23 +75,23 @@ http://www.youtube.com/watch?v=tEOjkZrwdNA
 
 `&lt;?php if( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote();  ?&gt;`.
 
-3. The settings are available on the page 'BWS Plugins' -> 'Quotes and Tips'.
+3. The settings are available on the page 'BWS Panel' -> 'Quotes and Tips'.
 
 = How to change background or text color? =
 
-1. Go to the Settings Page in the menu 'BWS Plugins'->'Quotes and Tips'.
+1. Go to the Settings Page in the menu 'BWS Panel'->'Quotes and Tips'.
 2. Choose `Additional options`.
 3. Apply the necessary settings (choose the text color, background color, upload a background image).
 
 = What should I do if I don't want to use a block background image anymore? =
 
-1. Go to the Settings Page in the menu 'BWS Plugins'->'Quotes and Tips'.
+1. Go to the Settings Page in the menu 'BWS Panel'->'Quotes and Tips'.
 2. Choose `Additional options`.
 3. Unmark the item `Use background image`.
 
 = I want to choose a background image position. How can I do that? =
 
-1. Go to the Settings Page in the menu 'BWS Plugins'->'Quotes and Tips'.
+1. Go to the Settings Page in the menu 'BWS Panel'->'Quotes and Tips'.
 2. Choose `Additional options`.
 3. Apply the necessary settings in the blocks Background image repeat, Background image horizontal alignment, Background image vertical alignment.
 
@@ -106,11 +106,15 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Screenshots ==
 
-1. Basic option for Quotes and Tips.
-2. Additional options for Quotes and Tips.
-3. Frontend page with Quotes and Tips block.
+1. Frontend page with Quotes and Tips block.
+2. Basic option for Quotes and Tips.
+3. Additional options for Quotes and Tips.
+4. Edit Quote page.
 
 == Changelog ==
+
+= V1.30 - 11.07.2016 =
+* Update : We updated all functionality for wordpress 4.5.3.
 
 = V1.29 - 18.04.2016 =
 * NEW : Ability to add custom styles.
@@ -229,6 +233,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.30 =
+* Update : We updated all functionality for wordpress 4.5.3.
 
 = V1.29 =
 Ability to add custom styles.
