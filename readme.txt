@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: add quotes, create quotes, display quotes, publish quotes, quote label, quotes from clients, quotes and tips, quotes and tips plugin, tip, tip label, tips for visitors, additional info
 Requires at least: 3.8
-Tested up to: 4.5.3
-Stable tag: 1.30
+Tested up to: 4.6.1
+Stable tag: 1.31
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,7 +35,7 @@ If you have a feature, suggestion or idea you'd like to see in the plugin, we'd 
 The author of the Quotes and Tips also recommends the following plugins:
 
 * <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/wordpress/plugins/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
 
 = Translation =
 
@@ -112,6 +112,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 4. Edit Quote page.
 
 == Changelog ==
+
+= V1.31 - 12.10.2016 =
+* Update : BWS plugins section is updated.
 
 = V1.30 - 11.07.2016 =
 * Update : We updated all functionality for wordpress 4.5.3.
@@ -234,8 +237,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Upgrade Notice ==
 
+= V1.31 =
+* Plugin optimization completed.
+
 = V1.30 =
-* Update : We updated all functionality for wordpress 4.5.3.
+We updated all functionality for wordpress 4.5.3.
 
 = V1.29 =
 Ability to add custom styles.

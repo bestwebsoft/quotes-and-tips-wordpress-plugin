@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Quotes and Tips by BestWebSoft
-Plugin URI: http://bestwebsoft.com/products/quotes-and-tips/
+Plugin URI: http://bestwebsoft.com/products/wordpress/plugins/quotes-and-tips/
 Description: Add customizable quotes and tips blocks to WordPress posts, pages and widgets.
 Author: BestWebSoft
 Text Domain: quotes-and-tips
 Domain Path: /languages
-Version: 1.30
+Version: 1.31
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -556,7 +556,7 @@ if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 										</fieldset>
 									<?php } else { ?>
 										<input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[]" value="1" />
-										<span class="bws_info">(<?php _e( 'Using Custom Search powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/products/custom-search/"><?php _e( 'Download Custom Search', 'quotes-and-tips' ); ?></a></span><br />
+										<span class="bws_info">(<?php _e( 'Using Custom Search powered by', 'quotes-and-tips' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/products/wordpress/plugins/custom-search/"><?php _e( 'Download Custom Search', 'quotes-and-tips' ); ?></a></span><br />
 									<?php } ?>
 								</td>
 							</tr>
