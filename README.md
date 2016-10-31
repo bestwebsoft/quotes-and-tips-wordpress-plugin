@@ -1,40 +1,88 @@
-<a href="http://bestwebsoft.com/products/quotes-and-tips/" target=_blank>Quotes and Tips WordPress Plugin</a>
+<a href="http://bestwebsoft.com/products/wordpress/plugins/quotes-and-tips/" target=_blank>Quotes and Tips WordPress Plugin</a>
 ========================
 
 Add customizable quotes and tips blocks to WordPress posts, pages and widgets.
 
 <img src="http://bestwebsoft.com/wp-content/uploads/2014/09/quotes-and-tips-banner-website.jpg" />
 
-<p>This plugin allows you to create and publish quotes of your customers about your work and helpful tips for the website visitors. Imagine that now on now your satisfied customers will help to promote business. Moreover, it is very simple in using.</p>
+<p>Quotes and Tips plugin is a simple solution to add useful content on your WordPress website. Customize the appearance, configure settings, and paste quotes and tips wherever you like.</p>
+
+<p>Display useful and featured content for your visitors today!</p>
 
 
 <div class='video'></div>
 
 
-<p><a href="https://www.youtube.com/watch?v=tEOjkZrwdNA">Quotes and Tips by BestWebSoft Video instruction on Installation</a></p>
-
-<p><a href="http://wordpress.org/plugins/quotes-and-tips/faq/">Quotes and Tips by BestWebSoft FAQ</a></p>
-
-<p><a href="http://support.bestwebsoft.com">Quotes and Tips by BestWebSoft Support</a></p>
-
 <h4>Features</h4>
 
 <ul>
-<li>Set a background image for the block, change background color and text color.</li>
-<li>Add quotes &#38; tips to any place on your website.</li>
-<li>Change a label for the Quotes block and Tips block - user custom label or title of the quotes &#38; tips posts.</li>
-</ul>
-
-<p>If you have a feature, suggestion or idea you'd like to see in the plugin, we'd love to hear about it! <a href="http://support.bestwebsoft.com/hc/en-us/requests/new">Suggest a Feature</a></p>
-
-<h4>Recommended Plugins</h4>
-
-<p>The author of the Quotes and Tips also recommends the following plugins:</p>
+<li>Add unlimited number of quotes and tips including:
 
 <ul>
-<li><a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/wordpress/plugins/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.</li>
+<li>Author name</li>
+<li>Official position</li>
+</ul></li>
+<li>Edit quotes and tips using TinyMCE editor</li>
+<li>Add quotes and tips using shortcode to:
+
+<ul>
+<li>Posts</li>
+<li>Pages</li>
+<li>Widgets</li>
+</ul></li>
+<li>Set random rotation:
+
+<ul>
+<li>With page reload</li>
+<li>Without page reload</li>
+</ul></li>
+<li>Set automatic reload time</li>
+<li>Change background and text color</li>
+<li>Change custom background image</li>
+<li>Set background image repeat:
+
+<ul>
+<li>Horizontal</li>
+<li>Vertical</li>
+</ul></li>
+<li>Choose background image alignment:
+
+<ul>
+<li>Horizontal 
+
+<ul>
+<li>Left</li>
+<li>Center</li>
+<li>Right</li>
+</ul></li>
+<li>Vertical
+
+<ul>
+<li>Top</li>
+<li>Center</li>
+<li>Bottom</li>
+</ul></li>
+</ul></li>
+<li>Add quotes and tips to search results with <a href="http://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455">Custom Search</a></li>
+<li>Add custom code via plugin settings page</li>
+<li>Compatible with latest WordPress version</li>
+<li>Incredibly simple settings for fast setup without modifying code</li>
+<li>Detailed step-by-step documentation and videos</li>
+<li>Multilingual and RTL ready</li>
 </ul>
+
+<p>If you have a feature suggestion or idea you'd like to see in the plugin, we'd love to hear about it! <a href="http://support.bestwebsoft.com/hc/en-us/requests/new">Suggest a Feature</a></p>
+
+<h4>Documentation &#38; Videos</h4>
+
+<ul>
+<li><a href="https://docs.google.com/document/d/1LF8JiXTELxGQ-xLbNnc0bUWopxqXkkCgYhGwU6lSsAI/">[Doc] Installation</a></li>
+<li><a href="https://www.youtube.com/watch?v=tEOjkZrwdNA">[Video] Installation Instruction</a></li>
+</ul>
+
+<h4>Help &#38; Support</h4>
+
+<p>Visit our Help Center if you have any questions, our friendly Support Team is happy to help &#8212; <a href="http://support.bestwebsoft.com/">http://support.bestwebsoft.com/</a></p>
 
 <h4>Translation</h4>
 
@@ -46,12 +94,17 @@ There is also a premium version of the plugin <a href="http://bestwebsoft.com/pr
 <li>Ukrainian (uk)</li>
 </ul>
 
-<p>Some of these translations are not complete. We are constantly adding new features which should be translated. If you create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress">the text in PO and MO files</a> for <a href="http://support.bestwebsoft.com/hc/en-us/requests/new">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files <a href="http://www.poedit.net/download.php">Poedit</a>.</p>
+<p>Some of these translations are not complete. We are constantly adding new features which should be translated. If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress">the text of PO and MO files</a> to <a href="http://support.bestwebsoft.com/hc/en-us/requests/new">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO <a href="http://www.poedit.net/download.php">files Poedit</a>.</p>
 
-<h4>Technical support</h4>
+<h4>Recommended Plugins</h4>
 
-<p>Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in other languages won't be accepted.</p>
+<ul>
+<li><a href="http://bestwebsoft.com/products/wordpress/plugins/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5">Updater</a> - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.</li>
+<li><a href="http://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455">Custom Search</a> - Add custom post types to WordPress website search results.</li>
+</ul>
 
-<p>If you notice any bugs in the plugins, you can notify us about it and we'll investigate and fix the issue then. Your request should contain URL of the website, issues description and WordPress admin panel credentials.
-Moreover we can customize the plugin according to your requirements. It's a paid service (as a rule it costs $40, but the price can vary depending on the amount of the necessary changes and their complexity). Please note that we could also include this or that feature (developed for you) in the next release and share with the other users then. 
-We can fix some things for free for the users who provide translation of our plugin into their native language (this should be a new translation of a certain plugin, you can check available translations on the official plugin page).</p>
+<h4>Donate</h4>
+
+<p>Donations play an important role in supporting open-source projects. We greatly appreciate any donation you can make to help us continue further development of free products.</p>
+
+<p><a href="http://bestwebsoft.com/donate/">Donate Now</a></p>

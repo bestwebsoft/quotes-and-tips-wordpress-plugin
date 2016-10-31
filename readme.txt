@@ -12,48 +12,78 @@ Add customizable quotes and tips blocks to WordPress posts, pages and widgets.
 
 == Description ==
 
-This plugin allows you to create and publish quotes of your customers about your work and helpful tips for the website visitors. Imagine that now on now your satisfied customers will help to promote business. Moreover, it is very simple in using.
+Quotes and Tips plugin is a simple solution to add useful content on your WordPress website. Customize the appearance, configure settings, and paste quotes and tips wherever you like.
+
+Display useful and featured content for your visitors today!
 
 http://www.youtube.com/watch?v=kSR0mERfxBI
 
-<a href="https://www.youtube.com/watch?v=tEOjkZrwdNA" target="_blank">Quotes and Tips by BestWebSoft Video instruction on Installation</a>
-
-<a href="http://wordpress.org/plugins/quotes-and-tips/faq/" target="_blank">Quotes and Tips by BestWebSoft FAQ</a>
-
-<a href="http://support.bestwebsoft.com" target="_blank">Quotes and Tips by BestWebSoft Support</a>
-
 = Features =
 
-* Set a background image for the block, change background color and text color.
-* Add quotes & tips to any place on your website.
-* Change a label for the Quotes block and Tips block - user custom label or title of the quotes & tips posts.
+* Add unlimited number of quotes and tips including:
+	* Author name
+	* Official position
+* Edit quotes and tips using TinyMCE editor
+* Add quotes and tips using shortcode to:
+	* Posts
+	* Pages
+	* Widgets
+* Set random rotation:
+	* With page reload
+	* Without page reload
+* Set automatic reload time
+* Change background and text color
+* Change custom background image
+* Set background image repeat:
+	* Horizontal
+	* Vertical
+* Choose background image alignment:
+	* Horizontal 
+		* Left
+		* Center
+		* Right
+	* Vertical
+		* Top
+		* Center
+		* Bottom
+* Add quotes and tips to search results with [Custom Search](http://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455)
+* Add custom code via plugin settings page
+* Compatible with latest WordPress version
+* Incredibly simple settings for fast setup without modifying code
+* Detailed step-by-step documentation and videos
+* Multilingual and RTL ready
 
-If you have a feature, suggestion or idea you'd like to see in the plugin, we'd love to hear about it! <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">Suggest a Feature</a>
+If you have a feature suggestion or idea you'd like to see in the plugin, we'd love to hear about it! [Suggest a Feature](http://support.bestwebsoft.com/hc/en-us/requests/new)
 
-= Recommended Plugins =
+= Documentation & Videos =
 
-The author of the Quotes and Tips also recommends the following plugins:
+* [[Doc] Installation](https://docs.google.com/document/d/1LF8JiXTELxGQ-xLbNnc0bUWopxqXkkCgYhGwU6lSsAI/)
+* [[Video] Installation Instruction](https://www.youtube.com/watch?v=tEOjkZrwdNA)
 
-* <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/wordpress/plugins/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+= Help & Support =
+
+Visit our Help Center if you have any questions, our friendly Support Team is happy to help — <http://support.bestwebsoft.com/>
 
 = Translation =
 
-* German (de_DE) (thanks to <a href="mailto:arnold@montjoie.de">Arnold Montjoie</a>)
+* German (de_DE) (thanks to [Arnold Montjoie](mailto:arnold@montjoie.de))
 * Hebrew (he_IL) (thanks to Sagive SEO)
-* Hungarian (hu_HU) (thanks to <a href="mailto:solarside09@gmail.com">Peter Aprily</a> www.aprily.com)
+* Hungarian (hu_HU) (thanks to [Peter Aprily](mailto:solarside09@gmail.com) www.aprily.com)
 * Russian (ru_RU)
 * Ukrainian (uk)
 
-Some of these translations are not complete. We are constantly adding new features which should be translated. If you create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> for <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+Some of these translations are not complete. We are constantly adding new features which should be translated. If you would like to create your own language pack or update the existing one, you can send [the text of PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [BestWebSoft](http://support.bestwebsoft.com/hc/en-us/requests/new) and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO [files Poedit](http://www.poedit.net/download.php).
 
-= Technical support =
+= Recommended Plugins =
 
-Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in other languages won't be accepted.
+* [Updater](http://bestwebsoft.com/products/wordpress/plugins/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5) - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.
+* [Custom Search](http://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455) - Add custom post types to WordPress website search results.
 
-If you notice any bugs in the plugins, you can notify us about it and we'll investigate and fix the issue then. Your request should contain URL of the website, issues description and WordPress admin panel credentials.
-Moreover we can customize the plugin according to your requirements. It's a paid service (as a rule it costs $40, but the price can vary depending on the amount of the necessary changes and their complexity). Please note that we could also include this or that feature (developed for you) in the next release and share with the other users then. 
-We can fix some things for free for the users who provide translation of our plugin into their native language (this should be a new translation of a certain plugin, you can check available translations on the official plugin page).
+= Donate =
+
+Donations play an important role in supporting open-source projects. We greatly appreciate any donation you can make to help us continue further development of free products.
+
+[Donate Now](http://bestwebsoft.com/donate/)
 
 == Installation ==
 
@@ -61,7 +91,7 @@ We can fix some things for free for the users who provide translation of our plu
 2. Activate the plugin via the 'Plugins' menu in WordPress.
 3. The site settings are available in 'BWS Panel'->'Quotes and Tips'.
 
-<a href="https://docs.google.com/document/d/1LF8JiXTELxGQ-xLbNnc0bUWopxqXkkCgYhGwU6lSsAI/edit" target="_blank">View a PDF version of Step-by-step Instruction on Quotes and Tips Installation</a>.
+[View a PDF version of Step-by-step Instruction on Quotes and Tips Installation](https://docs.google.com/document/d/1LF8JiXTELxGQ-xLbNnc0bUWopxqXkkCgYhGwU6lSsAI/)
 
 http://www.youtube.com/watch?v=tEOjkZrwdNA
 
@@ -97,12 +127,12 @@ http://www.youtube.com/watch?v=tEOjkZrwdNA
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
-Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+Please make sure that the problem hasn't been discussed yet on our forum (<http://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
 
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
-4. copy and paste into the message your system status report. Please read more here: <a href="https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit" target="_blank">Instruction on System Status</a>
+4. copy and paste into the message your system status report. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit)
 
 == Screenshots ==
 
