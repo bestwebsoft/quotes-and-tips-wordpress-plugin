@@ -3,8 +3,6 @@
 
 Add customizable quotes and tips blocks to WordPress posts, pages and widgets.
 
-<img src="http://bestwebsoft.com/wp-content/uploads/2014/09/quotes-and-tips-banner-website.jpg" />
-
 <p>Quotes and Tips plugin is a simple solution to add useful content on your WordPress website. Customize the appearance, configure settings, and paste quotes and tips wherever you like.</p>
 
 <p>Display useful and featured content for your visitors today!</p>
