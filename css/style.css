@@ -1,24 +1,4 @@
-#adminmenu #menu-posts-quote:hover div.wp-menu-image:before,
-#adminmenu #menu-posts-quote.wp-has-current-submenu div.wp-menu-image:before,
-#adminmenu #menu-posts-quote div.wp-menu-image:before {
-	background: url("../images/qoutes_single.png") no-repeat scroll center 8px transparent;
-	content: '';
-	opacity: 0.7;
-}
-#adminmenu #menu-posts-quote.wp-has-current-submenu div.wp-menu-image:before {
-	opacity: 1;
-}
-#adminmenu #menu-posts-tips:hover div.wp-menu-image:before,
-#adminmenu #menu-posts-tips.wp-has-current-submenu div.wp-menu-image:before,
-#adminmenu #menu-posts-tips div.wp-menu-image:before {
-	background: url("../images/tips_single.png") no-repeat scroll center 8px transparent;
-	content: '';
-	opacity: 0.7;
-}
-#adminmenu #menu-posts-tips.wp-has-current-submenu div.wp-menu-image:before {
-	opacity: 1;
-}
-#quotes_box_and_tips {
+.quotes_box_and_tips {
 	background-image: url('../images/quotes_box_and_tips_bg.png');
 	background-repeat: no-repeat;
 	background-position: 20px bottom;
@@ -30,7 +10,7 @@
 	font-size: 14px;
 	clear: both;
 }
-#quotes_box_and_tips h3 {
+.quotes_box_and_tips h3 {
 	color: #FFF;
 	font-size: 22px;
 	padding-bottom: 10px;
@@ -41,22 +21,22 @@
 	background-position: 48% top;
 	width: 100%;
 }
-#quotes_box_and_tips .tips_box,
-#quotes_box_and_tips .quotes_box {
+.quotes_box_and_tips .tips_box,
+.quotes_box_and_tips .quotes_box {
 	width: 47%;
 	float: left;
 	padding: 0 1.49%;
 }
 
-#quotes_box_and_tips p {
+.quotes_box_and_tips p {
 	padding-bottom: 7px;
 	margin-bottom: 0px;
 }
-#quotes_box_and_tips .signature {
+.quotes_box_and_tips .signature {
 	text-align: right;
 	color: #a8dcff;
 }
-#quotes_box_and_tips .signature span {
+.quotes_box_and_tips .signature span {
 	color: #74c6ff;
 }
 #wpcontent select option {
@@ -94,25 +74,25 @@ body.rtl .image-radio-option label {
 	float: right;
 	margin: 0 2px 20px 30px;
 }
-#quotes_box_and_tips .hidden {
+.quotes_box_and_tips .hidden {
 	display: none;
 }
-#quotes_box_and_tips .clear {
+.quotes_box_and_tips .clear {
 	clear: both;
 }
 /* 
 * Add responsive.
 */
 @media all and ( max-width: 600px ) {
-	#quotes_box_and_tips .box_delimeter {
+	.quotes_box_and_tips .box_delimeter {
 		background: none;
 	}
-	#quotes_box_and_tips .tips_box,
-	#quotes_box_and_tips .quotes_box {
+	.quotes_box_and_tips .tips_box,
+	.quotes_box_and_tips .quotes_box {
 		float: none;
 		width: auto;
 	}
-	#quotes_box_and_tips .tips_box {
+	.quotes_box_and_tips .tips_box {
 		background-image:url('../images/box_delimeter.png');
 		background-repeat: repeat-x;
 		background-position: 0 bottom;
