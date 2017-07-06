@@ -15,7 +15,7 @@
 	font-size: 22px;
 	padding-bottom: 10px;
 }
-.box_delimeter {
+.quotes_box_and_tips .box_delimeter {
 	background-image:url('../images/box_delimeter.png');
 	background-repeat:repeat-y;
 	background-position: 48% top;
@@ -27,7 +27,12 @@
 	float: left;
 	padding: 0 1.49%;
 }
-
+.quotes_box_and_tips .single_tips_box,
+.quotes_box_and_tips .single_quotes_box {
+	width: 100%;
+	float: left;
+	padding: 0 1.49%;
+}
 .quotes_box_and_tips p {
 	padding-bottom: 7px;
 	margin-bottom: 0px;
@@ -39,28 +44,6 @@
 .quotes_box_and_tips .signature span {
 	color: #74c6ff;
 }
-#wpcontent select option {
-	padding-right: 5px;
-}
-.image-radio-option td {
-	padding-top: 15px;
-}
-.image-radio-option label {
-	display: block;
-	float: left;
-	margin: 0 30px 20px 2px;
-	position: relative;
-}
-.image-radio-option input {
-	margin: 0 0 10px;
-}
-.image-radio-option span {
-	display: block;
-	width: 136px;
-}
-.image-radio-option img {
-	margin: 0 0 0 -2px;
-}
 #qtsndtps-link-color-example,
 #qtsndtps-text-color-example {
 	-moz-border-radius: 4px;
@@ -70,17 +53,13 @@
 	margin: 0 7px 0 3px;
 	padding: 4px 14px;
 }
-body.rtl .image-radio-option label {
-	float: right;
-	margin: 0 2px 20px 30px;
-}
 .quotes_box_and_tips .hidden {
 	display: none;
 }
 .quotes_box_and_tips .clear {
 	clear: both;
 }
-/* 
+/*
 * Add responsive.
 */
 @media all and ( max-width: 600px ) {

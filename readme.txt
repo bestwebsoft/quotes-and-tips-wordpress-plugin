@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: add quotes, create quotes, display quotes, publish quotes, quote label, quotes from clients, quotes and tips, quotes and tips plugin, tip, tip label, tips for visitors, additional info
-Requires at least: 3.8
-Tested up to: 4.7.3
-Stable tag: 1.32
+Requires at least: 4.0
+Tested up to: 4.8.0
+Stable tag: 1.33
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,7 +38,7 @@ http://www.youtube.com/watch?v=kSR0mERfxBI
 	* Horizontal
 	* Vertical
 * Choose background image alignment:
-	* Horizontal 
+	* Horizontal
 		* Left
 		* Center
 		* Right
@@ -76,14 +76,8 @@ Some of these translations are not complete. We are constantly adding new featur
 
 = Recommended Plugins =
 
-* [Updater](https://bestwebsoft.com/products/wordpress/plugins/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5) - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.
+* [Updater](https://bestwebsoft.com/products/wordpress/plugins/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5) - Automatically check and update WordPress website core with all installed plugins and themes to the latest versions.
 * [Custom Search](https://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455) - Add custom post types to WordPress website search results.
-
-= Donate =
-
-Donations play an important role in supporting open-source projects. We greatly appreciate any donation you can make to help us continue further development of free products.
-
-[Donate Now](https://bestwebsoft.com/donate/)
 
 == Installation ==
 
@@ -132,7 +126,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
-4. copy and paste into the message your system status report. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit)
+4. copy and paste into the message your system status report. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc)
 
 == Screenshots ==
 
@@ -142,6 +136,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 4. Edit Quote page.
 
 == Changelog ==
+
+= V1.33 - 06.07.2017 =
+* Bugfix : The bug with incorrect quotes or tips displaying has been fixed.
+* Bugfix : The bug with incorrect file formats of the background image has been fixed.
+* NEW : Separate shortcode attributes for quotes and tips displaying were added.
 
 = V1.32 - 13.03.2017 =
 * Update : The compatibility with new Custom Search version updated.
@@ -258,17 +257,21 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * Update : We updated all functionality for wordpress 3.4.
 
 = V1.03 - 05.04.2012 =
-* Bugfix : The conflict of our javascript with javascript of other plugins is fixed. 
-* Changed : BWS plugins section. 
+* Bugfix : The conflict of our javascript with javascript of other plugins is fixed.
+* Changed : BWS plugins section.
 
 = V1.02 - 12.03.2012 =
-* Changed : BWS plugins section. 
+* Changed : BWS plugins section.
 
 = V1.01 - 01.03.2012 =
 * NEW : Additional options for pluign are added.
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.33 =
+* Bugs fixed.
+* Functionality improved.
 
 = V1.32 =
 * The compatibility with new Custom Search version updated.
@@ -358,10 +361,10 @@ The Hebrew language file is added to the plugin. We updated all functionality fo
 We updated all functionality for wordpress 3.4.
 
 = V1.03 =
-The conflict of our javascript with javascript of other plugins is fixed. BWS plugins section. 
+The conflict of our javascript with javascript of other plugins is fixed. BWS plugins section.
 
 = V1.02 =
-BWS plugins section has been changed. 
+BWS plugins section has been changed.
 
 = V1.01 =
 Additional options for Settings plugin page are added. Added The Russian language file is added to the plugin.
