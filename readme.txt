@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: add quotes, create quotes, display quotes, publish quotes, quote label, quotes from clients, quotes and tips, quotes and tips plugin, tip, tip label, tips for visitors, additional info
 Requires at least: 4.0
-Tested up to: 4.8.0
-Stable tag: 1.33
+Tested up to: 4.9.2
+Stable tag: 1.34
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,13 +77,13 @@ Some of these translations are not complete. We are constantly adding new featur
 = Recommended Plugins =
 
 * [Updater](https://bestwebsoft.com/products/wordpress/plugins/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5) - Automatically check and update WordPress website core with all installed plugins and themes to the latest versions.
-* [Custom Search](https://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455) - Add custom post types to WordPress website search results.
+* [Custom Search](https://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455) - Add custom post types and taxonomies to WordPress website search results.
 
 == Installation ==
 
 1. Upload the folder `quotes-and-tips` to the directory `/wp-content/plugins/`.
 2. Activate the plugin via the 'Plugins' menu in WordPress.
-3. The site settings are available in 'BWS Panel'->'Quotes and Tips'.
+3. The site settings are available in 'Quotes'->'Settings' or 'Tips'->'Settings'.
 
 [View a PDF version of Step-by-step Instruction on Quotes and Tips Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
 
@@ -93,49 +93,52 @@ http://www.youtube.com/watch?v=tEOjkZrwdNA
 
 = How to use the plugin? =
 
-1. Click 'Add New' in the 'Quotes' menu and fill your page.
-1. Click 'Add New' in the 'Tips' menu and fill your page.
-2. Сopy and paste this shortcode to your post or page - `[quotes_and_tips]`, or add the following strings into the template source code
+1. Click 'Add New' in the 'Quotes' menu and enter the necessary content;
+1. Click 'Add New' in the 'Tips' menu and enter the necessary content;
+2. Copy and paste the following shortcode to your post or page - `[quotes_and_tips]`, or add the following strings to the template source code:
 
 `&lt;?php if( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote();  ?&gt;`.
 
-3. The settings are available on the page 'BWS Panel' -> 'Quotes and Tips'.
+3. You can adjust the plugin settings going to 'Quotes' -> 'Settings' or 'Tips'->'Settings'.
 
 = How to change background or text color? =
 
-1. Go to the Settings Page in the menu 'BWS Panel'->'Quotes and Tips'.
-2. Choose `Additional options`.
-3. Apply the necessary settings (choose the text color, background color, upload a background image).
+1. Go to the plugin settings page via 'Quotes'->'Settings' or 'Tips'->'Settings';
+2. Switch to the `Appearance` tab and enable `Additional settings`;
+3. Apply the necessary settings (choose the text color, background color, upload a background image) and save the changes.
 
 = What should I do if I don't want to use a block background image anymore? =
 
-1. Go to the Settings Page in the menu 'BWS Panel'->'Quotes and Tips'.
-2. Choose `Additional options`.
-3. Unmark the item `Use background image`.
+1. Go to the plugin settings page via 'Quotes'->'Settings' or 'Tips'->'Settings';
+2. Switch to the `Appearance` tab and enable `Additional settings`;
+3. Find `Background Image` option, unmark `Use background image` checkbox and save the changes.
 
 = I want to choose a background image position. How can I do that? =
 
-1. Go to the Settings Page in the menu 'BWS Panel'->'Quotes and Tips'.
-2. Choose `Additional options`.
-3. Apply the necessary settings in the blocks Background image repeat, Background image horizontal alignment, Background image vertical alignment.
+1. Go to the plugin settings page via 'Quotes'->'Settings' or 'Tips'->'Settings';
+2. Switch to the `Appearance` tab and enable `Additional settings`;
+3. Apply the necessary settings in `Background Image Repeat`, `Background Image Horizontal Alignment`, `Background Image Vertical Alignment` options and save the changes.
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
 Please make sure that the problem hasn't been discussed yet on our forum (<https://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
 
-1. the link to the page where the problem occurs
-2. the name of the plugin and its version. If you are using a pro version - your order number.
-3. the version of your WordPress installation
-4. copy and paste into the message your system status report. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc)
+1. The link to the page where the problem occurs
+2. The plugin and its version. If you are using a pro version - your order number.
+3. The version of your WordPress installation
+4. Copy and paste your system status report into the message. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc)
 
 == Screenshots ==
 
 1. Frontend page with Quotes and Tips block.
-2. Basic option for Quotes and Tips.
-3. Additional options for Quotes and Tips.
-4. Edit Quote page.
+2. Quotes and Tips Settings.
+3. Quotes and Tips Appearance Settings.
+4. Quote edit page.
 
 == Changelog ==
+
+= V1.34 - 26.01.2018 =
+* Update : The plugin settings page has been changed.
 
 = V1.33 - 06.07.2017 =
 * Bugfix : The bug with incorrect quotes or tips displaying has been fixed.
@@ -268,6 +271,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.34 =
+* Usability improved.
 
 = V1.33 =
 * Bugs fixed.

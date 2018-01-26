@@ -1,0 +1,351 @@
+<?php
+/**
+ * Displays the content on the plugin settings page
+ */
+
+require_once( dirname( dirname( __FILE__ ) ) . '/bws_menu/class-bws-settings.php' );
+
+if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
+	class Qtsndtps_Settings_Tabs extends Bws_Settings_Tabs {
+		public $cstmsrch_options, $bg_horizontal_alignment, $bg_vertical_alignment, $background_image;
+		/**
+		 * Constructor.
+		 *
+		 * @access public
+		 *
+		 * @see Bws_Settings_Tabs::__construct() for more information on default arguments.
+		 *
+		 * @param string $plugin_basename
+		 */
+		public function __construct( $plugin_basename ) {
+			global $qtsndtps_options, $qtsndtps_plugin_info;
+
+			$tabs = array(
+				'settings'		=> array( 'label' => __( 'Settings', 'quotes-and-tips' ) ),
+				'appearance'	=> array( 'label' => __( 'Appearance', 'quotes-and-tips' ) ),
+				'misc'			=> array( 'label' => __( 'Misc', 'quotes-and-tips' ) ),
+				'custom_code'	=> array( 'label' => __( 'Custom Code', 'quotes-and-tips' ) )
+			);
+
+			parent::__construct( array(
+				'plugin_basename'	=> $plugin_basename,
+				'plugins_info'		=> $qtsndtps_plugin_info,
+				'prefix'			=> 'qtsndtps',
+				'default_options'	=> qtsndtps_get_options_default(),
+				'options'			=> $qtsndtps_options,
+				'tabs'				=> $tabs,
+				'wp_slug'			=> 'quotes-and-tips'
+			) );
+
+			$this->all_plugins = get_plugins();
+
+			$this->cstmsrch_options = get_option( 'cstmsrch_options' );
+
+			$this->bg_horizontal_alignment = array(
+				'left'		=> __( 'Left', 'quotes-and-tips' ),
+				'center'	=> __( 'Center', 'quotes-and-tips' ),
+				'right'		=> __( 'Right', 'quotes-and-tips' )
+			);
+
+			$this->bg_vertical_alignment = array(
+				'top'		=> __( 'Top', 'quotes-and-tips' ),
+				'center'	=> __( 'Center', 'quotes-and-tips' ),
+				'bottom'	=> __( 'Bottom', 'quotes-and-tips' )
+			);
+
+			$this->background_image = array(
+				'none'		=> __( 'None', 'quotes-and-tips' ),
+				'default'	=> __( 'Default', 'quotes-and-tips' ),
+				'custom'	=> __( 'Custom', 'quotes-and-tips' )
+			);
+
+			add_action( get_parent_class( $this ) . '_display_metabox', array( $this, 'display_metabox' ) );
+		}
+
+		/**
+		 * Save plugin options to the database
+		 * @access public
+		 * @param  void
+		 * @return array    The action results
+		 */
+		public function save_options() {
+			$img_formats = array( 'image/png', 'image/jpg', 'image/jpeg', 'image/gif' );
+			$max_size = wp_max_upload_size();
+
+			if ( ! empty( $this->cstmsrch_options ) ) {
+				if ( isset( $this->cstmsrch_options['output_order'] ) ) {
+					$quotes_enabled= ( isset( $_POST['qtsndtps_add_to_search']['quote'] ) ) ? 1 : 0;
+					$tips_enabled = ( isset( $_POST['qtsndtps_add_to_search']['tips'] ) ) ? 1 : 0;
+					foreach( $this->cstmsrch_options['output_order'] as $key => $search_item ) {
+						if ( isset( $search_item['name'] ) && 'quote' == $search_item['name'] ) {
+							$this->cstmsrch_options['output_order'][ $key ]['enabled'] = $quotes_enabled;
+							$quote_exist = true;
+						} elseif ( isset( $search_item['name'] ) && 'tips' == $search_item['name'] ) {
+							$this->cstmsrch_options['output_order'][ $key ]['enabled'] = $tips_enabled;
+							$tips_exist = true;
+						}
+					}
+				}
+				if ( ! isset( $quote_exist ) ) {
+					$this->cstmsrch_options['output_order'][] = array( 'name' => 'quote', 'type' => 'post_type', 'enabled' => $quotes_enabled );
+				}
+				if ( ! isset( $tips_exist ) ) {
+					$this->cstmsrch_options['output_order'][] = array( 'name' => 'tips', 'type' => 'post_type', 'enabled' => $tips_enabled );
+				}
+			}
+			update_option( 'cstmsrch_options', $this->cstmsrch_options );
+
+			if ( isset( $_FILES['qtsndtps_custom_image']['name'] ) && ! empty( $_FILES['qtsndtps_custom_image']['name'] ) ) {
+				$uploaded = $_FILES['qtsndtps_custom_image'];
+				/* Image verification before uploading */
+				if ( empty( $uploaded['size'] ) ) {
+					$error = __( 'There is no data about the uploaded file.', 'quotes-and-tips' );
+				} elseif ( ! is_uploaded_file( $uploaded['tmp_name'] ) ) {
+					$error = __( 'Image was not uploaded by HTTP POST. Possible file upload attack.', 'quotes-and-tips' );
+				} elseif ( ! in_array( $uploaded['type'], $img_formats ) ) {
+					$error = __( 'Wrong file format. The file should be png, jpg(jpeg) or gif.', 'quotes-and-tips' );
+				} elseif ( $uploaded['size'] > $max_size ) {
+					$error = __( 'The file size should not exceed', 'quotes-and-tips' ) . '&nbsp;' . get_human_readable_file_size( $max_size ) . '.';
+				} else {
+					$upload_dir = wp_upload_dir();
+					if( ! empty( $upload_dir['error'] ) ) {
+						$error = $upload_dir['error'];
+					} else {
+						$upload_dir_full = $upload_dir['basedir'] . '/quotes-and-tips-image/';
+						if ( ! is_dir( $upload_dir_full ) && ! wp_mkdir_p( $upload_dir_full ) ) {
+							$error = __( 'Could not create image directory.', 'quotes-and-tips' );
+						} else {
+							$new_file = $upload_dir_full . sanitize_file_name( $_FILES['qtsndtps_custom_image']['name'] );
+							if ( ! move_uploaded_file( $_FILES['qtsndtps_custom_image']['tmp_name'], $new_file ) ) {
+								$error = sprintf( __( 'The uploaded file could not be moved to %s.', 'quotes-and-tips' ), $upload_dir_full );
+							} else {
+								$url = $upload_dir['baseurl'] . "/quotes-and-tips-image/" . sanitize_file_name( $_FILES['qtsndtps_custom_image']['name'] );
+								$object = array(
+									'post_title'		=> basename( $new_file ),
+									'post_content'		=> $url,
+									'post_mime_type'	=> $_FILES['qtsndtps_custom_image']['type'],
+									'guid'				=> $url,
+									'context'			=> 'qtsndtp_background_image'
+								);
+								/* Save the data */
+								$id = wp_insert_attachment( $object, $new_file );
+							}
+							if ( !$id ) {
+								$error = __( 'Could not save background image file to WordPress media library.', 'quotes-and-tips' );
+							} else {
+
+								$images = get_posts( array( 'post_type' => 'attachment', 'meta_key' => '_wp_attachment_qtsndtp_background_image', 'meta_value' => get_option( 'stylesheet' ), 'orderby' => 'none', 'nopaging' => true ) );
+								if ( ! empty ( $images ) && $images[0]->post_content != $url ) {
+									wp_delete_attachment( $images[0]->ID );
+								}
+								update_post_meta( $id, '_wp_attachment_qtsndtp_background_image', get_option( 'stylesheet' ) );
+								$this->options['custom_background_image'] = $url;
+							}
+						}
+					}
+				}
+			}
+
+			$this->options['page_load'] 					= $_POST['qtsndtps_page_load'];
+			$this->options['interval_load'] 				= isset( $_POST['qtsndtps_interval_load'] ) ? intval( $_POST['qtsndtps_interval_load'] ) : 10;
+			$this->options['tip_label'] 					= stripslashes( esc_html( $_POST['qtsndtps_tip_label'] ) );
+			$this->options['quote_label'] 					= stripslashes( esc_html( $_POST['qtsndtps_quote_label'] ) );
+			$this->options['title_post'] 					= $_POST['qtsndtps_title_post'];
+			$this->options['additional_options'] 			= isset( $_POST['qtsndtps_additional_options'] ) ? 1 : 0;
+			$this->options['background_color'] 				= isset( $_POST['qtsndtps_background_color'] ) ? stripslashes( esc_html( $_POST['qtsndtps_background_color'] ) ) : $this->options['background_color'];
+			$this->options['text_color'] 					= isset( $_POST['qtsndtps_text_color'] ) ? stripslashes( esc_html( $_POST['qtsndtps_text_color'] ) ) : $this->options['text_color'];
+			$this->options['background_image'] 				= isset( $_POST['qtsndtps_background_image'] ) ? $_POST['qtsndtps_background_image'] : $this->options['background_image'];
+			$this->options['background_image_gposition'] 	= isset( $_POST['qtsndtps_background_image_gposition'] ) ? $_POST['qtsndtps_background_image_gposition'] : $this->options['background_image_gposition'];
+			$this->options['background_image_vposition'] 	= isset( $_POST['qtsndtps_background_image_vposition'] ) ? $_POST['qtsndtps_background_image_vposition'] : $this->options['background_image_vposition'];
+			$this->options['background_image_repeat_x'] 	= isset( $_POST['qtsndtps_background_image_repeat_x'] ) ? 1 : 0;
+			$this->options['background_image_repeat_y'] 	= isset( $_POST['qtsndtps_background_image_repeat_y'] ) ? 1 : 0;
+
+			if( ! isset( $error ) ) {
+				update_option( 'qtsndtps_options', $this->options );
+				$message = __( 'Settings saved.', 'quotes-and-tips' );
+			}
+			return compact( 'message', 'notice', 'error' );
+		}
+
+		public function tab_settings() { ?>
+			<h3 class="bws_tab_label"><?php _e( 'Quotes and Tips Settings', 'quotes-and-tips' ); ?></h3>
+			<?php $this->help_phrase(); ?>
+			<hr>
+			<table class="form-table">
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Display Settings', 'quotes-and-tips' ); ?></th>
+					<td>
+						<fieldset>
+							<label><input type="radio" name="qtsndtps_page_load" value="1"<?php checked( $this->options['page_load'] ); ?> /> <?php _e( 'Random Order With the Page Reload', 'quotes-and-tips' ); ?></label><br />
+							<label><input type="radio" name="qtsndtps_page_load" value="0"<?php checked( '0', $this->options['page_load'] ); ?> /> <?php _e( 'Random Order Without the Page Reload', 'quotes-and-tips' ); ?></label><br />
+							<label><input type="number" name="qtsndtps_interval_load" min="1" max="999" step="1" value="<?php echo $this->options['interval_load']; ?>" style="width:55px" /> <?php _e( 'Change Frequency (in seconds)', 'quotes-and-tips' ); ?></label>
+						</fieldset>
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Title Options', 'quotes-and-tips' ); ?></th>
+					<td>
+						<fieldset>
+							<label><input type="radio" name="qtsndtps_title_post" value="1" class="qtsndtps_title_post"<?php checked( $this->options['title_post'] ); ?> /> <?php _e( 'Set Title From Post', 'quotes-and-tips' ); ?></label><br />
+							<label><input type="radio" name="qtsndtps_title_post" value="0" class="qtsndtps_title_post"<?php checked( '0', $this->options['title_post'] ); ?> /> <?php _e( 'Set Custom Titles', 'quotes-and-tips' ); ?></label>
+						</fieldset>
+					</td>
+				</tr>
+				<tr valign="top" class="qtsndtps_title_post_fields">
+					<th scope="row"><?php _e( 'Tip Title', 'quotes-and-tips' ); ?> </th>
+					<td>
+						<input type="text" name="qtsndtps_tip_label" maxlength="250" value="<?php echo $this->options['tip_label']; ?>" />
+					</td>
+				</tr>
+				<tr valign="top" class="qtsndtps_title_post_fields">
+					<th scope="row"><?php _e( 'Quote Title', 'quotes-and-tips' ); ?> </th>
+					<td>
+						<input type="text" name="qtsndtps_quote_label" maxlength="250" value="<?php echo $this->options['quote_label']; ?>" />
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Add Quotes and Tips to the Search', 'quotes-and-tips' ); ?></th>
+					<td>
+						<?php if ( array_key_exists( 'custom-search-plugin/custom-search-plugin.php', $this->all_plugins ) || array_key_exists( 'custom-search-pro/custom-search-pro.php', $this->all_plugins ) ) { ?>
+								<?php if ( is_plugin_active( 'custom-search-plugin/custom-search-plugin.php' ) || is_plugin_active( 'custom-search-pro/custom-search-pro.php' ) ) {
+										$custom_search_admin_url = ( is_plugin_active( 'custom-search-plugin/custom-search-plugin.php' ) ) ? 'custom_search.php' : 'custom_search_pro.php';
+										if ( ! empty( $this->cstmsrch_options['output_order'] ) ) {
+											foreach( $this->cstmsrch_options['output_order'] as $key => $search_item ) {
+												if ( isset( $search_item['name'] ) && 'quote' == $search_item['name'] ) {
+													$quotes_enabled = ! empty( $search_item['enabled'] ) ? 1 : 0;
+												} elseif ( isset( $search_item['name'] ) && 'tips' == $search_item['name'] ) {
+													$tips_enabled = ! empty( $search_item['enabled'] ) ? 1 : 0;
+												}
+											}
+										} ?>
+									<fieldset>
+										<label>
+											<input type="checkbox" name="qtsndtps_add_to_search[quote]" value="1" <?php if ( ! empty( $quotes_enabled ) ) echo "checked=\"checked\""; elseif ( ! $this->cstmsrch_options ) echo "disabled=\"disabled\""; ?> /> <?php _e( 'Quotes', 'quotes-and-tips' ); ?>
+											<span class="bws_info">(<?php _e( 'Enable to include quotes to your website search using', 'quotes-and-tips' ); ?> <a href="admin.php?page=<?php echo $custom_search_admin_url; ?>"> Custom Search</a>)</span>
+										</label><br />
+										<label id="qtsndtps_add_search">
+											<input type="checkbox" name="qtsndtps_add_to_search[tips]" value="1" <?php if ( ! empty( $tips_enabled ) ) echo "checked=\"checked\""; elseif ( ! $this->cstmsrch_options ) echo "disabled=\"disabled\""; ?> /><?php _e( 'Tips', 'quotes-and-tips' ); ?>
+											<span class="bws_info">(<?php _e( 'Enable to include tips to your website search using', 'quotes-and-tips' ); ?> <a href="admin.php?page=<?php echo $custom_search_admin_url; ?>">Custom Search</a>)</span>
+										</label>
+									</fieldset>
+								<?php } else { ?>
+										<input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[]" value="1" />
+										<span class="bws_info"><?php _e( 'Enable to include quotes and tips to your website search. Custom Search plugin is required.', 'quotes-and-tips' ); ?> <a href="<?php echo bloginfo( "url" ); ?>/wp-admin/plugins.php"><?php _e( 'Activate Now', 'quotes-and-tips' ); ?></a></span><br />
+								<?php } ?>
+						<?php } else { ?>
+							<input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[]" value="1" />
+							<span class="bws_info"><?php _e( 'Enable to include quotes and tips to your website search. Custom Search plugin is required.', 'quotes-and-tips' ); ?> <a href="https://bestwebsoft.com/products/wordpress/plugins/custom-search/"><?php _e( 'Install Now', 'quotes-and-tips' ); ?></a></span><br />
+						<?php } ?>
+					</td>
+				</tr>
+			</table>
+		<?php }
+
+		public function tab_appearance() {
+			$disabled = 1 == $this->options['additional_options'] ? ' disabled="disabled"' : ''; ?>
+			<h3 class="bws_tab_label"><?php _e( 'Appearance Settings', 'quotes-and-tips' ); ?></h3>
+			<?php $this->help_phrase(); ?>
+			<hr>
+			<table class="form-table">
+				<tr>
+					<th scope="row"><?php _e( 'Use Default Styles', 'quotes-and-tips' ); ?></th>
+					<td>
+						<input type="checkbox" name="qtsndtps_additional_options" id="qtsndtps_additional_options" value="1"<?php checked( $this->options['additional_options'] ); ?> />
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Background Color', 'quotes-and-tips' ); ?></th>
+					<td>
+						<input type="text" class="qtsndtps_additions_block" name="qtsndtps_background_color" id="qtsndtps-link-color" maxlength="7"<?php echo $disabled; ?> value="<?php echo esc_attr( $this->options['background_color'] ); ?>" style="max-width: 70%;"/>
+						<a href="#" class="pickcolor hide-if-no-js" id="qtsndtps-link-color-example"></a>
+						<div id="colorPickerDiv" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><?php _e( 'Text Color', 'quotes-and-tips' ); ?></th>
+					<td>
+						<input type="text" class="qtsndtps_additions_block" name="qtsndtps_text_color" id="qtsndtps-text-color" maxlength="7"<?php echo $disabled; ?> value="<?php echo esc_attr( $this->options['text_color'] ); ?>" style="max-width: 70%;"/>
+						<a href="#" class="pickcolor1 hide-if-no-js" id="qtsndtps-text-color-example"></a>
+						<div id="colorPickerDiv1" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><?php _e( 'Background Image', 'quotes-and-tips' ); ?></th>
+					<td>
+						<fieldset>
+							<?php foreach ( array( 'none' => __( 'None', 'quotes-and-tips' ), 'default' => __( 'Default', 'quotes-and-tips' ), 'custom' => __( 'Custom', 'quotes-and-tips' ) ) as $key => $value ) { ?>
+								<label>
+									<?php printf(
+										'<input type="radio" class="qtsndtps_additions_block qtsndtps_background_image" name="qtsndtps_background_image" value="%s" %s %s />%s',
+										$key,
+										$disabled,
+										checked( ( $key == $this->options['background_image'] ), true, false ),
+										$value
+									); ?>
+								</label><br>
+							<?php } ?>
+								<input type="file" class="qtsndtps_additions_block" name="qtsndtps_custom_image" id="qtsndtps_custom_image"/><br />
+									<div class="qtsndtps_current_image">
+										<span><?php _e( 'Current Image', 'quotes-and-tips' ); ?></span><br>
+										<?php if( ! empty( $this->options['custom_background_image'] ) && 'custom' == $this->options['background_image'] ) { ?>
+											<img src="<?php echo $this->options['custom_background_image']; ?>" alt="" title="" style="max-width: 100%; height: auto;" />
+										<?php } elseif ( 'default' == $this->options['background_image'] ) { ?>
+											<img src="<?php echo plugins_url( 'quotes-and-tips/images/quotes_box_and_tips_bg.png' ); ?>" alt="" title="" style="border:1px solid grey;max-width: 100%; height: auto;" />
+										<?php } ?>
+									</div>
+						</fieldset>
+					</td>
+				</tr>
+				<tr class="qtsndtps_hidden">
+					<th scope="row"><?php _e( 'Background Image Repeat', 'quotes-and-tips' ); ?> </th>
+					<td>
+						<fieldset>
+							<label><input type="checkbox" class="qtsndtps_additions_block" name="qtsndtps_background_image_repeat_x" <?php echo $disabled; ?> value="1" <?php checked( $this->options['background_image_repeat_x'] ); ?> /> <?php _e( 'Horizontal Repeat (x)', 'quotes-and-tips' ); ?></label><br />
+							<label><input type="checkbox" class="qtsndtps_additions_block" name="qtsndtps_background_image_repeat_y" <?php echo $disabled; ?> value="1" <?php checked( $this->options['background_image_repeat_y'] ); ?> /> <?php _e( 'Vertical Repeat (y)', 'quotes-and-tips' ); ?></label>
+						</fieldset>
+					</td>
+				</tr>
+				<tr class="qtsndtps_hidden">
+					<th scope="row"><?php _e( 'Background Image Horizontal Alignment', 'quotes-and-tips' ); ?> </th>
+					<td>
+						<fieldset>
+							<?php foreach( $this->bg_horizontal_alignment as $key => $value ) { ?>
+								<label><input type="radio" class="qtsndtps_additions_block" name="qtsndtps_background_image_gposition" <?php echo $disabled; ?> value="<?php echo $key; ?>" <?php checked( $key, $this->options['background_image_gposition'] ); ?> /> <?php echo $value; ?></label><br/>
+							<?php } ?>
+						</fieldset>
+					</td>
+				</tr>
+				<tr class="qtsndtps_hidden">
+					<th scope="row"><?php _e( 'Background Image Vertical Alignment', 'quotes-and-tips' ); ?> </th>
+					<td>
+						<fieldset>
+							<?php foreach( $this->bg_vertical_alignment as $key => $value ) { ?>
+								<label><input type="radio" class="qtsndtps_additions_block" name="qtsndtps_background_image_vposition" <?php echo $disabled; ?> value="<?php echo $key; ?>" <?php checked( $key, $this->options['background_image_vposition'] ); ?> /> <?php echo $value; ?></label><br/>
+							<?php } ?>
+						</fieldset>
+					</td>
+				</tr>
+			</table>
+		<?php }
+
+		/**
+		 * Display custom metabox
+		 * @access public
+		 * @param  void
+		 * @return array    The action results
+		 */
+		public function display_metabox() { ?>
+			<div class="postbox">
+				<h3 class="hndle">
+					<?php _e( 'Quotes and Tips', 'quotes-and-tips' ); ?>
+				</h3>
+				<div class="inside">
+					<?php _e( "Add Quotes and Tips block to your page or post by using the following shortcode:", 'quotes-and-tips' ); ?>
+					<?php bws_shortcode_output( '[quotes_and_tips]' ); ?>
+					<p><?php _e( "Or add the following strings into the template source code", 'quotes-and-tips' ); ?>:</p>
+					<code>&#60;?php if ( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote(); ?&#62;</code>
+				</div>
+			</div>
+		<?php }
+	}
+}

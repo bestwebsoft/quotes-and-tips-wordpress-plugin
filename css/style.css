@@ -23,9 +23,10 @@
 }
 .quotes_box_and_tips .tips_box,
 .quotes_box_and_tips .quotes_box {
-	width: 47%;
+	width: 48%;
 	float: left;
 	padding: 0 1.49%;
+	box-sizing: border-box;
 }
 .quotes_box_and_tips .single_tips_box,
 .quotes_box_and_tips .single_quotes_box {
@@ -59,25 +60,12 @@
 .quotes_box_and_tips .clear {
 	clear: both;
 }
+#qtsndtps_add_search {
+	margin-top: 1em !important;
+}
 /*
 * Add responsive.
 */
-@media all and ( max-width: 600px ) {
-	.quotes_box_and_tips .box_delimeter {
-		background: none;
-	}
-	.quotes_box_and_tips .tips_box,
-	.quotes_box_and_tips .quotes_box {
-		float: none;
-		width: auto;
-	}
-	.quotes_box_and_tips .tips_box {
-		background-image:url('../images/box_delimeter.png');
-		background-repeat: repeat-x;
-		background-position: 0 bottom;
-		padding-bottom: 5px;
-	}
-}
 @media screen and (min-width: 783px) {
 	.qtsndtps_title_post_fields input {
 		width: 250px;
@@ -88,5 +76,24 @@
 	#qtsndtps-text-color {
 		width: 85%;
 		display: inline;
+	}
+}
+@media all and ( max-width: 600px ) {
+	.quotes_box_and_tips .box_delimeter {
+		background: none;
+	}
+	.quotes_box_and_tips .tips_box,
+	.quotes_box_and_tips .quotes_box {
+		float: none;
+		width: auto;
+	}
+	.quotes_box_and_tips .tips_box {
+		padding-top: 15px;
+	}
+	.quotes_box_and_tips .quotes_box {
+		background-image:url('../images/box_delimeter.png');
+		background-repeat: repeat-x;
+		background-position: 0 bottom;
+		padding-bottom: 5px;
 	}
 }
