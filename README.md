@@ -80,5 +80,5 @@
 <h4>Recommended Plugins</h4>
 <ul>
 <li><a href="https://bestwebsoft.com/products/wordpress/plugins/updater/?k=e8f05fa90cedfd3a96483e8f0ca60ab5" rel="nofollow">Updater</a> &#8211; Automatically check and update WordPress website core with all installed plugins and themes to the latest versions.</li>
-<li><a href="https://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455" rel="nofollow">Custom Search</a> &#8211; Add custom post types to WordPress website search results.</li>
+<li><a href="https://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455" rel="nofollow">Custom Search</a> &#8211; Add custom post types and taxonomies to WordPress website search results.</li>
 </ul>
