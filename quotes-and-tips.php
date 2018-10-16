@@ -6,12 +6,12 @@ Description: Add customizable quotes and tips blocks to WordPress posts, pages a
 Author: BestWebSoft
 Text Domain: quotes-and-tips
 Domain Path: /languages
-Version: 1.34
+Version: 1.35
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
 
-/*  © Copyright 2017  BestWebSoft  ( https://support.bestwebsoft.com )
+/*  © Copyright 2018  BestWebSoft  ( https://support.bestwebsoft.com )
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -354,6 +354,8 @@ if ( ! function_exists( 'qtsndtps_get_quotes_html' ) ) {
 		$post = $buffer;
 		wp_reset_postdata();
 		/* Reset Query */
+		//return $html;
+		$html = apply_filters( 'get_quotes_html', $html );
 		return $html;
 	}
 }
@@ -382,6 +384,8 @@ if ( ! function_exists( 'qtsndtps_get_tips_html' ) ) {
 			$post = $buffer;
 			wp_reset_postdata();
 		/* Reset Query */
+		//return $html;
+		$html = apply_filters( 'get_tips_html', $html );
 		return $html;
 	}
 }

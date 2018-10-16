@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: quotes_and_tips\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-02 10:21+0200\n"
-"PO-Revision-Date: 2018-01-02 10:22+0200\n"
+"POT-Creation-Date: 2018-06-11 12:56+0300\n"
+"PO-Revision-Date: 2018-06-11 12:56+0300\n"
 "Last-Translator: plugin@bestwebsoft.com <plugin@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft <plugin@bestwebsoft.com>\n"
 "Language: ru_RU\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: includes/class-qtsndtps-settings.php:24 quotes-and-tips.php:38
-#: quotes-and-tips.php:43 quotes-and-tips.php:429 quotes-and-tips.php:447
+#: quotes-and-tips.php:42 quotes-and-tips.php:433 quotes-and-tips.php:451
 msgid "Settings"
 msgstr "Настройки"
 
@@ -55,17 +55,17 @@ msgid "Bottom"
 msgstr "Внизу"
 
 #: includes/class-qtsndtps-settings.php:57
-#: includes/class-qtsndtps-settings.php:283
+#: includes/class-qtsndtps-settings.php:276
 msgid "None"
 msgstr "Не использовать"
 
 #: includes/class-qtsndtps-settings.php:58
-#: includes/class-qtsndtps-settings.php:283
+#: includes/class-qtsndtps-settings.php:276
 msgid "Default"
 msgstr "По умолчанию"
 
 #: includes/class-qtsndtps-settings.php:59
-#: includes/class-qtsndtps-settings.php:283
+#: includes/class-qtsndtps-settings.php:276
 msgid "Custom"
 msgstr "Пользовательское"
 
@@ -102,75 +102,75 @@ msgstr "Загруженный файл не может быть перемещ�
 msgid "Could not save background image file to WordPress media library."
 msgstr "Не удалось сохранить файл в медиатеку WordPress."
 
-#: includes/class-qtsndtps-settings.php:176
+#: includes/class-qtsndtps-settings.php:165
 msgid "Settings saved."
 msgstr "Настройки сохранены."
 
-#: includes/class-qtsndtps-settings.php:182 quotes-and-tips.php:38
-#: quotes-and-tips.php:43 quotes-and-tips.php:418
+#: includes/class-qtsndtps-settings.php:171 quotes-and-tips.php:38
+#: quotes-and-tips.php:42 quotes-and-tips.php:422
 msgid "Quotes and Tips Settings"
 msgstr "Настройки Quotes and Tips"
 
-#: includes/class-qtsndtps-settings.php:187
+#: includes/class-qtsndtps-settings.php:176
 msgid "Display Settings"
 msgstr "Настройки отображения"
 
-#: includes/class-qtsndtps-settings.php:190
+#: includes/class-qtsndtps-settings.php:179
 msgid "Random Order With the Page Reload"
 msgstr "Отображать в случайном порядке при перезагрузке страницы"
 
-#: includes/class-qtsndtps-settings.php:191
+#: includes/class-qtsndtps-settings.php:180
 msgid "Random Order Without the Page Reload"
 msgstr "Отображать в случайном порядке без перезагрузки страницы"
 
-#: includes/class-qtsndtps-settings.php:192
+#: includes/class-qtsndtps-settings.php:181
 msgid "Change Frequency (in seconds)"
 msgstr "Частота изменения (в секундах)"
 
-#: includes/class-qtsndtps-settings.php:197
+#: includes/class-qtsndtps-settings.php:186
 msgid "Title Options"
 msgstr "Настройки названий блоков"
 
-#: includes/class-qtsndtps-settings.php:200
+#: includes/class-qtsndtps-settings.php:189
 msgid "Set Title From Post"
 msgstr "Использовать название из названия цитаты или подсказки"
 
-#: includes/class-qtsndtps-settings.php:201
+#: includes/class-qtsndtps-settings.php:190
 msgid "Set Custom Titles"
 msgstr "Использовать пользовательские названия"
 
-#: includes/class-qtsndtps-settings.php:206
+#: includes/class-qtsndtps-settings.php:195
 msgid "Tip Title"
 msgstr "Название блока подсказки"
 
-#: includes/class-qtsndtps-settings.php:212
+#: includes/class-qtsndtps-settings.php:201
 msgid "Quote Title"
 msgstr "Название блока цитаты"
 
-#: includes/class-qtsndtps-settings.php:218
+#: includes/class-qtsndtps-settings.php:207
 msgid "Add Quotes and Tips to the Search"
 msgstr "Добавить Quotes and Tips в поиск"
 
-#: includes/class-qtsndtps-settings.php:233 quotes-and-tips.php:213
+#: includes/class-qtsndtps-settings.php:223 quotes-and-tips.php:213
 #: quotes-and-tips.php:214
 msgid "Quotes"
 msgstr "Цитаты"
 
-#: includes/class-qtsndtps-settings.php:234
+#: includes/class-qtsndtps-settings.php:224
 msgid "Enable to include quotes to your website search using"
 msgstr "Включить цитаты в поиск на вашем сайте, используя"
 
-#: includes/class-qtsndtps-settings.php:235 quotes-and-tips.php:128
+#: includes/class-qtsndtps-settings.php:227 quotes-and-tips.php:125
 #: quotes-and-tips.php:184 quotes-and-tips.php:185
 msgid "Tips"
 msgstr "Подсказки"
 
-#: includes/class-qtsndtps-settings.php:236
+#: includes/class-qtsndtps-settings.php:228
 msgid "Enable to include tips to your website search using"
 msgstr "Включить подсказки в поиск на вашем сайте, используя"
 
-#: includes/class-qtsndtps-settings.php:241
-#: includes/class-qtsndtps-settings.php:245
+#: includes/class-qtsndtps-settings.php:233
+#: includes/class-qtsndtps-settings.php:237
 msgid ""
 "Enable to include quotes and tips to your website search. Custom Search "
 "plugin is required."
@@ -178,63 +178,63 @@ msgstr ""
 "Включить цитаты и подсказки в поиск на вашем сайте. Требуется плагин Custom "
 "Search."
 
-#: includes/class-qtsndtps-settings.php:241
+#: includes/class-qtsndtps-settings.php:233
 msgid "Activate Now"
 msgstr "Активировать сейчас"
 
-#: includes/class-qtsndtps-settings.php:245
+#: includes/class-qtsndtps-settings.php:237
 msgid "Install Now"
 msgstr "Установить сейчас"
 
-#: includes/class-qtsndtps-settings.php:254
+#: includes/class-qtsndtps-settings.php:246
 msgid "Appearance Settings"
 msgstr "Настройки отображения"
 
-#: includes/class-qtsndtps-settings.php:260
+#: includes/class-qtsndtps-settings.php:251
 msgid "Use Default Styles"
 msgstr "Использовать стили по умолчанию"
 
-#: includes/class-qtsndtps-settings.php:264
+#: includes/class-qtsndtps-settings.php:257
 msgid "Background Color"
 msgstr "Цвет фона"
 
-#: includes/class-qtsndtps-settings.php:272
+#: includes/class-qtsndtps-settings.php:265
 msgid "Text Color"
 msgstr "Цвет текста"
 
-#: includes/class-qtsndtps-settings.php:280
+#: includes/class-qtsndtps-settings.php:273
 msgid "Background Image"
 msgstr "Фоновое изображение"
 
-#: includes/class-qtsndtps-settings.php:296
+#: includes/class-qtsndtps-settings.php:289
 msgid "Current Image"
 msgstr "Текущее изображение"
 
-#: includes/class-qtsndtps-settings.php:307
+#: includes/class-qtsndtps-settings.php:300
 msgid "Background Image Repeat"
 msgstr "Повтор фонового изображения"
 
-#: includes/class-qtsndtps-settings.php:310
+#: includes/class-qtsndtps-settings.php:303
 msgid "Horizontal Repeat (x)"
 msgstr "По горизонтали (х)"
 
-#: includes/class-qtsndtps-settings.php:311
+#: includes/class-qtsndtps-settings.php:304
 msgid "Vertical Repeat (y)"
 msgstr "По вертикали (у)"
 
-#: includes/class-qtsndtps-settings.php:316
+#: includes/class-qtsndtps-settings.php:309
 msgid "Background Image Horizontal Alignment"
 msgstr "Выравнивание фонового изображения по горизонтали"
 
-#: includes/class-qtsndtps-settings.php:326
+#: includes/class-qtsndtps-settings.php:319
 msgid "Background Image Vertical Alignment"
 msgstr "Выравнивание фонового изображения по вертикали"
 
-#: includes/class-qtsndtps-settings.php:347
+#: includes/class-qtsndtps-settings.php:340
 msgid "Quotes and Tips"
 msgstr "Quotes and Tips"
 
-#: includes/class-qtsndtps-settings.php:350
+#: includes/class-qtsndtps-settings.php:343
 msgid ""
 "Add Quotes and Tips block to your page or post by using the following "
 "shortcode:"
@@ -242,11 +242,11 @@ msgstr ""
 "Добавьте блок Quotes and Tips в ваши записи, страницы, используя следующий "
 "шорткод:"
 
-#: includes/class-qtsndtps-settings.php:352
+#: includes/class-qtsndtps-settings.php:345
 msgid "Or add the following strings into the template source code"
 msgstr "Или вставьте данные строки в исходный код шаблона вашей темы"
 
-#: quotes-and-tips.php:129
+#: quotes-and-tips.php:126
 msgid "The quotes from our clients"
 msgstr "Цитаты наших клиентов"
 
@@ -330,53 +330,56 @@ msgstr "Навигация списка цитат"
 msgid "Quotes list"
 msgstr "Список цитат"
 
-#: quotes-and-tips.php:395
+#: quotes-and-tips.php:399
 msgid "Name:"
 msgstr "Имя:"
 
-#: quotes-and-tips.php:399
+#: quotes-and-tips.php:403
 msgid "Official Position:"
 msgstr "Официальное положение (должность):"
 
-#: quotes-and-tips.php:408
+#: quotes-and-tips.php:412
 msgid "Name and Official Position"
 msgstr "Имя и официальное положение"
 
-#: quotes-and-tips.php:431
+#: quotes-and-tips.php:435
 msgid "FAQ"
 msgstr "FAQ"
 
-#: quotes-and-tips.php:432
+#: quotes-and-tips.php:436
 msgid "Support"
 msgstr "Поддержка"
 
-#: quotes-and-tips.php:615
+#: quotes-and-tips.php:620
 msgid "MB"
 msgstr "MB"
 
-#: quotes-and-tips.php:619
+#: quotes-and-tips.php:624
 msgid "KB"
 msgstr "KB"
 
-#: quotes-and-tips.php:622
+#: quotes-and-tips.php:627
 msgid "Bytes"
 msgstr "Байт"
 
-#: quotes-and-tips.php:631
-msgid "Add Quotes and Tips block to your page or post:"
+#: quotes-and-tips.php:636
+msgid "Add Quotes and Tips block to your page or post"
 msgstr "Добавить блок Quotes and Tips на вашу страницу или пост:"
 
-#: quotes-and-tips.php:635
+#: quotes-and-tips.php:640
 msgid "Display quotes and tips"
 msgstr "Отобразить цитаты и подсказки"
 
-#: quotes-and-tips.php:641
+#: quotes-and-tips.php:646
 msgid "Display quotes"
 msgstr "Отобразить цитаты"
 
-#: quotes-and-tips.php:647
+#: quotes-and-tips.php:652
 msgid "Display tips"
 msgstr "Отобразить подсказки"
+
+#~ msgid "Add Quotes and Tips block to your page or post:"
+#~ msgstr "Добавить блок Quotes and Tips на вашу страницу или пост:"
 
 #~ msgid "Official position:"
 #~ msgstr "Официальное положение (должность):"
@@ -517,9 +520,6 @@ msgstr "Отобразить подсказки"
 
 #~ msgid "Download Custom Search"
 #~ msgstr "Загрузить  Custom Search"
-
-#~ msgid "Add Quotes and Tips block to your page or post"
-#~ msgstr "Добавить блок Quotes and Tips на вашу страницу или пост:"
 
 #~ msgid "Upload settings:"
 #~ msgstr "Настройки загрузки:"

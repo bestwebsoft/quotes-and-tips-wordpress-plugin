@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: quotes_and_tips\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-02 12:39+0200\n"
-"PO-Revision-Date: 2018-01-02 12:39+0200\n"
+"POT-Creation-Date: 2018-06-11 12:56+0300\n"
+"PO-Revision-Date: 2018-06-11 12:56+0300\n"
 "Last-Translator: plugin@bestwebsoft.com <plugin@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft <plugin@bestwebsoft.com>\n"
 "Language: uk_UA\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: includes/class-qtsndtps-settings.php:24 quotes-and-tips.php:38
-#: quotes-and-tips.php:42 quotes-and-tips.php:429 quotes-and-tips.php:447
+#: quotes-and-tips.php:42 quotes-and-tips.php:433 quotes-and-tips.php:451
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -55,17 +55,17 @@ msgid "Bottom"
 msgstr "Знизу"
 
 #: includes/class-qtsndtps-settings.php:57
-#: includes/class-qtsndtps-settings.php:287
+#: includes/class-qtsndtps-settings.php:276
 msgid "None"
 msgstr "Не використовувати"
 
 #: includes/class-qtsndtps-settings.php:58
-#: includes/class-qtsndtps-settings.php:287
+#: includes/class-qtsndtps-settings.php:276
 msgid "Default"
 msgstr "За замовчуванням"
 
 #: includes/class-qtsndtps-settings.php:59
-#: includes/class-qtsndtps-settings.php:287
+#: includes/class-qtsndtps-settings.php:276
 msgid "Custom"
 msgstr "Користувацьке"
 
@@ -102,75 +102,75 @@ msgstr "Завантажений файл не може бути переміщ�
 msgid "Could not save background image file to WordPress media library."
 msgstr "Не вдалося зберегти файл зображення у медіатеці WordPress."
 
-#: includes/class-qtsndtps-settings.php:176
+#: includes/class-qtsndtps-settings.php:165
 msgid "Settings saved."
 msgstr "Налаштування збережені."
 
-#: includes/class-qtsndtps-settings.php:182 quotes-and-tips.php:38
-#: quotes-and-tips.php:42 quotes-and-tips.php:418
+#: includes/class-qtsndtps-settings.php:171 quotes-and-tips.php:38
+#: quotes-and-tips.php:42 quotes-and-tips.php:422
 msgid "Quotes and Tips Settings"
 msgstr "Налаштування Quotes and Tips"
 
-#: includes/class-qtsndtps-settings.php:187
+#: includes/class-qtsndtps-settings.php:176
 msgid "Display Settings"
 msgstr "Налаштування відображення"
 
-#: includes/class-qtsndtps-settings.php:190
+#: includes/class-qtsndtps-settings.php:179
 msgid "Random Order With the Page Reload"
 msgstr "Відображати у довільному порядку при завантаженні сторінки"
 
-#: includes/class-qtsndtps-settings.php:191
+#: includes/class-qtsndtps-settings.php:180
 msgid "Random Order Without the Page Reload"
 msgstr "Відображати у довільному порядку без перезавантаження сторінки"
 
-#: includes/class-qtsndtps-settings.php:192
+#: includes/class-qtsndtps-settings.php:181
 msgid "Change Frequency (in seconds)"
 msgstr "Частота зміни (в секундах)"
 
-#: includes/class-qtsndtps-settings.php:197
+#: includes/class-qtsndtps-settings.php:186
 msgid "Title Options"
 msgstr "Налаштування назв блоків"
 
-#: includes/class-qtsndtps-settings.php:200
+#: includes/class-qtsndtps-settings.php:189
 msgid "Set Title From Post"
 msgstr "Використовувати назву з назви цитати або підказки"
 
-#: includes/class-qtsndtps-settings.php:201
+#: includes/class-qtsndtps-settings.php:190
 msgid "Set Custom Titles"
 msgstr "Використовувати користувацькі назви"
 
-#: includes/class-qtsndtps-settings.php:206
+#: includes/class-qtsndtps-settings.php:195
 msgid "Tip Title"
 msgstr "Назва блоку підказки"
 
-#: includes/class-qtsndtps-settings.php:212
+#: includes/class-qtsndtps-settings.php:201
 msgid "Quote Title"
 msgstr "Назва блоку цитати"
 
-#: includes/class-qtsndtps-settings.php:218
+#: includes/class-qtsndtps-settings.php:207
 msgid "Add Quotes and Tips to the Search"
 msgstr "Додати Quotes and Tips до пошуку"
 
-#: includes/class-qtsndtps-settings.php:234 quotes-and-tips.php:213
+#: includes/class-qtsndtps-settings.php:223 quotes-and-tips.php:213
 #: quotes-and-tips.php:214
 msgid "Quotes"
 msgstr "Цитати"
 
-#: includes/class-qtsndtps-settings.php:235
+#: includes/class-qtsndtps-settings.php:224
 msgid "Enable to include quotes to your website search using"
 msgstr "Включити цитати до пошуку на вашому сайті, використовуючи"
 
-#: includes/class-qtsndtps-settings.php:238 quotes-and-tips.php:125
+#: includes/class-qtsndtps-settings.php:227 quotes-and-tips.php:125
 #: quotes-and-tips.php:184 quotes-and-tips.php:185
 msgid "Tips"
 msgstr "Підказки"
 
-#: includes/class-qtsndtps-settings.php:239
+#: includes/class-qtsndtps-settings.php:228
 msgid "Enable to include tips to your website search using"
 msgstr "Включити підказки до пошуку на вашому сайті, використовуючи"
 
-#: includes/class-qtsndtps-settings.php:244
-#: includes/class-qtsndtps-settings.php:248
+#: includes/class-qtsndtps-settings.php:233
+#: includes/class-qtsndtps-settings.php:237
 msgid ""
 "Enable to include quotes and tips to your website search. Custom Search "
 "plugin is required."
@@ -178,63 +178,63 @@ msgstr ""
 "Включити цитати та підказки до пошуку на вашому сайті. Потрібен плагін "
 "Custom Search."
 
-#: includes/class-qtsndtps-settings.php:244
+#: includes/class-qtsndtps-settings.php:233
 msgid "Activate Now"
 msgstr "Активувати зараз"
 
-#: includes/class-qtsndtps-settings.php:248
+#: includes/class-qtsndtps-settings.php:237
 msgid "Install Now"
 msgstr "Встановити зараз"
 
-#: includes/class-qtsndtps-settings.php:257
+#: includes/class-qtsndtps-settings.php:246
 msgid "Appearance Settings"
 msgstr "Налаштування відображення"
 
-#: includes/class-qtsndtps-settings.php:262
+#: includes/class-qtsndtps-settings.php:251
 msgid "Use Default Styles"
 msgstr "Використовувати стилі за замовчуванням"
 
-#: includes/class-qtsndtps-settings.php:268
+#: includes/class-qtsndtps-settings.php:257
 msgid "Background Color"
 msgstr "Колір фону"
 
-#: includes/class-qtsndtps-settings.php:276
+#: includes/class-qtsndtps-settings.php:265
 msgid "Text Color"
 msgstr "Колір тексту"
 
-#: includes/class-qtsndtps-settings.php:284
+#: includes/class-qtsndtps-settings.php:273
 msgid "Background Image"
 msgstr "Фонове зображення"
 
-#: includes/class-qtsndtps-settings.php:300
+#: includes/class-qtsndtps-settings.php:289
 msgid "Current Image"
 msgstr "Поточне зображення"
 
-#: includes/class-qtsndtps-settings.php:311
+#: includes/class-qtsndtps-settings.php:300
 msgid "Background Image Repeat"
 msgstr "Повтор фонового зображення"
 
-#: includes/class-qtsndtps-settings.php:314
+#: includes/class-qtsndtps-settings.php:303
 msgid "Horizontal Repeat (x)"
 msgstr "По горизонталі (х)"
 
-#: includes/class-qtsndtps-settings.php:315
+#: includes/class-qtsndtps-settings.php:304
 msgid "Vertical Repeat (y)"
 msgstr "По вертикалі (у)"
 
-#: includes/class-qtsndtps-settings.php:320
+#: includes/class-qtsndtps-settings.php:309
 msgid "Background Image Horizontal Alignment"
 msgstr "Вирівнювання фонового зображення по горизонталі"
 
-#: includes/class-qtsndtps-settings.php:330
+#: includes/class-qtsndtps-settings.php:319
 msgid "Background Image Vertical Alignment"
 msgstr "Вирівнювання фонового зображення по вертикалі"
 
-#: includes/class-qtsndtps-settings.php:351
+#: includes/class-qtsndtps-settings.php:340
 msgid "Quotes and Tips"
 msgstr "Quotes and Tips"
 
-#: includes/class-qtsndtps-settings.php:354
+#: includes/class-qtsndtps-settings.php:343
 msgid ""
 "Add Quotes and Tips block to your page or post by using the following "
 "shortcode:"
@@ -242,7 +242,7 @@ msgstr ""
 "Додайте блок Quotes and Tips в ваші записи, сторінки, використовуючи "
 "наступний шорткод:"
 
-#: includes/class-qtsndtps-settings.php:356
+#: includes/class-qtsndtps-settings.php:345
 msgid "Or add the following strings into the template source code"
 msgstr "Або використайте цей рядок  у файлі темплейту у вашій темі"
 
@@ -330,53 +330,56 @@ msgstr "Навігація списку цитат"
 msgid "Quotes list"
 msgstr "Список цитат"
 
-#: quotes-and-tips.php:395
+#: quotes-and-tips.php:399
 msgid "Name:"
 msgstr "Ім’я:"
 
-#: quotes-and-tips.php:399
+#: quotes-and-tips.php:403
 msgid "Official Position:"
 msgstr "Офіційна посада:"
 
-#: quotes-and-tips.php:408
+#: quotes-and-tips.php:412
 msgid "Name and Official Position"
 msgstr "Ім’я та офіційна посада"
 
-#: quotes-and-tips.php:431
+#: quotes-and-tips.php:435
 msgid "FAQ"
 msgstr "FAQ"
 
-#: quotes-and-tips.php:432
+#: quotes-and-tips.php:436
 msgid "Support"
 msgstr "Підтримка"
 
-#: quotes-and-tips.php:615
+#: quotes-and-tips.php:620
 msgid "MB"
 msgstr "MB"
 
-#: quotes-and-tips.php:619
+#: quotes-and-tips.php:624
 msgid "KB"
 msgstr "KB"
 
-#: quotes-and-tips.php:622
+#: quotes-and-tips.php:627
 msgid "Bytes"
 msgstr "Байт"
 
-#: quotes-and-tips.php:631
-msgid "Add Quotes and Tips block to your page or post:"
+#: quotes-and-tips.php:636
+msgid "Add Quotes and Tips block to your page or post"
 msgstr "Додати блок Quotes and Tips на вашу сторінку або пост"
 
-#: quotes-and-tips.php:635
+#: quotes-and-tips.php:640
 msgid "Display quotes and tips"
 msgstr "Відобразити цитати та підказки"
 
-#: quotes-and-tips.php:641
+#: quotes-and-tips.php:646
 msgid "Display quotes"
 msgstr "Відобразити цитати"
 
-#: quotes-and-tips.php:647
+#: quotes-and-tips.php:652
 msgid "Display tips"
 msgstr "Відобразити підказки"
+
+#~ msgid "Add Quotes and Tips block to your page or post:"
+#~ msgstr "Додати блок Quotes and Tips на вашу сторінку або пост"
 
 #~ msgid "The file format should be png, jpg(jpeg) or gif."
 #~ msgstr ""
@@ -530,9 +533,6 @@ msgstr "Відобразити підказки"
 
 #~ msgid "Save Changes"
 #~ msgstr "Зберегти зміни"
-
-#~ msgid "Add Quotes and Tips block to your page or post"
-#~ msgstr "Додати блок Quotes and Tips на вашу сторінку або пост"
 
 #~ msgid "Image Processing Error"
 #~ msgstr "Помилка обробки зображень"

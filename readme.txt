@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: add quotes, create quotes, display quotes, publish quotes, quote label, quotes from clients, quotes and tips, quotes and tips plugin, tip, tip label, tips for visitors, additional info
 Requires at least: 4.0
-Tested up to: 4.9.2
-Stable tag: 1.34
+Tested up to: 4.9.8
+Stable tag: 1.35
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -97,26 +97,26 @@ http://www.youtube.com/watch?v=tEOjkZrwdNA
 1. Click 'Add New' in the 'Tips' menu and enter the necessary content;
 2. Copy and paste the following shortcode to your post or page - `[quotes_and_tips]`, or add the following strings to the template source code:
 
-`&lt;?php if( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote();  ?&gt;`.
+`<?php if( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote(); ?>`.
 
 3. You can adjust the plugin settings going to 'Quotes' -> 'Settings' or 'Tips'->'Settings'.
 
 = How to change background or text color? =
 
 1. Go to the plugin settings page via 'Quotes'->'Settings' or 'Tips'->'Settings';
-2. Switch to the `Appearance` tab and enable `Additional settings`;
+2. Switch to the `Appearance` tab;
 3. Apply the necessary settings (choose the text color, background color, upload a background image) and save the changes.
 
 = What should I do if I don't want to use a block background image anymore? =
 
 1. Go to the plugin settings page via 'Quotes'->'Settings' or 'Tips'->'Settings';
-2. Switch to the `Appearance` tab and enable `Additional settings`;
-3. Find `Background Image` option, unmark `Use background image` checkbox and save the changes.
+2. Switch to the `Appearance` tab;
+3. Find `Background Image` option, set 'Background Image' block to 'None' and save the changes.
 
 = I want to choose a background image position. How can I do that? =
 
 1. Go to the plugin settings page via 'Quotes'->'Settings' or 'Tips'->'Settings';
-2. Switch to the `Appearance` tab and enable `Additional settings`;
+2. Switch to the `Appearance` tab;
 3. Apply the necessary settings in `Background Image Repeat`, `Background Image Horizontal Alignment`, `Background Image Vertical Alignment` options and save the changes.
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
@@ -125,8 +125,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 1. The link to the page where the problem occurs
 2. The plugin and its version. If you are using a pro version - your order number.
-3. The version of your WordPress installation
-4. Copy and paste your system status report into the message. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc)
+3. The version of your WordPress installation.
 
 == Screenshots ==
 
@@ -136,6 +135,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 4. Quote edit page.
 
 == Changelog ==
+
+= V1.35 - 16.10.2018 =
+* Update : FAQ has been changed.
+* NEW : The filters to affect Quotes and Tips output have been added.
 
 = V1.34 - 26.01.2018 =
 * Update : The plugin settings page has been changed.
@@ -271,6 +274,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.35 =
+* Usability improved.
+* Functionality improved.
 
 = V1.34 =
 * Usability improved.
