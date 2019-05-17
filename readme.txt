@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: add quotes, create quotes, display quotes, publish quotes, quote label, quotes from clients, quotes and tips, quotes and tips plugin, tip, tip label, tips for visitors, additional info
 Requires at least: 4.0
-Tested up to: 4.9.8
-Stable tag: 1.35
+Tested up to: 5.2
+Stable tag: 1.36
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -135,6 +135,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 4. Quote edit page.
 
 == Changelog ==
+
+= V1.36 - 17.05.2019 =
+* Update : The function for returning an array of objects has been added.
 
 = V1.35 - 16.10.2018 =
 * Update : FAQ has been changed.
@@ -274,6 +277,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.36 =
+* Functionality improved.
 
 = V1.35 =
 * Usability improved.

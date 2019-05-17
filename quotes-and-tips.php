@@ -6,12 +6,12 @@ Description: Add customizable quotes and tips blocks to WordPress posts, pages a
 Author: BestWebSoft
 Text Domain: quotes-and-tips
 Domain Path: /languages
-Version: 1.35
+Version: 1.36
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
 
-/*  © Copyright 2018  BestWebSoft  ( https://support.bestwebsoft.com )
+/*  © Copyright 2019  BestWebSoft  ( https://support.bestwebsoft.com )
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -686,6 +686,41 @@ if ( ! function_exists( 'qtsndtps_add_tabs' ) ) {
 			bws_help_tab( $screen, $args );
 		}
 	}
+}
+
+if ( ! function_exists( 'qtsndtps_get_data' ) ) {
+    function qtsndtps_get_data( $qtsndtps_id ) {
+
+      $post_type = array('quote','tips');
+      
+      $qtsndtps_posts = array();
+
+      if ( 'all' == $qtsndtps_id || is_array( $qtsndtps_id ) ) {
+
+        $qtsndtps_id_list = ( is_array( $qtsndtps_id ) && ! empty( $qtsndtps_id ) ) ? $qtsndtps_id  : array();
+        $args = ( is_array( $qtsndtps_id ) ) ? array( 'post_type' => $post_type,
+                                                         'include' => $qtsndtps_id_list ) : array( 'post_type' => $post_type);
+        $qtsndtps_posts = get_posts( $args );
+
+	  } else if ( is_int( $qtsndtps_id ) || is_string( $qtsndtps_id ) ) {
+
+	      $qtsndtps_int_id = is_int( $qtsndtps_id ) ? $qtsndtps_id : intval( $qtsndtps_id );
+	      $qtsndtps_posts = get_post( $qtsndtps_int_id );
+
+	  }
+	    
+	  $qtsndtps_posts_end = array();
+	  foreach ( (array)$qtsndtps_posts as $key => $qtsndtps_post ) {
+
+	    $qtsndtps_meta = get_post_meta( $qtsndtps_post->ID, '' );
+	    unset($qtsndtps_meta['_edit_lock']);
+	    unset($qtsndtps_meta['_edit_last']);
+	  
+	    $qtsndtps_posts[$key]->qtsndtps_post_meta = $qtsndtps_meta;
+	  }
+
+      return $qtsndtps_posts;
+    }
 }
 
 /* Function for delete options */
