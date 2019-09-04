@@ -6,7 +6,7 @@ Description: Add customizable quotes and tips blocks to WordPress posts, pages a
 Author: BestWebSoft
 Text Domain: quotes-and-tips
 Domain Path: /languages
-Version: 1.36
+Version: 1.37
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
