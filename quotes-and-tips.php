@@ -6,7 +6,7 @@ Description: Add customizable quotes and tips blocks to WordPress posts, pages a
 Author: BestWebSoft
 Text Domain: quotes-and-tips
 Domain Path: /languages
-Version: 1.37
+Version: 1.38
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -73,7 +73,7 @@ if ( ! function_exists ( 'qtsndtps_plugin_init' ) ) {
 		}
 
 		/* Function check if plugin is compatible with current WP version */
-		bws_wp_min_version_check( plugin_basename( __FILE__ ), $qtsndtps_plugin_info, '4.0' );
+		bws_wp_min_version_check( plugin_basename( __FILE__ ), $qtsndtps_plugin_info, '4.5' );
 
 		/* Call register settings function */
 		if ( ! is_admin() || ( isset( $_GET['page'] ) && "quotes-and-tips.php" == $_GET['page'] ) ) {
@@ -416,6 +416,8 @@ if ( ! function_exists( 'qtsndtps_add_custom_metabox' ) ) {
 /* Settings page */
 if ( ! function_exists( 'qtsndtps_settings_page' ) ) {
 	function qtsndtps_settings_page() {
+		if ( ! class_exists( 'Bws_Settings_Tabs' ) )
+			require_once( dirname( __FILE__ ) . '/bws_menu/class-bws-settings.php' );
 		require_once( dirname( __FILE__ ) . '/includes/class-qtsndtps-settings.php' );
 		$page = new Qtsndtps_Settings_Tabs( plugin_basename( __FILE__ ) ); ?>
 		<div class="wrap">

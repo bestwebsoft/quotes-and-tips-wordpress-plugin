@@ -3,8 +3,6 @@
  * Displays the content on the plugin settings page
  */
 
-require_once( dirname( dirname( __FILE__ ) ) . '/bws_menu/class-bws-settings.php' );
-
 if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 	class Qtsndtps_Settings_Tabs extends Bws_Settings_Tabs {
 		public $cstmsrch_options, $bg_horizontal_alignment, $bg_vertical_alignment, $background_image;
@@ -69,6 +67,8 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 		 * @return array    The action results
 		 */
 		public function save_options() {
+			$message = $notice = $error = '';
+
 			$img_formats = array( 'image/png', 'image/jpg', 'image/jpeg', 'image/gif' );
 			$max_size = wp_max_upload_size();
 
@@ -160,7 +160,7 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 			$this->options['background_image_repeat_x'] 	= isset( $_POST['qtsndtps_background_image_repeat_x'] ) ? 1 : 0;
 			$this->options['background_image_repeat_y'] 	= isset( $_POST['qtsndtps_background_image_repeat_y'] ) ? 1 : 0;
 
-			if( ! isset( $error ) ) {
+			if( empty( $error ) ) {
 				update_option( 'qtsndtps_options', $this->options );
 				$message = __( 'Settings saved.', 'quotes-and-tips' );
 			}
