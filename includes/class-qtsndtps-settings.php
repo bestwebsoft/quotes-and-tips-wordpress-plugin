@@ -5,7 +5,7 @@
 
 if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 	class Qtsndtps_Settings_Tabs extends Bws_Settings_Tabs {
-		public $cstmsrch_options, $bg_horizontal_alignment, $bg_vertical_alignment, $background_image;
+		public $cstmsrch_options, $background_image, $crop_array;
 		/**
 		 * Constructor.
 		 *
@@ -37,24 +37,24 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 
 			$this->all_plugins = get_plugins();
 
-			$this->cstmsrch_options = get_option( 'cstmsrch_options' );
-
-			$this->bg_horizontal_alignment = array(
-				'left'		=> __( 'Left', 'quotes-and-tips' ),
-				'center'	=> __( 'Center', 'quotes-and-tips' ),
-				'right'		=> __( 'Right', 'quotes-and-tips' )
-			);
-
-			$this->bg_vertical_alignment = array(
-				'top'		=> __( 'Top', 'quotes-and-tips' ),
-				'center'	=> __( 'Center', 'quotes-and-tips' ),
-				'bottom'	=> __( 'Bottom', 'quotes-and-tips' )
-			);
+			$this->cstmsrch_options = get_option( 'cstmsrch_options' );			
 
 			$this->background_image = array(
 				'none'		=> __( 'None', 'quotes-and-tips' ),
 				'default'	=> __( 'Default', 'quotes-and-tips' ),
 				'custom'	=> __( 'Custom', 'quotes-and-tips' )
+			);
+
+			$this->crop_array = array(
+				array( 'left', 'top' ),
+				array( 'center', 'top' ),
+				array( 'right', 'top' ),
+				array( 'left', 'center' ),
+				array( 'center', 'center' ),
+				array( 'right', 'center' ),
+				array( 'left', 'bottom' ),
+				array( 'center', 'bottom' ),
+				array( 'right', 'bottom' )
 			);
 
 			add_action( get_parent_class( $this ) . '_display_metabox', array( $this, 'display_metabox' ) );
@@ -92,8 +92,8 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 				if ( ! isset( $tips_exist ) ) {
 					$this->cstmsrch_options['output_order'][] = array( 'name' => 'tips', 'type' => 'post_type', 'enabled' => $tips_enabled );
 				}
-			}
-			update_option( 'cstmsrch_options', $this->cstmsrch_options );
+                update_option( 'cstmsrch_options', $this->cstmsrch_options );
+            }
 
 			if ( isset( $_FILES['qtsndtps_custom_image']['name'] ) && ! empty( $_FILES['qtsndtps_custom_image']['name'] ) ) {
 				$uploaded = $_FILES['qtsndtps_custom_image'];
@@ -146,19 +146,19 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 				}
 			}
 
-			$this->options['page_load'] 					= $_POST['qtsndtps_page_load'];
+			$this->options['page_load'] 					= sanitize_text_field( $_POST['qtsndtps_page_load'] );
 			$this->options['interval_load'] 				= isset( $_POST['qtsndtps_interval_load'] ) ? intval( $_POST['qtsndtps_interval_load'] ) : 10;
-			$this->options['tip_label'] 					= stripslashes( esc_html( $_POST['qtsndtps_tip_label'] ) );
-			$this->options['quote_label'] 					= stripslashes( esc_html( $_POST['qtsndtps_quote_label'] ) );
-			$this->options['title_post'] 					= $_POST['qtsndtps_title_post'];
+			$this->options['tip_label'] 					= sanitize_text_field( $_POST['qtsndtps_tip_label'] );
+			$this->options['quote_label'] 					= sanitize_text_field( $_POST['qtsndtps_quote_label'] );
+			$this->options['title_post'] 					= sanitize_text_field( $_POST['qtsndtps_title_post'] );
 			$this->options['additional_options'] 			= isset( $_POST['qtsndtps_additional_options'] ) ? 1 : 0;
-			$this->options['background_color'] 				= isset( $_POST['qtsndtps_background_color'] ) ? stripslashes( esc_html( $_POST['qtsndtps_background_color'] ) ) : $this->options['background_color'];
-			$this->options['text_color'] 					= isset( $_POST['qtsndtps_text_color'] ) ? stripslashes( esc_html( $_POST['qtsndtps_text_color'] ) ) : $this->options['text_color'];
-			$this->options['background_image'] 				= isset( $_POST['qtsndtps_background_image'] ) ? $_POST['qtsndtps_background_image'] : $this->options['background_image'];
-			$this->options['background_image_gposition'] 	= isset( $_POST['qtsndtps_background_image_gposition'] ) ? $_POST['qtsndtps_background_image_gposition'] : $this->options['background_image_gposition'];
-			$this->options['background_image_vposition'] 	= isset( $_POST['qtsndtps_background_image_vposition'] ) ? $_POST['qtsndtps_background_image_vposition'] : $this->options['background_image_vposition'];
+			$this->options['background_color'] 				= isset( $_POST['qtsndtps_background_color'] ) ? sanitize_text_field( $_POST['qtsndtps_background_color'] ) : $this->options['background_color'];
+			$this->options['text_color'] 					= isset( $_POST['qtsndtps_text_color'] ) ? sanitize_text_field( $_POST['qtsndtps_text_color'] ) : $this->options['text_color'];
+			$this->options['background_image'] 				= array_key_exists( $_POST['qtsndtps_background_image'], $this->background_image ) ? $_POST['qtsndtps_background_image'] : $this->options['background_image'];
 			$this->options['background_image_repeat_x'] 	= isset( $_POST['qtsndtps_background_image_repeat_x'] ) ? 1 : 0;
 			$this->options['background_image_repeat_y'] 	= isset( $_POST['qtsndtps_background_image_repeat_y'] ) ? 1 : 0;
+            $this->options['background_image_position']    = $this->crop_array[ intval( $_POST['qtsndtps_background_image_position' ] ) ];
+			$this->options['widget_background_opacity']		= isset( $_POST['qtsndtps_widget_background_opacity'] ) ? floatval( $_POST['qtsndtps_widget_background_opacity'] ) : 1;
 
 			if( empty( $error ) ) {
 				update_option( 'qtsndtps_options', $this->options );
@@ -173,13 +173,18 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 			<hr>
 			<table class="form-table">
 				<tr valign="top">
-					<th scope="row"><?php _e( 'Display Settings', 'quotes-and-tips' ); ?></th>
+					<th scope="row"><?php _e( 'Random Change on', 'quotes-and-tips' ); ?></th>
 					<td>
 						<fieldset>
-							<label><input type="radio" name="qtsndtps_page_load" value="1"<?php checked( $this->options['page_load'] ); ?> /> <?php _e( 'Random Order With the Page Reload', 'quotes-and-tips' ); ?></label><br />
-							<label><input type="radio" name="qtsndtps_page_load" value="0"<?php checked( '0', $this->options['page_load'] ); ?> /> <?php _e( 'Random Order Without the Page Reload', 'quotes-and-tips' ); ?></label><br />
-							<label><input type="number" name="qtsndtps_interval_load" min="1" max="999" step="1" value="<?php echo $this->options['interval_load']; ?>" style="width:55px" /> <?php _e( 'Change Frequency (in seconds)', 'quotes-and-tips' ); ?></label>
+							<label><input type="radio" name="qtsndtps_page_load" value="1"<?php checked( $this->options['page_load'] ); ?> /> <?php _e( 'Page reload', 'quotes-and-tips' ); ?></label><br />
+							<label><input type="radio" name="qtsndtps_page_load" value="0"<?php checked( '0', $this->options['page_load'] ); ?> /> <?php _e( 'AJAX (no page reload)', 'quotes-and-tips' ); ?></label><br />							
 						</fieldset>
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Change Frequency', 'quotes-and-tips' ); ?></th>
+					<td>
+						<label><input type="number" name="qtsndtps_interval_load" min="1" max="999" step="1" value="<?php echo $this->options['interval_load']; ?>" style="width:55px" /> <?php _e( 'sec', 'quotes-and-tips' ); ?></label>
 					</td>
 				</tr>
 				<tr valign="top">
@@ -241,87 +246,90 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 			</table>
 		<?php }
 
-		public function tab_appearance() {
-			$disabled = 1 == $this->options['additional_options'] ? ' disabled="disabled"' : ''; ?>
+		public function tab_appearance() {  ?>
 			<h3 class="bws_tab_label"><?php _e( 'Appearance Settings', 'quotes-and-tips' ); ?></h3>
 			<?php $this->help_phrase(); ?>
 			<hr>
 			<table class="form-table">
 				<tr>
-					<th scope="row"><?php _e( 'Use Default Styles', 'quotes-and-tips' ); ?></th>
+					<th scope="row"><?php _e( 'Custom Styles', 'quotes-and-tips' ); ?></th>
 					<td>
-						<input type="checkbox" name="qtsndtps_additional_options" id="qtsndtps_additional_options" value="1"<?php checked( $this->options['additional_options'] ); ?> />
+                        <label>
+                            <input type="checkbox" name="qtsndtps_additional_options" id="qtsndtps_additional_options" class="bws_option_affect" data-affect-show="#qtsndtps_display_one_line" value="1"<?php checked( $this->options['additional_options'] ); ?> />
+                            <span class="bws_info"><?php _e( 'Enable to apply custom styles.', 'quotes-and-tips' ); ?></span>
+                        </label>
 					</td>
 				</tr>
+			</table>
+			<table class="form-table" id="qtsndtps_display_one_line">
 				<tr valign="top">
 					<th scope="row"><?php _e( 'Background Color', 'quotes-and-tips' ); ?></th>
 					<td>
-						<input type="text" class="qtsndtps_additions_block" name="qtsndtps_background_color" id="qtsndtps-link-color" maxlength="7"<?php echo $disabled; ?> value="<?php echo esc_attr( $this->options['background_color'] ); ?>" style="max-width: 70%;"/>
-						<a href="#" class="pickcolor hide-if-no-js" id="qtsndtps-link-color-example"></a>
-						<div id="colorPickerDiv" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
+						<input type="text" value="<?php echo $this->options["background_color"]; ?>" name="qtsndtps_background_color" class="qtsndtps_color_field" data-default-color="#2484C6" />
 					</td>
 				</tr>
 				<tr>
 					<th scope="row"><?php _e( 'Text Color', 'quotes-and-tips' ); ?></th>
 					<td>
-						<input type="text" class="qtsndtps_additions_block" name="qtsndtps_text_color" id="qtsndtps-text-color" maxlength="7"<?php echo $disabled; ?> value="<?php echo esc_attr( $this->options['text_color'] ); ?>" style="max-width: 70%;"/>
-						<a href="#" class="pickcolor1 hide-if-no-js" id="qtsndtps-text-color-example"></a>
-						<div id="colorPickerDiv1" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
+						<input type="text" value="<?php echo $this->options["text_color"]; ?>" name="qtsndtps_text_color" class="qtsndtps_color_field" data-default-color="#FFFFFF" />
 					</td>
 				</tr>
 				<tr>
 					<th scope="row"><?php _e( 'Background Image', 'quotes-and-tips' ); ?></th>
 					<td>
 						<fieldset>
-							<?php foreach ( array( 'none' => __( 'None', 'quotes-and-tips' ), 'default' => __( 'Default', 'quotes-and-tips' ), 'custom' => __( 'Custom', 'quotes-and-tips' ) ) as $key => $value ) { ?>
+							<?php foreach ( $this->background_image as $key => $value ) { ?>
 								<label>
 									<?php printf(
-										'<input type="radio" class="qtsndtps_additions_block qtsndtps_background_image" name="qtsndtps_background_image" value="%s" %s %s />%s',
+										'<input type="radio" class="qtsndtps_additions_block qtsndtps_background_image " name="qtsndtps_background_image" value="%s" %s />%s',
 										$key,
-										$disabled,
 										checked( ( $key == $this->options['background_image'] ), true, false ),
 										$value
 									); ?>
 								</label><br>
-							<?php } ?>
-								<input type="file" class="qtsndtps_additions_block" name="qtsndtps_custom_image" id="qtsndtps_custom_image"/><br />
-									<div class="qtsndtps_current_image">
-										<span><?php _e( 'Current Image', 'quotes-and-tips' ); ?></span><br>
-										<?php if( ! empty( $this->options['custom_background_image'] ) && 'custom' == $this->options['background_image'] ) { ?>
-											<img src="<?php echo $this->options['custom_background_image']; ?>" alt="" title="" style="max-width: 100%; height: auto;" />
-										<?php } elseif ( 'default' == $this->options['background_image'] ) { ?>
-											<img src="<?php echo plugins_url( 'quotes-and-tips/images/quotes_box_and_tips_bg.png' ); ?>" alt="" title="" style="border:1px solid grey;max-width: 100%; height: auto;" />
-										<?php } ?>
-									</div>
+							<?php }
+							$opacity_background = $this->options['widget_background_opacity'];
+							?>
+                            <input type="file" class="qtsndtps_additions_block" name="qtsndtps_custom_image" id="qtsndtps_custom_file" /><br />
+                                <div class="qtsndtps_current_image">
+                                    <span><?php _e( 'Current Image', 'quotes-and-tips' ); ?></span><br>
+                                    <div  class="qtsndtps_custom_image">
+                                        <img src="<?php echo $this->options['custom_background_image']; ?>" alt="" title="" style="max-width: 300px; height: 200px; opacity: <?php echo $opacity_background;?>" />
+                                    </div>
+                                    <div class="qtsndtps_default_image">
+                                        <img src="<?php echo plugins_url( '/quotes-and-tips/images/quotes_box_and_tips_bg.png' )?>" alt="" title="" style="border: 1px solid grey; max-width: 100%; height: auto; opacity: <?php echo $opacity_background;?>" />
+                                    </div>
+                                </div>
 						</fieldset>
+					</td>
+				</tr>
+				<tr class="qtsndtps_hidden">
+					<th><?php _e( 'Background Image Opacity', 'quotes-and-tips' ); ?></th>
+					<td>
+						<input class="small-text" name="qtsndtps_widget_background_opacity" type="text" id="qtsndtps_widget_background_opacity" value="<?php if( ! empty( $this->options['widget_background_opacity'] ) && 0 != $this->options['widget_background_opacity'] ) echo $this->options['widget_background_opacity']; ?>" />
+						<div id="qtsndtps_slider"></div>
 					</td>
 				</tr>
 				<tr class="qtsndtps_hidden">
 					<th scope="row"><?php _e( 'Background Image Repeat', 'quotes-and-tips' ); ?> </th>
 					<td>
 						<fieldset>
-							<label><input type="checkbox" class="qtsndtps_additions_block" name="qtsndtps_background_image_repeat_x" <?php echo $disabled; ?> value="1" <?php checked( $this->options['background_image_repeat_x'] ); ?> /> <?php _e( 'Horizontal Repeat (x)', 'quotes-and-tips' ); ?></label><br />
-							<label><input type="checkbox" class="qtsndtps_additions_block" name="qtsndtps_background_image_repeat_y" <?php echo $disabled; ?> value="1" <?php checked( $this->options['background_image_repeat_y'] ); ?> /> <?php _e( 'Vertical Repeat (y)', 'quotes-and-tips' ); ?></label>
+							<label><input type="checkbox" class="qtsndtps_additions_block" name="qtsndtps_background_image_repeat_x" value="1" <?php checked( $this->options['background_image_repeat_x'] ); ?> /> <?php _e( 'Horizontal Repeat (x)', 'quotes-and-tips' ); ?></label><br />
+							<label><input type="checkbox" class="qtsndtps_additions_block" name="qtsndtps_background_image_repeat_y" value="1" <?php checked( $this->options['background_image_repeat_y'] ); ?> /> <?php _e( 'Vertical Repeat (y)', 'quotes-and-tips' ); ?></label>
 						</fieldset>
 					</td>
 				</tr>
 				<tr class="qtsndtps_hidden">
-					<th scope="row"><?php _e( 'Background Image Horizontal Alignment', 'quotes-and-tips' ); ?> </th>
+					<th scope="row"><?php _e( 'Background Image Alignment', 'quotes-and-tips' ); ?> </th>
 					<td>
 						<fieldset>
-							<?php foreach( $this->bg_horizontal_alignment as $key => $value ) { ?>
-								<label><input type="radio" class="qtsndtps_additions_block" name="qtsndtps_background_image_gposition" <?php echo $disabled; ?> value="<?php echo $key; ?>" <?php checked( $key, $this->options['background_image_gposition'] ); ?> /> <?php echo $value; ?></label><br/>
-							<?php } ?>
-						</fieldset>
-					</td>
-				</tr>
-				<tr class="qtsndtps_hidden">
-					<th scope="row"><?php _e( 'Background Image Vertical Alignment', 'quotes-and-tips' ); ?> </th>
-					<td>
-						<fieldset>
-							<?php foreach( $this->bg_vertical_alignment as $key => $value ) { ?>
-								<label><input type="radio" class="qtsndtps_additions_block" name="qtsndtps_background_image_vposition" <?php echo $disabled; ?> value="<?php echo $key; ?>" <?php checked( $key, $this->options['background_image_vposition'] ); ?> /> <?php echo $value; ?></label><br/>
-							<?php } ?>
+							<?php $i = 0;
+							while ( $i < 9 ) { ?>
+								<label><input type="radio" name="qtsndtps_background_image_position" value="<?php echo $i; ?>" <?php if ( $this->crop_array[ $i ] == $this->options['background_image_position'] ) echo 'checked="checked"'; ?> /></label>
+								<?php if ( ( ( $i + 1 ) % 3 ) == 0 )
+									echo '<br />';
+								$i++;
+							} ?>
 						</fieldset>
 					</td>
 				</tr>
@@ -344,8 +352,8 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 					<?php bws_shortcode_output( '[quotes_and_tips]' ); ?>
 					<p><?php _e( "Or add the following strings into the template source code", 'quotes-and-tips' ); ?>:</p>
 					<code>&#60;?php if ( function_exists( 'qtsndtps_get_random_tip_quote' ) ) qtsndtps_get_random_tip_quote(); ?&#62;</code>
-				</div>
-			</div>
+			    </div>
+            </div>
 		<?php }
 	}
 }

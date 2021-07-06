@@ -63,6 +63,15 @@
 #qtsndtps_add_search {
 	margin-top: 1em !important;
 }
+#qtsndtps_background_opacity {
+	width: 45px;
+	display: inline-block;
+}
+#qtsndtps_slider {
+	display: inline-block;
+	width: 200px;
+	margin-left: 10px;
+}
 /*
 * Add responsive.
 */
@@ -95,5 +104,12 @@
 		background-repeat: repeat-x;
 		background-position: 0 bottom;
 		padding-bottom: 5px;
+	}
+}
+@media screen and (max-width: 440px) {
+	#qtsndtps_slider {
+		width: 100%;
+		margin-left: 0;
+		margin-top: 10px;
 	}
 }

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: quotes_and_tips\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-11 12:56+0300\n"
-"PO-Revision-Date: 2018-06-11 12:56+0300\n"
+"POT-Creation-Date: 2021-06-17 14:52+0300\n"
+"PO-Revision-Date: 2021-06-17 14:53+0300\n"
 "Last-Translator: plugin@bestwebsoft.com <plugin@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft <plugin@bestwebsoft.com>\n"
 "Language: ru_RU\n"
@@ -13,59 +13,36 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: bws_menu\n"
 
-#: includes/class-qtsndtps-settings.php:24 quotes-and-tips.php:38
-#: quotes-and-tips.php:42 quotes-and-tips.php:433 quotes-and-tips.php:451
+#: includes/class-qtsndtps-settings.php:22 quotes-and-tips.php:38
+#: quotes-and-tips.php:42 quotes-and-tips.php:452 quotes-and-tips.php:470
 msgid "Settings"
 msgstr "Настройки"
 
-#: includes/class-qtsndtps-settings.php:25
+#: includes/class-qtsndtps-settings.php:23
 msgid "Appearance"
 msgstr "Отображение"
 
-#: includes/class-qtsndtps-settings.php:26
+#: includes/class-qtsndtps-settings.php:24
 msgid "Misc"
 msgstr "Разное"
 
-#: includes/class-qtsndtps-settings.php:27
+#: includes/class-qtsndtps-settings.php:25
 msgid "Custom Code"
 msgstr "Пользовательский код"
 
-#: includes/class-qtsndtps-settings.php:45
-msgid "Left"
-msgstr "Слева"
-
-#: includes/class-qtsndtps-settings.php:46
-#: includes/class-qtsndtps-settings.php:52
-msgid "Center"
-msgstr "По центру"
-
-#: includes/class-qtsndtps-settings.php:47
-msgid "Right"
-msgstr "Справа"
-
-#: includes/class-qtsndtps-settings.php:51
-msgid "Top"
-msgstr "Вверху"
-
-#: includes/class-qtsndtps-settings.php:53
-msgid "Bottom"
-msgstr "Внизу"
-
-#: includes/class-qtsndtps-settings.php:57
-#: includes/class-qtsndtps-settings.php:276
+#: includes/class-qtsndtps-settings.php:43
 msgid "None"
 msgstr "Не использовать"
 
-#: includes/class-qtsndtps-settings.php:58
-#: includes/class-qtsndtps-settings.php:276
+#: includes/class-qtsndtps-settings.php:44
 msgid "Default"
 msgstr "По умолчанию"
 
-#: includes/class-qtsndtps-settings.php:59
-#: includes/class-qtsndtps-settings.php:276
+#: includes/class-qtsndtps-settings.php:45
 msgid "Custom"
 msgstr "Пользовательское"
 
@@ -107,70 +84,74 @@ msgid "Settings saved."
 msgstr "Настройки сохранены."
 
 #: includes/class-qtsndtps-settings.php:171 quotes-and-tips.php:38
-#: quotes-and-tips.php:42 quotes-and-tips.php:422
+#: quotes-and-tips.php:42 quotes-and-tips.php:441
 msgid "Quotes and Tips Settings"
 msgstr "Настройки Quotes and Tips"
 
 #: includes/class-qtsndtps-settings.php:176
-msgid "Display Settings"
-msgstr "Настройки отображения"
+msgid "Random Change on"
+msgstr "Случайное изменение на"
 
 #: includes/class-qtsndtps-settings.php:179
-msgid "Random Order With the Page Reload"
-msgstr "Отображать в случайном порядке при перезагрузке страницы"
+msgid "Page reload"
+msgstr "Перезагрузка страницы"
 
 #: includes/class-qtsndtps-settings.php:180
-msgid "Random Order Without the Page Reload"
-msgstr "Отображать в случайном порядке без перезагрузки страницы"
+msgid "AJAX (no page reload)"
+msgstr "AJAX (без перезагрузки страницы)"
 
-#: includes/class-qtsndtps-settings.php:181
-msgid "Change Frequency (in seconds)"
-msgstr "Частота изменения (в секундах)"
+#: includes/class-qtsndtps-settings.php:185
+msgid "Change Frequency"
+msgstr "Частота изменения"
 
-#: includes/class-qtsndtps-settings.php:186
+#: includes/class-qtsndtps-settings.php:187
+msgid "sec"
+msgstr "сек"
+
+#: includes/class-qtsndtps-settings.php:191
 msgid "Title Options"
 msgstr "Настройки названий блоков"
 
-#: includes/class-qtsndtps-settings.php:189
+#: includes/class-qtsndtps-settings.php:194
 msgid "Set Title From Post"
 msgstr "Использовать название из названия цитаты или подсказки"
 
-#: includes/class-qtsndtps-settings.php:190
+#: includes/class-qtsndtps-settings.php:195
 msgid "Set Custom Titles"
 msgstr "Использовать пользовательские названия"
 
-#: includes/class-qtsndtps-settings.php:195
+#: includes/class-qtsndtps-settings.php:200
 msgid "Tip Title"
 msgstr "Название блока подсказки"
 
-#: includes/class-qtsndtps-settings.php:201
+#: includes/class-qtsndtps-settings.php:206
 msgid "Quote Title"
 msgstr "Название блока цитаты"
 
-#: includes/class-qtsndtps-settings.php:207
+#: includes/class-qtsndtps-settings.php:212
 msgid "Add Quotes and Tips to the Search"
 msgstr "Добавить Quotes and Tips в поиск"
 
-#: includes/class-qtsndtps-settings.php:223 quotes-and-tips.php:213
-#: quotes-and-tips.php:214
+#: includes/class-qtsndtps-settings.php:228 quotes-and-tips.php:215
+#: quotes-and-tips.php:216
 msgid "Quotes"
 msgstr "Цитаты"
 
-#: includes/class-qtsndtps-settings.php:224
+#: includes/class-qtsndtps-settings.php:229
 msgid "Enable to include quotes to your website search using"
 msgstr "Включить цитаты в поиск на вашем сайте, используя"
 
-#: includes/class-qtsndtps-settings.php:227 quotes-and-tips.php:125
-#: quotes-and-tips.php:184 quotes-and-tips.php:185
+#: includes/class-qtsndtps-settings.php:232 quotes-and-tips.php:125
+#: quotes-and-tips.php:185 quotes-and-tips.php:186
 msgid "Tips"
 msgstr "Подсказки"
 
-#: includes/class-qtsndtps-settings.php:228
+#: includes/class-qtsndtps-settings.php:233
 msgid "Enable to include tips to your website search using"
 msgstr "Включить подсказки в поиск на вашем сайте, используя"
 
-#: includes/class-qtsndtps-settings.php:233
-#: includes/class-qtsndtps-settings.php:237
+#: includes/class-qtsndtps-settings.php:238
+#: includes/class-qtsndtps-settings.php:242
 msgid ""
 "Enable to include quotes and tips to your website search. Custom Search "
 "plugin is required."
@@ -178,63 +159,67 @@ msgstr ""
 "Включить цитаты и подсказки в поиск на вашем сайте. Требуется плагин Custom "
 "Search."
 
-#: includes/class-qtsndtps-settings.php:233
+#: includes/class-qtsndtps-settings.php:238
 msgid "Activate Now"
 msgstr "Активировать сейчас"
 
-#: includes/class-qtsndtps-settings.php:237
+#: includes/class-qtsndtps-settings.php:242
 msgid "Install Now"
 msgstr "Установить сейчас"
 
-#: includes/class-qtsndtps-settings.php:246
+#: includes/class-qtsndtps-settings.php:250
 msgid "Appearance Settings"
 msgstr "Настройки отображения"
 
-#: includes/class-qtsndtps-settings.php:251
-msgid "Use Default Styles"
-msgstr "Использовать стили по умолчанию"
+#: includes/class-qtsndtps-settings.php:255
+msgid "Custom Styles"
+msgstr "Использовать пользовательские стили"
 
-#: includes/class-qtsndtps-settings.php:257
+#: includes/class-qtsndtps-settings.php:259
+msgid "Enable to apply custom styles."
+msgstr "Разрешить применять собственные стили."
+
+#: includes/class-qtsndtps-settings.php:266
 msgid "Background Color"
 msgstr "Цвет фона"
 
-#: includes/class-qtsndtps-settings.php:265
+#: includes/class-qtsndtps-settings.php:272
 msgid "Text Color"
 msgstr "Цвет текста"
 
-#: includes/class-qtsndtps-settings.php:273
+#: includes/class-qtsndtps-settings.php:278
 msgid "Background Image"
 msgstr "Фоновое изображение"
 
-#: includes/class-qtsndtps-settings.php:289
+#: includes/class-qtsndtps-settings.php:295
 msgid "Current Image"
 msgstr "Текущее изображение"
 
-#: includes/class-qtsndtps-settings.php:300
+#: includes/class-qtsndtps-settings.php:307
+msgid "Background Image Opacity"
+msgstr "Прозрачность фонового изображения"
+
+#: includes/class-qtsndtps-settings.php:314
 msgid "Background Image Repeat"
 msgstr "Повтор фонового изображения"
 
-#: includes/class-qtsndtps-settings.php:303
+#: includes/class-qtsndtps-settings.php:317
 msgid "Horizontal Repeat (x)"
 msgstr "По горизонтали (х)"
 
-#: includes/class-qtsndtps-settings.php:304
+#: includes/class-qtsndtps-settings.php:318
 msgid "Vertical Repeat (y)"
 msgstr "По вертикали (у)"
 
-#: includes/class-qtsndtps-settings.php:309
-msgid "Background Image Horizontal Alignment"
-msgstr "Выравнивание фонового изображения по горизонтали"
+#: includes/class-qtsndtps-settings.php:323
+msgid "Background Image Alignment"
+msgstr "Выравнивание фонового изображения"
 
-#: includes/class-qtsndtps-settings.php:319
-msgid "Background Image Vertical Alignment"
-msgstr "Выравнивание фонового изображения по вертикали"
-
-#: includes/class-qtsndtps-settings.php:340
+#: includes/class-qtsndtps-settings.php:348
 msgid "Quotes and Tips"
 msgstr "Quotes and Tips"
 
-#: includes/class-qtsndtps-settings.php:343
+#: includes/class-qtsndtps-settings.php:351
 msgid ""
 "Add Quotes and Tips block to your page or post by using the following "
 "shortcode:"
@@ -242,7 +227,17 @@ msgstr ""
 "Добавьте блок Quotes and Tips в ваши записи, страницы, используя следующий "
 "шорткод:"
 
-#: includes/class-qtsndtps-settings.php:345
+#: includes/class-qtsndtps-settings.php:359
+msgid ""
+"For sorting Quotes or Tips block by category add to your page or post by "
+"using the following shortcode. Where type is \"quotes\" or \"tips\", and "
+"quotes_cat_id is the category number."
+msgstr ""
+"Для сортировки блока Quotes или Tips по категориям, добавьте на свою "
+"страницу или публикацию следующий шорткод. Где type это \"quotes\" или \"tips"
+"\", а quotes_cat_id - номер категории."
+
+#: includes/class-qtsndtps-settings.php:361
 msgid "Or add the following strings into the template source code"
 msgstr "Или вставьте данные строки в исходный код шаблона вашей темы"
 
@@ -250,133 +245,198 @@ msgstr "Или вставьте данные строки в исходный к
 msgid "The quotes from our clients"
 msgstr "Цитаты наших клиентов"
 
-#: quotes-and-tips.php:194
+#: quotes-and-tips.php:196
 msgid "Add a New Tip"
 msgstr "Добавить новую подсказку"
 
-#: quotes-and-tips.php:195
+#: quotes-and-tips.php:197
 msgid "Edit Tip"
 msgstr "Редактировать подсказку"
 
-#: quotes-and-tips.php:196
+#: quotes-and-tips.php:198
 msgid "New Tip"
 msgstr "Новая подсказка"
 
-#: quotes-and-tips.php:197
+#: quotes-and-tips.php:199
 msgid "View Tip"
 msgstr "Просмотреть подсказку"
 
-#: quotes-and-tips.php:198
+#: quotes-and-tips.php:200
 msgid "Search Tip"
 msgstr "Поиск подсказки"
 
-#: quotes-and-tips.php:199
+#: quotes-and-tips.php:201
 msgid "No tips found"
 msgstr "Ни одной подсказки не найдено"
 
-#: quotes-and-tips.php:200
+#: quotes-and-tips.php:202
 msgid "No tips found in Trash"
 msgstr "Ни одной подсказки в корзине не найдено"
 
-#: quotes-and-tips.php:201
+#: quotes-and-tips.php:203
 msgid "Filter tips list"
 msgstr "Фильтр списка подсказок"
 
-#: quotes-and-tips.php:202
+#: quotes-and-tips.php:204
 msgid "Tips list navigation"
 msgstr "Навигация списка подсказок"
 
-#: quotes-and-tips.php:203
+#: quotes-and-tips.php:205
 msgid "Tips list"
 msgstr "Список подсказок"
 
-#: quotes-and-tips.php:223
+#: quotes-and-tips.php:226
 msgid "Add a New Quote"
 msgstr "Добавить новую цитату"
 
-#: quotes-and-tips.php:224
+#: quotes-and-tips.php:227
 msgid "Edit Quote"
 msgstr "Редактировать цитату"
 
-#: quotes-and-tips.php:225
+#: quotes-and-tips.php:228
 msgid "New Quote"
 msgstr "Новая цитата"
 
-#: quotes-and-tips.php:226
+#: quotes-and-tips.php:229
 msgid "View Quote"
 msgstr "Просмотреть цитату"
 
-#: quotes-and-tips.php:227
+#: quotes-and-tips.php:230
 msgid "Search Quote"
 msgstr "Поиск цитаты"
 
-#: quotes-and-tips.php:228
+#: quotes-and-tips.php:231
 msgid "No quote found"
 msgstr "Ни одной цитаты не найдено"
 
-#: quotes-and-tips.php:229
+#: quotes-and-tips.php:232
 msgid "No quote found in Trash"
 msgstr "Ни одной цитаты в корзине не найдено"
 
-#: quotes-and-tips.php:230
+#: quotes-and-tips.php:233
 msgid "Filter quotes list"
 msgstr "Фильтр списка цитат"
 
-#: quotes-and-tips.php:231
+#: quotes-and-tips.php:234
 msgid "Quotes list navigation"
 msgstr "Навигация списка цитат"
 
-#: quotes-and-tips.php:232
+#: quotes-and-tips.php:235
 msgid "Quotes list"
 msgstr "Список цитат"
 
-#: quotes-and-tips.php:399
+#: quotes-and-tips.php:414
 msgid "Name:"
 msgstr "Имя:"
 
-#: quotes-and-tips.php:403
+#: quotes-and-tips.php:418
 msgid "Official Position:"
 msgstr "Официальное положение (должность):"
 
-#: quotes-and-tips.php:412
+#: quotes-and-tips.php:427
 msgid "Name and Official Position"
 msgstr "Имя и официальное положение"
 
-#: quotes-and-tips.php:435
+#: quotes-and-tips.php:454
 msgid "FAQ"
 msgstr "FAQ"
 
-#: quotes-and-tips.php:436
+#: quotes-and-tips.php:455
 msgid "Support"
 msgstr "Поддержка"
 
-#: quotes-and-tips.php:620
+#: quotes-and-tips.php:688
 msgid "MB"
 msgstr "MB"
 
-#: quotes-and-tips.php:624
+#: quotes-and-tips.php:692
 msgid "KB"
 msgstr "KB"
 
-#: quotes-and-tips.php:627
+#: quotes-and-tips.php:695
 msgid "Bytes"
 msgstr "Байт"
 
-#: quotes-and-tips.php:636
+#: quotes-and-tips.php:742
 msgid "Add Quotes and Tips block to your page or post"
-msgstr "Добавить блок Quotes and Tips на вашу страницу или пост:"
+msgstr "Добавить блок Quotes and Tips на вашу страницу или пост"
 
-#: quotes-and-tips.php:640
+#: quotes-and-tips.php:746
 msgid "Display quotes and tips"
 msgstr "Отобразить цитаты и подсказки"
 
-#: quotes-and-tips.php:646
+#: quotes-and-tips.php:752
 msgid "Display quotes"
 msgstr "Отобразить цитаты"
 
-#: quotes-and-tips.php:652
+#: quotes-and-tips.php:756
+msgid "Display all categories for quotes"
+msgstr "Отобразить цитаты для всех категорий"
+
+#: quotes-and-tips.php:761
+#, php-format
+msgid "Display category %s for quotes"
+msgstr "Отобразить цитаты для категории %s"
+
+#: quotes-and-tips.php:770
 msgid "Display tips"
 msgstr "Отобразить подсказки"
+
+#: quotes-and-tips.php:774
+msgid "Display all categories for tips"
+msgstr "Отобразить подсказки для всех категорий"
+
+#: quotes-and-tips.php:779
+#, php-format
+msgid "Display category %s for tips"
+msgstr "Отобразить подсказки для категории %s"
+
+#: quotes-and-tips.php:932
+msgid "Shortcode"
+msgstr "Шорткод"
+
+#~ msgid "Display category \""
+#~ msgstr "Отобразить по категории"
+
+#~ msgid "Display category for quotes and tips"
+#~ msgstr "Отобразить цитаты и подсказки по категориям"
+
+#~ msgid ""
+#~ "For sorting Quotes and Tips block by category add to your page or post by "
+#~ "using the following shortcode. Where cat_id is the category number."
+#~ msgstr ""
+#~ "Для сортировки блока Quotes and Tips по категориям, добавьте на свою "
+#~ "страницу или публикацию следующий шорткод. Где cat_id - номер категории."
+
+#~ msgid "Left"
+#~ msgstr "Слева"
+
+#~ msgid "Center"
+#~ msgstr "По центру"
+
+#~ msgid "Right"
+#~ msgstr "Справа"
+
+#~ msgid "Top"
+#~ msgstr "Вверху"
+
+#~ msgid "Bottom"
+#~ msgstr "Внизу"
+
+#~ msgid "Display Settings"
+#~ msgstr "Настройки отображения"
+
+#~ msgid "Random Order With the Page Reload"
+#~ msgstr "Отображать в случайном порядке при перезагрузке страницы"
+
+#~ msgid "Random Order Without the Page Reload"
+#~ msgstr "Отображать в случайном порядке без перезагрузки страницы"
+
+#~ msgid "Use Default Styles"
+#~ msgstr "Использовать стили по умолчанию"
+
+#~ msgid "Background Image Horizontal Alignment"
+#~ msgstr "Выравнивание фонового изображения по горизонтали"
 
 #~ msgid "Add Quotes and Tips block to your page or post:"
 #~ msgstr "Добавить блок Quotes and Tips на вашу страницу или пост:"
@@ -401,9 +461,6 @@ msgstr "Отобразить подсказки"
 
 #~ msgid "Get title from post"
 #~ msgstr "Получить название из названия цитаты или подсказки"
-
-#~ msgid "Set custom titles"
-#~ msgstr "Использовать пользовательские названия"
 
 #~ msgid "Add Quotes and Tips to the search"
 #~ msgstr "Добавить Quotes and Tips в поиск"

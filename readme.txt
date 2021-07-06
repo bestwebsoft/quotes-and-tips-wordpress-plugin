@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: add quotes, create quotes, display quotes, publish quotes, quote label, quotes from clients, quotes and tips, quotes and tips plugin, tip, tip label, tips for visitors, additional info
 Requires at least: 4.5
-Tested up to: 5.3.1.
-Stable tag: 1.38
+Tested up to: 5.7.2
+Stable tag: 1.40
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,8 @@ Add customizable quotes and tips blocks to WordPress posts, pages and widgets.
 Quotes and Tips plugin is a simple solution to add useful content on your WordPress website. Customize the appearance, configure settings, and paste quotes and tips wherever you like.
 
 Display useful and featured content for your visitors today!
+
+[View Demo](https://bestwebsoft.com/demo-quotes-and-tips/?ref=readme)
 
 http://www.youtube.com/watch?v=kSR0mERfxBI
 
@@ -57,7 +59,8 @@ If you have a feature suggestion or idea you'd like to see in the plugin, we'd l
 
 = Documentation & Videos =
 
-* [[Doc] Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
+* [[Doc] User Guide](https://bestwebsoft.com/documentation/quotes-and-tips/quotes-and-tips-user-guide/)
+* [[Doc] Installation](https://bestwebsoft.com/documentation/how-to-install-a-wordpress-product/how-to-install-a-wordpress-plugin/)
 * [[Video] Installation Instruction](https://www.youtube.com/watch?v=tEOjkZrwdNA)
 
 = Help & Support =
@@ -85,7 +88,7 @@ Some of these translations are not complete. We are constantly adding new featur
 2. Activate the plugin via the 'Plugins' menu in WordPress.
 3. The site settings are available in 'Quotes'->'Settings' or 'Tips'->'Settings'.
 
-[View a PDF version of Step-by-step Instruction on Quotes and Tips Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
+[View a PDF version of Step-by-step Instruction on Quotes and Tips Installation](https://bestwebsoft.com/documentation/how-to-install-a-wordpress-product/how-to-install-a-wordpress-plugin/)
 
 http://www.youtube.com/watch?v=tEOjkZrwdNA
 
@@ -133,11 +136,22 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 2. Quotes and Tips Settings.
 3. Quotes and Tips Appearance Settings.
 4. Quote edit page.
+5. Categories page.
 
 == Changelog ==
 
+= V1.40 - 06.07.2021 =
+* NEW : Ability to apply editor styles to quotes and tips.
+* NEW : Added separate shortcode attributes for selecting quotes and tips by category.
+* Update : BWS plugins section is updated.
+
+= V1.39 - 28.09.2020 =
+* Update : The plugin settings page was changed.
+* Update : BWS plugins section is updated.
+* Update : We updated all functionality for wordpress 5.5.1.
+
 = V1.38 - 18.12.2019 =
-* Update : We updated all functionality for wordpress 5.3.1.
+* Update : We updated all functionality for wordpress 5.3.2.
 * Update : BWS plugins section is updated.
 
 = V1.37 - 04.09.2019 =
@@ -285,8 +299,14 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Upgrade Notice ==
 
+= V1.40 =
+* Usability improved. 
+
+= V1.39 =
+* Usability improved. 
+
 = V1.38 =
-* The compatibility with new WordPress version updated.
+* The compatibility with new WordPress version updated. 
 
 = V1.37 =
 * Usability improved.

@@ -1,90 +1,50 @@
-var farbtastic;
-var farbtastic2;
-
 (function($){
-	var pickColor = function( a ) {
-		farbtastic.setColor( a );
-		$( '#qtsndtps-link-color' ).val( a );
-		$( '#qtsndtps-link-color-example' ).css( 'background-color', a );
-	};
-
-	var pickColor2 = function( a ) {
-		farbtastic2.setColor( a );
-		$( '#qtsndtps-text-color' ).val( a );
-		$( '#qtsndtps-text-color-example' ).css( 'background-color', a );
-	};
-
 	$(document).ready( function() {
-		farbtastic = $.farbtastic( '#colorPickerDiv', pickColor );
-		farbtastic2 = $.farbtastic( '#colorPickerDiv1', pickColor2 );
-
-		pickColor( $( '#qtsndtps-link-color' ).val() );
-		pickColor2( $( '#qtsndtps-text-color' ).val() );
-
-		$( '.pickcolor' ).click( function(e) {
-			$( '#colorPickerDiv' ).show();
-			e.preventDefault();
-		});
-
-		$( '.pickcolor1' ).click( function(e) {
-			$( '#colorPickerDiv1' ).show();
-			e.preventDefault();
-		});
-
-		$( '#qtsndtps-link-color' ).keyup( function() {
-			var a = $( '#qtsndtps-link-color' ).val(),
-				b = a;
-
-			a = a.replace(/[^a-fA-F0-9]/, '');
-			if ( '#' + a !== b )
-				$( '#qtsndtps-link-color' ).val( a );
-			if ( a.length === 3 || a.length === 6 )
-				pickColor( '#' + a );
-		});
-
-		$( '#qtsndtps-text-color' ).keyup( function() {
-			var a = $( '#qtsndtps-text-color' ).val(),
-				b = a;
-
-			a = a.replace( /[^a-fA-F0-9]/, '' );
-			if ( '#' + a !== b )
-				$('#qtsndtps-text-color').val( a );
-			if ( a.length === 3 || a.length === 6 )
-				pickColor2( '#' + a );
-		});
-
-		$(document).mousedown( function() {
-			$( '#colorPickerDiv, #colorPickerDiv1' ).hide();
-		});
+		if ( $.fn.wpColorPicker ) {
+			$( '.qtsndtps_color_field' ).wpColorPicker();
+		};
 
 		if( $( '.qtsndtps_background_image:checked' ).val() != 'custom' ) {
 			$( '#qtsndtps_custom_image' ).hide();
 		}
 
-		$( '.qtsndtps_background_image' ).change ( function() {
-			if ( $( this ).is( ':checked' ) && $( this ).val() == 'custom' ) {
-				$( '#qtsndtps_custom_image, .qtsndtps_hidden, .qtsndtps_current_image' ).show();
-			} else if ( $( this ).is( ':checked' ) && $( this ).val() == 'none' ) {
-				$( '#qtsndtps_custom_image, .qtsndtps_hidden, .qtsndtps_current_image' ).hide();
-			} else {
-				$( '#qtsndtps_custom_image' ).hide();
-				$( '.qtsndtps_hidden, .qtsndtps_current_image' ).show();
+		function qtsndtps_background_image() {
+			if ( $( 'input[name="qtsndtps_background_image"]:checked' ).val() == 'custom' ) {
+				if ($('.qtsndtps_custom_image img' ).attr('src') === '') {
+					$( '#qtsndtps_custom_file, .qtsndtps_hidden' ).show();
+					$( '.qtsndtps_default_image, .qtsndtps_current_image, .qtsndtps_custom_image' ).hide(); }
+				else {
+					$('#qtsndtps_custom_file, .qtsndtps_hidden, .qtsndtps_current_image, .qtsndtps_custom_image').show();
+					$('.qtsndtps_default_image').hide();
+				};
+			} else if ( $( 'input[name="qtsndtps_background_image"]:checked' ).val() == 'none' ) {
+				$( '#qtsndtps_custom_file, .qtsndtps_hidden, .qtsndtps_current_image, .qtsndtps_custom_image' ).hide();
+			} else {				
+				$( '#qtsndtps_custom_file, .qtsndtps_custom_image' ).hide();
+				$( '.qtsndtps_hidden, .qtsndtps_default_image, .qtsndtps_current_image' ).show();
 			}
-		});
+		};
+		if ( $( 'input[name="qtsndtps_background_image"]' ).length ) {
+			qtsndtps_background_image();
+			$( 'input[name="qtsndtps_background_image"]' ).change( function() { qtsndtps_background_image() });
+		}
 
 		if( $( '#qtsndtps_additional_options' ).is( ':checked' ) ) {
 			$( '#qtsndtps-text-color-example, #qtsndtps-link-color-example' ).hide();
 		}
 
-		$( '#qtsndtps_additional_options' ).change( function() {
-			if ( $( this ).is( ':checked' ) ) {
-				$( '#qtsndtps-text-color-example, #qtsndtps-link-color-example' ).hide();
-				$( '.qtsndtps_additions_block' ).attr( 'disabled', true );
-			} else {
-				$( '#qtsndtps-text-color-example, #qtsndtps-link-color-example' ).show();
-				$( '.qtsndtps_additions_block' ).removeAttr( 'disabled' );
-			}
-		});
+		if( 0 < $( '#qtsndtps_slider' ).length ) {
+			$( '#qtsndtps_slider' ).slider({
+				range: 'min',
+				min: 0.1,
+				max: 1,
+				step: 0.1,
+				value: $( '#qtsndtps_widget_background_opacity' ).val(),
+				slide: function( event, ui ) {
+					$( '#qtsndtps_widget_background_opacity' ).val( ui.value );
+				}
+			});
+		}
 
 		if ( $( '.qtsndtps_title_post:checked' ).val() == '1' ) {
 			$( '.qtsndtps_title_post_fields' ).hide();
