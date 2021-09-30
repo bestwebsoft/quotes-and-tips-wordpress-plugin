@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: add quotes, create quotes, display quotes, publish quotes, quote label, quotes from clients, quotes and tips, quotes and tips plugin, tip, tip label, tips for visitors, additional info
 Requires at least: 4.5
-Tested up to: 5.7.2
-Stable tag: 1.40
+Tested up to: 5.8.1
+Stable tag: 1.41
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,7 @@ http://www.youtube.com/watch?v=kSR0mERfxBI
 		* Center
 		* Bottom
 * Add quotes and tips to search results with [Custom Search](https://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455)
+* Enable automatic mailout when publishing a new Quotes and Tips [Sender](https://bestwebsoft.com/products/wordpress/plugins/sender/?k=9e068dce9989e5146fafbf42ee471f54) [NEW]
 * Add custom code via plugin settings page
 * Compatible with latest WordPress version
 * Incredibly simple settings for fast setup without modifying code
@@ -66,6 +67,10 @@ If you have a feature suggestion or idea you'd like to see in the plugin, we'd l
 = Help & Support =
 
 Visit our Help Center if you have any questions, our friendly Support Team is happy to help — <https://support.bestwebsoft.com/>
+
+= Affiliate Program =
+
+Earn 20% commission by selling the premium WordPress plugins and themes by BestWebSoft — https://bestwebsoft.com/affiliate/
 
 = Translation =
 
@@ -139,6 +144,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 5. Categories page.
 
 == Changelog ==
+
+= V1.41 - 17.09.2021 =
+* NEW : Compatibility with Sender Pro by BestWebSoft has been added.
+* Update : We updated all functionality for WordPress 5.8.1.
+* Update : BWS plugins section is updated.
 
 = V1.40 - 06.07.2021 =
 * NEW : Ability to apply editor styles to quotes and tips.
@@ -298,6 +308,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.41 =
+* New features added.
+* The compatibility with new WordPress version updated. 
+* Plugin optimization completed.
 
 = V1.40 =
 * Usability improved. 

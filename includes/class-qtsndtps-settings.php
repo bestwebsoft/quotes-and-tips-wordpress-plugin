@@ -32,7 +32,8 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 				'default_options'	=> qtsndtps_get_options_default(),
 				'options'			=> $qtsndtps_options,
 				'tabs'				=> $tabs,
-				'wp_slug'			=> 'quotes-and-tips'
+				'wp_slug'			=> 'quotes-and-tips',
+				'doc_link'           => 'https://bestwebsoft.com/documentation/quotes-and-tips/quotes-and-tips-user-guide/'
 			) );
 
 			$this->all_plugins = get_plugins();
@@ -160,6 +161,47 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
             $this->options['background_image_position']    = $this->crop_array[ intval( $_POST['qtsndtps_background_image_position' ] ) ];
 			$this->options['widget_background_opacity']		= isset( $_POST['qtsndtps_widget_background_opacity'] ) ? floatval( $_POST['qtsndtps_widget_background_opacity'] ) : 1;
 
+			if (  is_plugin_active( 'sender-pro/sender-pro.php' ) ) {
+				$sndr_options = get_option( 'sndr_options' );
+				/* mailout when publishing quote */
+				if ( isset( $_POST['qtsndtps_sndr_mailout_quote'] ) ) {
+					$key = array_search( 'quote', $sndr_options['automailout_new_post'] );
+					if ( $key == false ) {
+						$sndr_options['automailout_new_post'][] = 'quote';
+						$sndr_options['group_for_post']['quote'] = absint( $_POST['sndr_distribution_select']['quote'] );
+						$sndr_options['letter_for_post']['quote'] = absint( $_POST['sndr_templates_select']['quote'] );
+						$sndr_options['priority_for_post_letters']['quote'] = absint( $_POST['sndr_priority']['quote'] );
+					}	
+				} else {
+					$key = array_search( 'quote', $sndr_options['automailout_new_post'] );
+					if ( false !== $key ) {
+						unset( $sndr_options['automailout_new_post'][ $key ] );
+						unset( $sndr_options['priority_for_post_letters']['quote'] );
+						unset( $sndr_options['letter_for_post']['quote'] );
+					    unset( $sndr_options['group_for_post']['quote'] );
+					}
+				}
+				/* mailout when publishing tips */
+				if ( isset( $_POST['qtsndtps_sndr_mailout_tips'] ) ) {
+					$key = array_search( 'tips', $sndr_options['automailout_new_post'] );
+					if ( $key == false ) {
+						$sndr_options['automailout_new_post'][] = 'tips';
+						$sndr_options['group_for_post']['tips'] = absint( $_POST['sndr_distribution_select']['tips'] );
+						$sndr_options['letter_for_post']['tips'] = absint( $_POST['sndr_templates_select']['tips'] );
+						$sndr_options['priority_for_post_letters']['tips'] = absint( $_POST['sndr_priority']['tips'] );
+					}	
+				} else {
+					$key = array_search( 'tips', $sndr_options['automailout_new_post'] );
+					if ( false !== $key ) {
+						unset( $sndr_options['automailout_new_post'][ $key ] );
+						unset( $sndr_options['priority_for_post_letters']['tips'] );
+						unset( $sndr_options['letter_for_post']['tips'] );
+					    unset( $sndr_options['group_for_post']['tips'] );
+					}
+				}
+				update_option( 'sndr_options', $sndr_options );
+			}
+				
 			if( empty( $error ) ) {
 				update_option( 'qtsndtps_options', $this->options );
 				$message = __( 'Settings saved.', 'quotes-and-tips' );
@@ -167,7 +209,10 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 			return compact( 'message', 'notice', 'error' );
 		}
 
-		public function tab_settings() { ?>
+		public function tab_settings() { 
+			if (  is_plugin_active( 'sender-pro/sender-pro.php' ) ) {
+				$sndr_options = get_option( 'sndr_options' );
+			} ?>
 			<h3 class="bws_tab_label"><?php _e( 'Quotes and Tips Settings', 'quotes-and-tips' ); ?></h3>
 			<?php $this->help_phrase(); ?>
 			<hr>
@@ -241,6 +286,48 @@ if ( ! class_exists( 'Qtsndtps_Settings_Tabs' ) ) {
 							<input disabled="disabled" type="checkbox" name="qtsndtps_add_to_search[]" value="1" />
 							<span class="bws_info"><?php _e( 'Enable to include quotes and tips to your website search. Custom Search plugin is required.', 'quotes-and-tips' ); ?> <a href="https://bestwebsoft.com/products/wordpress/plugins/custom-search/"><?php _e( 'Install Now', 'quotes-and-tips' ); ?></a></span><br />
 						<?php } ?>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><?php _e( 'Automatic Mailout when Publishing a New:', 'quotes-and-tips' ); ?></th>
+					<td>
+						<?php if ( array_key_exists( 'sender-pro/sender-pro.php', $this->all_plugins ) ) { 
+								if ( is_plugin_active( 'sender-pro/sender-pro.php' ) ) { ?>
+									<fieldset>
+										<label>
+											<input type="checkbox" name="qtsndtps_sndr_mailout_quote" value="1" class="bws_option_affect" data-affect-show="[data-post-type=quote]" <?php checked( in_array( 'quote', $sndr_options['automailout_new_post'] ) ); ?> />&nbsp<?php _e( 'Quotes', 'quotes-and-tips' ); ?>
+										</label><br />
+										<div data-post-type="quote">
+		                                	<p><?php sndr_distribution_list_select( $sndr_options['group_for_post'], 'quote' ); ?></p>
+			                        		<p><?php sndr_letters_list_select( $sndr_options['letter_for_post'], 'quote' ); ?></p>
+			                        		<p>
+					                    		<?php sndr_priorities_list( $sndr_options['priority_for_post_letters'], '', 'quote' );
+					                    		_e( 'Select mailout priority', 'quotes-and-tips' ); ?>
+					                            <br /><span class="bws_info"><?php _e( 'Less number - higher priority', 'quotes-and-tips' ) ?></span>
+					                        </p><br/>
+					                    </div>
+										<label>
+											<input type="checkbox" name="qtsndtps_sndr_mailout_tips" value="1" class="bws_option_affect" data-affect-show="[data-post-type=tips]" <?php checked( in_array( 'tips', $sndr_options['automailout_new_post'] ) ); ?> />&nbsp<?php _e( 'Tips', 'quotes-and-tips' ); ?>
+										</label><br />
+										<div data-post-type="tips">
+		                                	<p><?php sndr_distribution_list_select( $sndr_options['group_for_post'], 'tips' ); ?></p>
+			                        		<p><?php sndr_letters_list_select( $sndr_options['letter_for_post'], 'tips' ); ?></p>
+			                        		<p>
+					                    		<?php sndr_priorities_list( $sndr_options['priority_for_post_letters'], '', 'tips' );
+					                    		_e( 'Select mailout priority', 'quotes-and-tips' ); ?>
+					                            <br /><span class="bws_info"><?php _e( 'Less number - higher priority', 'quotes-and-tips' ) ?></span>
+					                        </p><br/>
+					                    </div>
+									</fieldset>
+								<?php } else { ?> 
+									<input disabled="disabled" type="checkbox" name="qtsndtps_sndr_mailout" />&nbsp
+									<span class="bws_info"><?php _e( 'Enable to automatic mailout when publishing a new quotes and tips. Sender Pro plugin is required.', 'quotes-and-tips' ); ?> <a href="https://bestwebsoft.com/products/wordpress/plugins/sender/"><?php _e( 'Ativate Now', 'quotes-and-tips' ); ?></a></span><br />
+								<?php }
+							} else { ?>
+								<input disabled="disabled" type="checkbox" name="qtsndtps_sndr_mailout" />&nbsp
+								<span class="bws_info"><?php _e( 'Enable to automatic mailout when publishing a new quotes and tips. Sender Pro plugin is required.', 'quotes-and-tips' ); ?> <a href="https://bestwebsoft.com/products/wordpress/plugins/sender/"><?php _e( 'Install Now', 'quotes-and-tips' ); ?></a></span><br />
+							<?php } ?>
+	
 					</td>
 				</tr>
 			</table>
