@@ -72,6 +72,9 @@
 	width: 200px;
 	margin-left: 10px;
 }
+.manage-column.column-shortcode {
+	width:28% !important;
+}
 /*
 * Add responsive.
 */

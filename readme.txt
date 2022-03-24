@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: add quotes, create quotes, display quotes, publish quotes, quote label, quotes from clients, quotes and tips, quotes and tips plugin, tip, tip label, tips for visitors, additional info
 Requires at least: 4.5
-Tested up to: 5.8.1
-Stable tag: 1.41
+Tested up to: 5.9
+Stable tag: 1.42
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -144,6 +144,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 5. Categories page.
 
 == Changelog ==
+
+= V1.42 - 23.03.2022 =
+* Bugfix : Issue with categories table has been fixed.
+* Update : We updated functionality for WordPress 5.9.
+* Update : BWS plugins section is updated.
 
 = V1.41 - 17.09.2021 =
 * NEW : Compatibility with Sender Pro by BestWebSoft has been added.
@@ -308,6 +313,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : The Russian language file is added to the plugin.
 
 == Upgrade Notice ==
+
+= V1.42 =
+* Usability improved.
 
 = V1.41 =
 * New features added.
