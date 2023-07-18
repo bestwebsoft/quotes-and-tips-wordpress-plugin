@@ -63,5 +63,15 @@
 				bws_show_settings_notice();
 			}
 		});
+
+		$( '.qtsndtps_background_image_cover' ).change( function(){
+			if ( $( this ).is( ':checked' ) ) {
+				$( '.qtsndtps_additions_block:not(.qtsndtps_background_image_cover)' ).attr( 'disabled', 'disabled' );
+				$( '.qtsndtps_background_image_position' ).attr( 'disabled', 'disabled' );
+			} else {
+				$( '.qtsndtps_additions_block:not(.qtsndtps_background_image_cover)' ).removeAttr( 'disabled' );
+				$( '.qtsndtps_background_image_position' ).removeAttr( 'disabled' );
+			}
+		});
 	});
 })(jQuery);

@@ -7,7 +7,7 @@
 <p><span class="embed-youtube" style="text-align:center; display: block;"></span></p>
 <h4>Features</h4>
 <ul>
-<li>Add unlimited number of quotes and tips including:
+<li>Add unlimited number of quotes including:
 <ul>
 <li>Author name</li>
 <li>Official position</li>
@@ -29,7 +29,12 @@
 </li>
 <li>Set automatic reload time</li>
 <li>Change background and text color</li>
-<li>Change custom background image</li>
+<li>Change custom background:
+<ul>
+<li>Image</li>
+<li>Video [NEW]</li>
+</ul>
+</li>
 <li>Set background image repeat:
 <ul>
 <li>Horizontal</li>
@@ -55,7 +60,8 @@
 </ul>
 </li>
 <li>Add quotes and tips to search results with <a href="https://bestwebsoft.com/products/wordpress/plugins/custom-search/?k=02f29128229d89fbd99d8251200ff455" rel="nofollow ugc">Custom Search</a></li>
-<li>Enable automatic mailout when publishing a new Quotes and Tips <a href="https://bestwebsoft.com/products/wordpress/plugins/sender/?k=9e068dce9989e5146fafbf42ee471f54" rel="nofollow ugc">Sender</a> [NEW]</li>
+<li>Enable automatic mailout when publishing a new Quotes and Tips <a href="https://bestwebsoft.com/products/wordpress/plugins/sender/?k=9e068dce9989e5146fafbf42ee471f54" rel="nofollow ugc">Sender</a></li>
+<li>Add or remove Quatation Marks</li>
 <li>Add custom code via plugin settings page</li>
 <li>Compatible with latest WordPress version</li>
 <li>Incredibly simple settings for fast setup without modifying code</li>

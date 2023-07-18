@@ -66,6 +66,7 @@
 #qtsndtps_background_opacity {
 	width: 45px;
 	display: inline-block;
+	visibility: visible;
 }
 #qtsndtps_slider {
 	display: inline-block;
